@@ -1,0 +1,35 @@
+baseurl = "/"
+languageCode = "zh-CN"
+title = "Blurred code"
+theme = "hugo-classic"
+googleAnalytics = ""
+ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
+preserveTaxonomyNames = true
+enableEmoji = true
+footnotereturnlinkcontents = "↩"
+hasCJKLanguage =  true
+enableRobotsTXT =   true
+enableGitInfo = true
+[permalinks]
+    posts = "/:year/:month/:slug/"
+
+[[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+[[menu.main]]
+    name = "Categories"
+    url = "/categories/"
+    weight = 2
+[[menu.main]]
+    name = "Tags"
+    url = "/tags/"
+    weight = 3
+[[menu.feed]]
+    name = "Subscribe"
+    url = "/index.xml"
+
+[params]
+    description = "A simple, minimal blog for those who love text."
+    footer = "自豪的采用 [Hugo](https://gohugo.io/) | [hugo-classic](https://github.com/goodroot/hugo-classic)"
+    custom_css = ["css/theme-override.css"]
