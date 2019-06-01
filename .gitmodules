@@ -1,3 +1,7 @@
 [submodule "themes/hugo-classic"]
 	path = themes/hugo-classic
 	url = https://github.com/goodroot/hugo-classic
+[submodule "public"]
+	path = public
+	url = git@github.com:BlurryLight/BlurryLight.github.io.git
+	branch = master
