@@ -7,10 +7,10 @@ date: 2019-03-31
 updated: 2019-04-13
 status: publish
 author: panda
-categories: 
+categories:
   - C++
   - STL
-tags: 
+tags:
   - cpp
 ---
 
@@ -54,9 +54,10 @@ STL主要由六个部分组成，主要是`allocator`,`container`,`algorithm`,`i
 这个我单独拎出来讲，是因为智能指针是C11的最重要部分之一，所以至少要实现`shared_ptr`,`unique_ptr`和`weak_ptr`。智能指针的实现和容器的实现又差别较大，泛型的思维较少，主要要建立资源所有权的概念。
 
 ## 目录
-我会不断的更新此页面，用来整理各个部件的实现过程和笔记。
-[FakeSTL From Scratch | 编写Allocator][3]
+我会不断的更新此页面，用来整理各个部件的实现过程和笔记。\\
+[FakeSTL From Scratch | 编写Allocator][3] \\
 [FakeSTL From Scratch | Iterator and Traits(迭代器与类型萃取)][4]
+
 ## 其他
 学写STL不要怕抄，大胆的抄，看不懂`libcxx`还可以看`STLPort`，看不懂`STLPort`还可以看`EASTL`(代码风格非常好，注释完整，命名规范）,再看不懂也可以在github上搜索`Tiny STL`或者单独的`vector`,`map`等部件来学习。有不少的优秀实现，而且通常注释完善，单元测试覆盖优秀。能从0开始从`ISO标准`实现完整STL的是神人。半抄半理解，再到自己重现，是一个效率很高的学习过程。
 STL的标准繁多，细节林林总总，一个不注意，很容易落入细节之中耗费大量时间。作为初学者，应该以正确实现目标功能为首要目标，其次是代码可读性好，训练自己写文档和写注释的能力。`FakeSTL`代码量视实现的规模，通常在万行以上，实现的比较完备（容器和算法对各种内建类型都实现偏特化）可能能达到几万行。如何掌握，管理这样的代码规模，也是一个初学者必须要注意的事情。更深入的讲，实现的STL也要能满足`clang`,`MSVC`,`gcc`的编译，尽量不用和少用编译器自带的`feature`。符合标准是最末的目标，为了符合标准可能要做大量的体力活，不划算。
@@ -64,5 +65,5 @@ STL的标准繁多，细节林林总总，一个不注意，很容易落入细�
 
   [1]: https://github.com/BlurryLight/PDSTL
   [2]: https://www.zhihu.com/question/53085291/answer/133458242
-  [3]: https://www.blurredcode.com/2019/04/445.html
-  [4]: https://www.blurredcode.com/2019/04/452.html
+  [3]: https://www.blurredcode.com/2019/04/450/
+  [4]: https://www.blurredcode.com/2019/04/452-1/
