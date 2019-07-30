@@ -7,10 +7,10 @@ date: 2019-05-25
 updated: 2019-05-25
 status: publish
 author: panda
-categories: 
+categories:
   - C++
   - STL
-tags: 
+tags:
 ---
 
 
@@ -45,16 +45,21 @@ tempate <typename T>
 ```
 `observer_ptr`应该可以正确访问所指代的对象，表现的类似`T*`，拥有`dereference`和`->`操作，它析构的时候应该无任何副作用，不对指针指向的区域造成任何影响。
 
-### Problems
+## Problems
+
 `observer_ptr`看起来解决了一个关于只读指针的痛点，为C++彻底删除原始指针的宏大目标又前进了一步，然而比起`observer_ptr`所解决的问题，它带来了更多的麻烦。
+
 - `observer_ptr<T>`和`T*`是不同类型，无法隐式转换,这意味着它严重破坏了C兼容性，当然也可以使用`get()`来获取原始指针，但是这样`observer_ptr`等于没有使用。
 - `const iterator`是另外一种`observer_ptr`，而且工作的很好，在功能上有重复之处。
+
 Bjarne还指出，`T*`在代码中非常常用。如果都要替换成`observer_ptr`，模板展开的时间会拖慢编译速度。
 Bjarne提出的替代方案是
+
 ```cpp
 	template <typename T>
 		using observer_ptr = T*;
 ```
+
 通过模板别名来表示**非拥有指针**，而拥有资源的指针一律使用`unique_ptr`和`shared_ptr`，但是不从代码上对`delete`进行禁用。错误使用应该由错误的程序员负责，这很cpp。
 [^1]:[A Proposal for the World's Dumbest Smart Pointer, v4](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4282.pdf)
 [^2]:[Abandon observer_ptr](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1408r0.pdf)

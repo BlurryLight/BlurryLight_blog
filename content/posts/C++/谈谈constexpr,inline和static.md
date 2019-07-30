@@ -4,7 +4,7 @@ title: "谈谈constexpr,inline和static"
 date: 2019-06-08T16:16:18+08:00
 draft: false
 tags: [ "cpp" ]
-categories: [ "cpp"]
+categories: [ "C++"]
 # keywords: [ ""]
 lastmod: 2019-06-08T16:16:18+08:00
 # CJKLanguage: Chinese, Japanese, Korean
