@@ -14,12 +14,12 @@ enableGitInfo = true
 
 
 [permalinks]
-    posts = "/:year/:month/:slug/"
+    post = "/:year/:month/:slug/"
 
-# [[menu.main]]
-#    name = "Home"
-#    url = "/"
-#    weight = 1
+ [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
 [[menu.main]]
     name = "Categories"
     url = "/categories/"
