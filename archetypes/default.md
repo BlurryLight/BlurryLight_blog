@@ -10,5 +10,6 @@ lastmod: {{ .Date }}
 # CJKLanguage: Chinese, Japanese, Korean
 isCJKLanguage: true
 slug: "{{ replace .Name "-" " " | title }}"
+toc: false
 ---
 
