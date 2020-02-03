@@ -1,0 +1,715 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/a3c87ab5/
+#TOC	public/css/style.css	/^#TableOfContents, #TOC {$/;"	i
+#TOC	themes/hugo-classic/static/css/style.css	/^#TableOfContents, #TOC {$/;"	i
+#TableOfContents	public/css/style.css	/^#TableOfContents, #TOC {$/;"	i
+#TableOfContents	themes/hugo-classic/static/css/style.css	/^#TableOfContents, #TOC {$/;"	i
+- FakeSTL	content/post/C++/FakeSTL_From_Scratch____AVL_TREE的实现.md	/^  - FakeSTL$/;"	s
+- HTML	themes/hugo-classic/exampleSite/content/post/2015-07-23-command-line-awesomeness.md	/^  - HTML$/;"	s
+- Markdown	themes/hugo-classic/exampleSite/content/post/2018-08-30-markdown-guide.md	/^  - Markdown$/;"	s
+- cpp	content/post/C++/2019-03-31-FakeSTL_From_Scratch____C++_从0开始写FakeSTL_[目录].md	/^  - cpp$/;"	s
+- panda	content/post/C++/2017-09-03-Qt使用预编译头PCH及多核编译加快编译.md	/^  - panda$/;"	s
+- panda	content/post/debian/2017-08-12-Debian利用Squid3搭建Pac代理，端口25.md	/^  - panda$/;"	s
+- template	content/post/C++/2018-01-24-C++模板函数的重载决议问题.md	/^  - template$/;"	s
+-uefimost-recommended	public/2019/10/uefi-win7-linux双启动踩坑日记/index.html	/^<\/code><\/pre><h2 id="-uefimost-recommended">第四种 新建一个UEFI启动项(Most Recommend/;"	I
+-windows-bcd-ubuntu	public/2019/10/uefi-win7-linux双启动踩坑日记/index.html	/^<h2 id="-windows-bcd-ubuntu">第一种 修改Windows BCD 来让Ubuntu默认启动<\/h2>$/;"	I
+-windowsefi	public/2019/10/uefi-win7-linux双启动踩坑日记/index.html	/^<h2 id="-windowsefi">第二种 修改windows的启动项指向的EFI文件<\/h2>$/;"	I
+-windowsefi-1	public/2019/10/uefi-win7-linux双启动踩坑日记/index.html	/^<\/code><\/pre><h2 id="-windowsefi-1">第三种 替换windows的EFI(不推荐)<\/h2>$/;"	I
+.article-meta	public/css/style.css	/^.article-meta, .menu a {$/;"	c
+.article-meta	public/css/style.css	/^.menu, .article-meta, footer { text-align: center; }$/;"	c
+.article-meta	themes/hugo-classic/static/css/style.css	/^.article-meta, .menu a {$/;"	c
+.article-meta	themes/hugo-classic/static/css/style.css	/^.menu, .article-meta, footer { text-align: center; }$/;"	c
+.menu	public/css/style.css	/^.menu, .article-meta, footer { text-align: center; }$/;"	c
+.menu	themes/hugo-classic/static/css/style.css	/^.menu, .article-meta, footer { text-align: center; }$/;"	c
+.menu a	public/css/style.css	/^.article-meta, .menu a {$/;"	s
+.menu a	themes/hugo-classic/static/css/style.css	/^.article-meta, .menu a {$/;"	s
+.menu li	public/css/style.css	/^.menu li { display: inline-block; }$/;"	s
+.menu li	themes/hugo-classic/static/css/style.css	/^.menu li { display: inline-block; }$/;"	s
+.pull-left	public/css/style.css	/^.pull-left {$/;"	c
+.pull-left	themes/hugo-classic/static/css/style.css	/^.pull-left {$/;"	c
+.pull-right	public/css/style.css	/^.pull-right {$/;"	c
+.pull-right	themes/hugo-classic/static/css/style.css	/^.pull-right {$/;"	c
+.terms	public/css/style.css	/^.terms { font-size: .9em; }$/;"	c
+.terms	themes/hugo-classic/static/css/style.css	/^.terms { font-size: .9em; }$/;"	c
+.title	public/css/style.css	/^.title { font-size: 1.1em;   line-height: 150%;}$/;"	c
+.title	themes/hugo-classic/static/css/style.css	/^.title { font-size: 1.1em;   line-height: 150%;}$/;"	c
+1	public/2017/04/415/index.html	/^<h2 id="1">1.安装软件包<\/h2>$/;"	I
+1.安装软件包	content/post/debian/2017-04-09-Debian_9_stretch_解决网易云音乐(NetEase-music)的依赖问题.md	/^## 1.安装软件包$/;"	s
+1.安装软件包	public/2017/04/415/index.html	/^<h2 id="1">1.安装软件包<\/h2>$/;"	i
+2	public/2017/04/415/index.html	/^<h2 id="2">2.手动解决依赖<\/h2>$/;"	I
+2.手动解决依赖	content/post/debian/2017-04-09-Debian_9_stretch_解决网易云音乐(NetEase-music)的依赖问题.md	/^## 2.手动解决依赖$/;"	s
+2.手动解决依赖	public/2017/04/415/index.html	/^<h2 id="2">2.手动解决依赖<\/h2>$/;"	i
+2015/10/30	public/2015/10/man不-你需要cheat/index.html	/^<h2 class="date">2015\/10\/30<\/h2>$/;"	i
+2015/11/19	public/2015/11/debian开放ap热点/index.html	/^<h2 class="date">2015\/11\/19<\/h2>$/;"	i
+2016/02/28	public/2016/02/python-利用qtcreator和pyqt快速创建gui/index.html	/^<h2 class="date">2016\/02\/28<\/h2>$/;"	i
+2016/03/05	public/2016/03/关于py2exe对pyqt5打包中的几个坑/index.html	/^<h2 class="date">2016\/03\/05<\/h2>$/;"	i
+2016/03/25	public/2016/03/关于chromebook在安装crouton后没有声音的解决办法/index.html	/^<h2 class="date">2016\/03\/25<\/h2>$/;"	i
+2016/04/10	public/2016/04/解决debian和windows相差八小时的问题/index.html	/^<h2 class="date">2016\/04\/10<\/h2>$/;"	i
+2016/04/23	public/2016/04/python2生成简单验证码/index.html	/^<h2 class="date">2016\/04\/23<\/h2>$/;"	i
+2016/05/22	public/2016/05/debian-sid-搭建nodejs-electron/index.html	/^<h2 class="date">2016\/05\/22<\/h2>$/;"	i
+2016/05/22	public/2016/05/rsa与aes加密杂谈-兼python实现/index.html	/^<h2 class="date">2016\/05\/22<\/h2>$/;"	i
+2017/04/03	public/2017/04/413/index.html	/^<h2 class="date">2017\/04\/03<\/h2>$/;"	i
+2017/04/08	public/2017/04/414/index.html	/^<h2 class="date">2017\/04\/08<\/h2>$/;"	i
+2017/04/09	public/2017/04/415/index.html	/^<h2 class="date">2017\/04\/09<\/h2>$/;"	i
+2017/08/01	public/2017/08/420/index.html	/^<h2 class="date">2017\/08\/01<\/h2>$/;"	i
+2017/08/04	public/2017/08/421/index.html	/^<h2 class="date">2017\/08\/04<\/h2>$/;"	i
+2017/08/05	public/2017/08/422/index.html	/^<h2 class="date">2017\/08\/05<\/h2>$/;"	i
+2017/08/12	public/2017/08/423/index.html	/^<h2 class="date">2017\/08\/12<\/h2>$/;"	i
+2017/08/22	public/2017/08/425/index.html	/^<h2 class="date">2017\/08\/22<\/h2>$/;"	i
+2017/09/03	public/2017/09/427/index.html	/^<h2 class="date">2017\/09\/03<\/h2>$/;"	i
+2018/01/24	public/2018/01/433/index.html	/^<h2 class="date">2018\/01\/24<\/h2>$/;"	i
+2018/01/24	public/2018/01/434/index.html	/^<h2 class="date">2018\/01\/24<\/h2>$/;"	i
+2019	public/2019/03/442/index.html	/^<h2 id="2019">2019真题<\/h2>$/;"	I
+2019/01/07	public/2019/01/435/index.html	/^<h2 class="date">2019\/01\/07<\/h2>$/;"	i
+2019/01/09	public/2019/01/436/index.html	/^<h2 class="date">2019\/01\/09<\/h2>$/;"	i
+2019/02/05	public/2019/02/437/index.html	/^<h2 class="date">2019\/02\/05<\/h2>$/;"	i
+2019/03/02	public/2019/03/438/index.html	/^<h2 class="date">2019\/03\/02<\/h2>$/;"	i
+2019/03/24	public/2019/03/452/index.html	/^<h2 class="date">2019\/03\/24<\/h2>$/;"	i
+2019/03/29	public/2019/03/442/index.html	/^<h2 class="date">2019\/03\/29<\/h2>$/;"	i
+2019/03/31	public/2019/03/443/index.html	/^<h2 class="date">2019\/03\/31<\/h2>$/;"	i
+2019/04/05	public/2019/04/450/index.html	/^<h2 class="date">2019\/04\/05<\/h2>$/;"	i
+2019/04/13	public/2019/04/452-1/index.html	/^<h2 class="date">2019\/04\/13<\/h2>$/;"	i
+2019/05/20	public/2019/05/454/index.html	/^<h2 class="date">2019\/05\/20<\/h2>$/;"	i
+2019/05/23	public/2019/05/457/index.html	/^<h2 class="date">2019\/05\/23<\/h2>$/;"	i
+2019/05/25	public/2019/05/459/index.html	/^<h2 class="date">2019\/05\/25<\/h2>$/;"	i
+2019/06/02	public/2019/06/博客迁移到hugo-github-pages/index.html	/^<h2 class="date">2019\/06\/02<\/h2>$/;"	i
+2019/06/04	public/2019/06/fakestl_from_scratch____avl_tree的实现/index.html	/^<h2 class="date">2019\/06\/04<\/h2>$/;"	i
+2019/06/08	public/2019/06/谈谈constexprinline和static/index.html	/^<h2 class="date">2019\/06\/08<\/h2>$/;"	i
+2019/06/11	public/2019/06/debian10双显卡安装anaconda-cuda9-pytorch/index.html	/^<h2 class="date">2019\/06\/11<\/h2>$/;"	i
+2019/07/30	public/2019/07/关于c-的命名约定/index.html	/^<h2 class="date">2019\/07\/30<\/h2>$/;"	i
+2019/08/09	public/2019/08/matrix_transformation/index.html	/^<h2 class="date">2019\/08\/09<\/h2>$/;"	i
+2019/08/29	public/2019/08/kinect_v1在debian_testing的配置指北/index.html	/^<h2 class="date">2019\/08\/29<\/h2>$/;"	i
+2019/09/14	public/2019/09/lookat的实现/index.html	/^<h2 class="date">2019\/09\/14<\/h2>$/;"	i
+2019/09/14	public/2019/09/我选择了manjaro/index.html	/^<h2 class="date">2019\/09\/14<\/h2>$/;"	i
+2019/10/05	public/2019/10/读machine-learning-yearning杂记/index.html	/^<h2 class="date">2019\/10\/05<\/h2>$/;"	i
+2019/10/17	public/2019/10/uefi-win7-linux双启动踩坑日记/index.html	/^<h2 class="date">2019\/10\/17<\/h2>$/;"	i
+2019/10/28	public/2019/10/phong_and_blinn_phong/index.html	/^<h2 class="date">2019\/10\/28<\/h2>$/;"	i
+2019/11/30	public/2019/11/x11vnc搭建指北/index.html	/^<h2 class="date">2019\/11\/30<\/h2>$/;"	i
+2019真题	content/post/2019-03-29-中南大学_载运工具运用工程复试经验帖.md	/^## 2019真题$/;"	s
+2019真题	public/1/01/442/index.html	/^<h2 id="2019真题">2019真题<\/h2>$/;"	I
+2019真题	public/1/01/442/index.html	/^<h2 id="2019真题">2019真题<\/h2>$/;"	i
+2019真题	public/2019/03/442/index.html	/^<h2 id="2019">2019真题<\/h2>$/;"	i
+2020/01/01	public/2020/01/一次numpy读取txt文件优化/index.html	/^<h2 class="date">2020\/01\/01<\/h2>$/;"	i
+AVL树的删除	content/post/C++/FakeSTL_From_Scratch____AVL_TREE的实现.md	/^### AVL树的删除$/;"	S
+AVL树的删除	public/2019/06/fakestl_from_scratch____avl_tree的实现/index.html	/^<\/code><\/pre><\/div><h3 id="avl-4">AVL树的删除<\/h3>$/;"	j
+AVL树的实现	content/post/C++/FakeSTL_From_Scratch____AVL_TREE的实现.md	/^## AVL树的实现$/;"	s
+AVL树的实现	public/2019/06/fakestl_from_scratch____avl_tree的实现/index.html	/^<h2 id="avl">AVL树的实现<\/h2>$/;"	i
+AVL树的巡秩访问	content/post/C++/FakeSTL_From_Scratch____AVL_TREE的实现.md	/^### AVL树的巡秩访问$/;"	S
+AVL树的巡秩访问	public/2019/06/fakestl_from_scratch____avl_tree的实现/index.html	/^<h3 id="avl-5">AVL树的巡秩访问<\/h3>$/;"	j
+AVL树的插入	content/post/C++/FakeSTL_From_Scratch____AVL_TREE的实现.md	/^### AVL树的插入$/;"	S
+AVL树的插入	public/2019/06/fakestl_from_scratch____avl_tree的实现/index.html	/^<h3 id="avl-3">AVL树的插入<\/h3>$/;"	j
+AVL树的旋转	content/post/C++/FakeSTL_From_Scratch____AVL_TREE的实现.md	/^### AVL树的旋转$/;"	S
+AVL树的旋转	public/2019/06/fakestl_from_scratch____avl_tree的实现/index.html	/^<\/code><\/pre><\/div><h3 id="avl-2">AVL树的旋转<\/h3>$/;"	j
+AVL节点定义和辅助函数	content/post/C++/FakeSTL_From_Scratch____AVL_TREE的实现.md	/^### AVL节点定义和辅助函数$/;"	S
+AVL节点定义和辅助函数	public/2019/06/fakestl_from_scratch____avl_tree的实现/index.html	/^<h3 id="avl-1">AVL节点定义和辅助函数<\/h3>$/;"	j
+Allocator	content/post/C++/2019-03-31-FakeSTL_From_Scratch____C++_从0开始写FakeSTL_[目录].md	/^#### Allocator$/;"	t
+Allocator的要求	content/post/C++/2019-04-05-FakeSTL_From_Scratch___编写Allocator.md	/^### Allocator的要求$/;"	S
+Allocator的要求	public/2019/04/450/index.html	/^<h3 id="allocator">Allocator的要求<\/h3>$/;"	j
+An h1 header	themes/hugo-classic/exampleSite/content/post/2018-08-30-markdown-guide.md	/^An h1 header$/;"	c
+An h2 header	themes/hugo-classic/exampleSite/content/post/2018-08-30-markdown-guide.md	/^An h2 header$/;"	s
+An h3 header	themes/hugo-classic/exampleSite/content/post/2018-08-30-markdown-guide.md	/^### An h3 header ###$/;"	S
+Anaconda环境的安装和配置	content/post/debian/Debian10双显卡安装Anaconda+Cuda9+Pytorch.md	/^## Anaconda环境的安装和配置$/;"	s
+Anaconda环境的安装和配置	public/2019/06/debian10双显卡安装anaconda-cuda9-pytorch/index.html	/^<h2 id="anaconda">Anaconda环境的安装和配置<\/h2>$/;"	i
+Arial	public/css/fonts.css	/^  font-family: -apple-system, BlinkMacSystemFont, 'Avenir Next', Avenir, 'Segoe UI', Roboto, Hel/;"	s
+Arial	themes/hugo-classic/static/css/fonts.css	/^  font-family: -apple-system, BlinkMacSystemFont, 'Avenir Next', Avenir, 'Segoe UI', Roboto, Hel/;"	s
+Avenir	public/css/fonts.css	/^  font-family: -apple-system, BlinkMacSystemFont, 'Avenir Next', Avenir, 'Segoe UI', Roboto, Hel/;"	s
+Avenir	themes/hugo-classic/static/css/fonts.css	/^  font-family: -apple-system, BlinkMacSystemFont, 'Avenir Next', Avenir, 'Segoe UI', Roboto, Hel/;"	s
+BlinkMacSystemFont	public/css/fonts.css	/^  font-family: -apple-system, BlinkMacSystemFont, 'Avenir Next', Avenir, 'Segoe UI', Roboto, Hel/;"	s
+BlinkMacSystemFont	themes/hugo-classic/static/css/fonts.css	/^  font-family: -apple-system, BlinkMacSystemFont, 'Avenir Next', Avenir, 'Segoe UI', Roboto, Hel/;"	s
+BlinnPhong光照	content/post/CG/phong_and_Blinn_Phong.md	/^# BlinnPhong光照$/;"	c
+BlinnPhong光照	public/2019/10/phong_and_blinn_phong/index.html	/^<h1 id="blinnphong">BlinnPhong光照<\/h1>$/;"	h
+Blog	content/_index.md	/^### Blog$/;"	S
+Blog	public/index.html	/^<h3 id="blog">Blog<\/h3>$/;"	j
+Blog	themes/hugo-classic/exampleSite/content/_index.md	/^### Blog$/;"	S
+Blog Posts	themes/hugo-classic/README.md	/^## Blog Posts$/;"	s
+Blurred Code	content/_index.md	/^# Blurred Code$/;"	c
+Blurred Code	public/index.html	/^<h1 id="blurred-code">Blurred Code<\/h1>$/;"	h
+C++	public/categories/c++/index.html	/^<h1>C++<\/h1>$/;"	h
+C++ lambda初探	public/2018/01/434/index.html	/^<h1><span class="title">C++ lambda初探<\/span><\/h1>$/;"	h
+C++模板函数的重载决议问题	public/2018/01/433/index.html	/^<h1><span class="title">C++模板函数的重载决议问题<\/span><\/h1>$/;"	h
+C++的string和char*并不隐式转换	public/2017/08/421/index.html	/^<h1><span class="title">C++的string和char*并不隐式转换<\/span><\/h1>$/;"	h
+CG	public/categories/cg/index.html	/^<h1>CG<\/h1>$/;"	h
+CJKLanguage: Chinese, Japanese, Korean	archetypes/default.md	/^# CJKLanguage: Chinese, Japanese, Korean$/;"	c
+CJKLanguage: Chinese, Japanese, Korean	archetypes/posts.md	/^# CJKLanguage: Chinese, Japanese, Korean$/;"	c
+CJKLanguage: Chinese, Japanese, Korean	content/post/2019-06-02-博客迁移到Hugo_&_github_pages.md	/^# CJKLanguage: Chinese, Japanese, Korean$/;"	c
+CJKLanguage: Chinese, Japanese, Korean	content/post/C++/FakeSTL_From_Scratch____AVL_TREE的实现.md	/^# CJKLanguage: Chinese, Japanese, Korean$/;"	c
+CJKLanguage: Chinese, Japanese, Korean	content/post/C++/Kinect_V1在Debian10的配置.md	/^# CJKLanguage: Chinese, Japanese, Korean$/;"	c
+CJKLanguage: Chinese, Japanese, Korean	content/post/C++/一个有锁线程安全的队列实现.md	/^# CJKLanguage: Chinese, Japanese, Korean$/;"	c
+CJKLanguage: Chinese, Japanese, Korean	content/post/C++/关于C++的命名约定.md	/^# CJKLanguage: Chinese, Japanese, Korean$/;"	c
+CJKLanguage: Chinese, Japanese, Korean	content/post/C++/谈谈constexpr,inline和static.md	/^# CJKLanguage: Chinese, Japanese, Korean$/;"	c
+CJKLanguage: Chinese, Japanese, Korean	content/post/CG/LookAt的实现.md	/^# CJKLanguage: Chinese, Japanese, Korean$/;"	c
+CJKLanguage: Chinese, Japanese, Korean	content/post/CG/Matrix_Transformation.md	/^# CJKLanguage: Chinese, Japanese, Korean$/;"	c
+CJKLanguage: Chinese, Japanese, Korean	content/post/CG/phong_and_Blinn_Phong.md	/^# CJKLanguage: Chinese, Japanese, Korean$/;"	c
+CJKLanguage: Chinese, Japanese, Korean	content/post/UEFI+win7+Linux双启动踩坑日记.md	/^# CJKLanguage: Chinese, Japanese, Korean$/;"	c
+CJKLanguage: Chinese, Japanese, Korean	content/post/X11VNC搭建指北.md	/^# CJKLanguage: Chinese, Japanese, Korean$/;"	c
+CJKLanguage: Chinese, Japanese, Korean	content/post/debian/Debian10双显卡安装Anaconda+Cuda9+Pytorch.md	/^# CJKLanguage: Chinese, Japanese, Korean$/;"	c
+CJKLanguage: Chinese, Japanese, Korean	content/post/dl/读<machine-learning-yearning>杂记.md	/^# CJKLanguage: Chinese, Japanese, Korean$/;"	c
+CJKLanguage: Chinese, Japanese, Korean	content/post/一次numpy读取txt文件优化.md	/^# CJKLanguage: Chinese, Japanese, Korean$/;"	c
+CJKLanguage: Chinese, Japanese, Korean	content/post/我选择了Manjaro.md	/^# CJKLanguage: Chinese, Japanese, Korean$/;"	c
+CPP Exercises	public/2019/01/435/index.html	/^<h1><span class="title">CPP Exercises<\/span><\/h1>$/;"	h
+Categories	public/categories/index.html	/^<h1>Categories<\/h1>$/;"	h
+Convert a man page to pdf	content/post/debian/2015-10-30-man?不，你需要cheat.md	/^# Convert a man page to pdf$/;"	c
+Convert a man page to pdf	public/2015/10/man不-你需要cheat/index.html	/^<h1 id="convert-a-man-page-to-pdf">Convert a man page to pdf<\/h1>$/;"	h
+Crouton安装Debian 9+xfce4后出现触摸板不能轻触点击的问题	public/2017/04/413/index.html	/^<h1><span class="title">Crouton安装Debian 9+xfce4后出现触摸板不能轻触点击的问题/;"	h
+Debian 9 stretch 解决网易云音乐(NetEase-music)的依赖问题	public/2017/04/415/index.html	/^<h1><span class="title">Debian 9 stretch 解决网易云音乐(NetEase-music)的依赖问题<\/s/;"	h
+Debian sid 搭建Nodejs + Electron	public/2016/05/debian-sid-搭建nodejs-electron/index.html	/^<h1><span class="title">Debian sid 搭建Nodejs + Electron<\/span><\/h1>$/;"	h
+Debian 字体回落到AR PL UKai、AR PL UMing的解决方法	public/2019/05/457/index.html	/^<h1><span class="title">Debian 字体回落到AR PL UKai、AR PL UMing的解决方法<\/span><\//;"	h
+Debian10双显卡安装Anaconda+Cuda9+Pytorch	public/2019/06/debian10双显卡安装anaconda-cuda9-pytorch/index.html	/^<h1><span class="title">Debian10双显卡安装Anaconda+Cuda9+Pytorch<\/span><\/h1>$/;"	h
+Debian利用Squid3搭建Pac代理，端口25	public/2017/08/423/index.html	/^<h1><span class="title">Debian利用Squid3搭建Pac代理，端口25<\/span><\/h1>$/;"	h
+Debian开放AP热点	public/2015/11/debian开放ap热点/index.html	/^<h1><span class="title">Debian开放AP热点<\/span><\/h1>$/;"	h
+FakeSTL	public/tags/fakestl/index.html	/^<h1>FakeSTL<\/h1>$/;"	h
+FakeSTL From Scratch | AVL TREE的实现	public/2019/06/fakestl_from_scratch____avl_tree的实现/index.html	/^<h1><span class="title">FakeSTL From Scratch | AVL TREE的实现<\/span><\/h1>$/;"	h
+FakeSTL From Scratch | C++ 从0开始写FakeSTL [目录]	public/2019/03/443/index.html	/^<h1><span class="title">FakeSTL From Scratch  | C++ 从0开始写FakeSTL [目录]<\/span><\/h1>$/;"	h
+FakeSTL From Scratch | Iterator and Traits(迭代器与类型萃取)	public/2019/04/452-1/index.html	/^<h1><span class="title">FakeSTL From Scratch | Iterator and Traits(迭代器与类型萃取)<\/s/;"	h
+FakeSTL From Scratch | 编写Allocator	public/2019/04/450/index.html	/^<h1><span class="title">FakeSTL From Scratch | 编写Allocator<\/span><\/h1>$/;"	h
+For text focused goodness	themes/hugo-classic/exampleSite/content/_index.md	/^### For text focused goodness$/;"	S
+Git push 失败，提示'receive.denyCurrentBranch&rsquo; configuration variable to &lsquo;refuse&rsquo;.	public/2017/08/420/index.html	/^<h1><span class="title">Git push 失败，提示'receive.denyCurrentBranch&rsquo; configuration /;"	h
+Header Colour	themes/hugo-classic/README.md	/^### Header Colour$/;"	S
+Helvetica	public/css/fonts.css	/^  font-family: -apple-system, BlinkMacSystemFont, 'Avenir Next', Avenir, 'Segoe UI', Roboto, Hel/;"	s
+Helvetica	themes/hugo-classic/static/css/fonts.css	/^  font-family: -apple-system, BlinkMacSystemFont, 'Avenir Next', Avenir, 'Segoe UI', Roboto, Hel/;"	s
+Huffman编码与解码	public/2019/05/454/index.html	/^<h1><span class="title">Huffman编码与解码<\/span><\/h1>$/;"	h
+Hugo.io - Classic	themes/hugo-classic/exampleSite/content/_index.md	/^# Hugo.io - Classic$/;"	c
+Hugo.io - Classic Theme	themes/hugo-classic/README.md	/^# Hugo.io - Classic Theme$/;"	c
+Images auto center:	themes/hugo-classic/exampleSite/content/post/2018-08-30-markdown-guide.md	/^#### Images auto center:$/;"	t
+In code We trust.	content/_index.md	/^### In code We trust.$/;"	S
+In code We trust.	public/index.html	/^<h3 id="in-code-we-trust">In code We trust.<\/h3>$/;"	j
+Instructions	themes/hugo-classic/README.md	/^### Instructions$/;"	S
+Iterator	content/post/C++/2019-04-13-FakeSTL_From_Scratch___Iterator_and_Traits(迭代器与类型萃取).md	/^### Iterator$/;"	S
+Iterator	public/2019/04/452-1/index.html	/^<h3 id="iterator">Iterator<\/h3>$/;"	j
+Iterator_helper和SFINAE	content/post/C++/2019-04-13-FakeSTL_From_Scratch___Iterator_and_Traits(迭代器与类型萃取).md	/^### Iterator_helper和SFINAE$/;"	S
+Iterator_helper和SFINAE	public/2019/04/452-1/index.html	/^<h3 id="iterator-helpersfinae">Iterator_helper和SFINAE<\/h3>$/;"	j
+Iterator与重载决议	content/post/C++/2019-04-13-FakeSTL_From_Scratch___Iterator_and_Traits(迭代器与类型萃取).md	/^### Iterator与重载决议$/;"	S
+Iterator与重载决议	public/2019/04/452-1/index.html	/^<h3 id="iterator-1">Iterator与重载决议<\/h3>$/;"	j
+Kinect_V1在Debian testing的配置指北	public/2019/08/kinect_v1在debian_testing的配置指北/index.html	/^<h1><span class="title">Kinect_V1在Debian testing的配置指北<\/span><\/h1>$/;"	h
+LL型	content/post/C++/FakeSTL_From_Scratch____AVL_TREE的实现.md	/^#### LL型$/;"	t
+LR型	content/post/C++/FakeSTL_From_Scratch____AVL_TREE的实现.md	/^#### LR型$/;"	t
+LeetCode	public/categories/leetcode/index.html	/^<h1>LeetCode<\/h1>$/;"	h
+Linux	public/categories/linux/index.html	/^<h1>Linux<\/h1>$/;"	h
+LookAt的实现	public/2019/09/lookat的实现/index.html	/^<h1><span class="title">LookAt的实现<\/span><\/h1>$/;"	h
+New Posts	themes/hugo-classic/README.md	/^### New Posts$/;"	S
+Nvidia驱动的安装	content/post/debian/Debian10双显卡安装Anaconda+Cuda9+Pytorch.md	/^## Nvidia驱动的安装$/;"	s
+Nvidia驱动的安装	public/2019/06/debian10双显卡安装anaconda-cuda9-pytorch/index.html	/^<h2 id="nvidia">Nvidia驱动的安装<\/h2>$/;"	i
+OpenGL	public/categories/opengl/index.html	/^<h1>OpenGL<\/h1>$/;"	h
+Phong 光照模型	content/post/CG/phong_and_Blinn_Phong.md	/^# Phong 光照模型$/;"	c
+Phong 光照模型	public/2019/10/phong_and_blinn_phong/index.html	/^<h1 id="phong-">Phong 光照模型<\/h1>$/;"	h
+Posts	public/post/index.html	/^<h1>Posts<\/h1>$/;"	h
+Posts	public/posts/index.html	/^<h1>Posts<\/h1>$/;"	h
+Problems	content/post/C++/2019-05-25-谈谈observer_ptr.md	/^## Problems$/;"	s
+Problems	public/2019/05/459/index.html	/^<h2 id="problems">Problems<\/h2>$/;"	i
+Python	public/categories/python/index.html	/^<h1>Python<\/h1>$/;"	h
+Python2生成简单验证码	public/2016/04/python2生成简单验证码/index.html	/^<h1><span class="title">Python2生成简单验证码<\/span><\/h1>$/;"	h
+Python利用Qtcreator和Pyqt快速创建GUI	public/2016/02/python-利用qtcreator和pyqt快速创建gui/index.html	/^<h1><span class="title">Python利用Qtcreator和Pyqt快速创建GUI<\/span><\/h1>$/;"	h
+Pytorch的安装	content/post/debian/Debian10双显卡安装Anaconda+Cuda9+Pytorch.md	/^## Pytorch的安装$/;"	s
+Pytorch的安装	public/2019/06/debian10双显卡安装anaconda-cuda9-pytorch/index.html	/^<h2 id="pytorch">Pytorch的安装<\/h2>$/;"	i
+Qt5.8 Patch: Missing &quot;qtmultimediadefs.h&quot;	public/2017/08/425/index.html	/^<h1><span class="title">Qt5.8 Patch: Missing &quot;qtmultimediadefs.h&quot;<\/span><\/h1>$/;"	h
+Qt使用预编译头PCH及多核编译加快编译	public/2017/09/427/index.html	/^<h1><span class="title">Qt使用预编译头PCH及多核编译加快编译<\/span><\/h1>$/;"	h
+RAII	content/post/C++/2019-03-02-浅谈RAII和智能指针.md	/^### RAII$/;"	S
+RAII	public/2019/03/438/index.html	/^<h3 id="raii">RAII<\/h3>$/;"	j
+RSA与AES加密杂谈——兼Python实现	public/2016/05/rsa与aes加密杂谈-兼python实现/index.html	/^<h1><span class="title">RSA与AES加密杂谈——兼Python实现<\/span><\/h1>$/;"	h
+Roboto	public/css/fonts.css	/^  font-family: -apple-system, BlinkMacSystemFont, 'Avenir Next', Avenir, 'Segoe UI', Roboto, Hel/;"	s
+Roboto	themes/hugo-classic/static/css/fonts.css	/^  font-family: -apple-system, BlinkMacSystemFont, 'Avenir Next', Avenir, 'Segoe UI', Roboto, Hel/;"	s
+STL	content/post/C++/2019-03-31-FakeSTL_From_Scratch____C++_从0开始写FakeSTL_[目录].md	/^## STL$/;"	s
+STL	public/2019/03/443/index.html	/^<h2 id="stl">STL<\/h2>$/;"	i
+STL	public/categories/stl/index.html	/^<h1>STL<\/h1>$/;"	h
+Scaling	content/post/CG/Matrix_Transformation.md	/^#### Scaling$/;"	t
+Screenshot	themes/hugo-classic/README.md	/^#### Screenshot$/;"	t
+Shared_ptr	content/post/C++/2019-03-02-浅谈RAII和智能指针.md	/^### Shared_ptr$/;"	S
+Shared_ptr	public/2019/03/438/index.html	/^<h3 id="shared-ptr">Shared_ptr<\/h3>$/;"	j
+TableOfContents	public/2019/10/phong_and_blinn_phong/index.html	/^<nav id="TableOfContents">$/;"	I
+TableOfContents	public/2019/10/uefi-win7-linux双启动踩坑日记/index.html	/^<nav id="TableOfContents">$/;"	I
+TableOfContents	public/2019/10/读machine-learning-yearning杂记/index.html	/^<nav id="TableOfContents"><\/nav>$/;"	I
+Tags	public/tags/index.html	/^<h1>Tags<\/h1>$/;"	h
+Translation	content/post/CG/Matrix_Transformation.md	/^#### Translation$/;"	t
+UEFI+win7+Linux双启动踩坑日记	public/2019/10/uefi-win7-linux双启动踩坑日记/index.html	/^<h1><span class="title">UEFI+win7+Linux双启动踩坑日记<\/span><\/h1>$/;"	h
+View the ascii chart	content/post/debian/2015-10-30-man?不，你需要cheat.md	/^# View the ascii chart$/;"	c
+View the ascii chart	public/2015/10/man不-你需要cheat/index.html	/^<h1 id="view-the-ascii-chart">View the ascii chart<\/h1>$/;"	h
+What is observer_ptr	content/post/C++/2019-05-25-谈谈observer_ptr.md	/^## What is observer_ptr$/;"	s
+What is observer_ptr	public/2019/05/459/index.html	/^<h2 id="what-is-observer-ptr">What is observer_ptr<\/h2>$/;"	i
+Why AVL Tree?	content/post/C++/FakeSTL_From_Scratch____AVL_TREE的实现.md	/^## Why AVL Tree?$/;"	s
+Why AVL Tree?	public/2019/06/fakestl_from_scratch____avl_tree的实现/index.html	/^<h2 id="why-avl-tree">Why AVL Tree?<\/h2>$/;"	i
+X11VNC搭建指北	public/2019/11/x11vnc搭建指北/index.html	/^<h1><span class="title">X11VNC搭建指北<\/span><\/h1>$/;"	h
+[LeetCode] 771. Jewels and Stones	public/2019/01/436/index.html	/^<h1><span class="title">[LeetCode] 771. Jewels and Stones<\/span><\/h1>$/;"	h
+a	public/css/style.css	/^a {$/;"	s
+a	themes/hugo-classic/static/css/style.css	/^a {$/;"	s
+a:hover	public/css/style.css	/^a:hover {$/;"	s
+a:hover	themes/hugo-classic/static/css/style.css	/^a:hover {$/;"	s
+allocator	public/2019/03/443/index.html	/^<h4 id="allocator">Allocator<\/h4>$/;"	I
+allocator	public/2019/04/450/index.html	/^<h3 id="allocator">Allocator的要求<\/h3>$/;"	I
+allocator-1	public/2019/04/450/index.html	/^<\/code><\/pre><\/div><h3 id="allocator-1">一个带链表回收的Allocator<\/h3>$/;"	I
+allocator-2	public/2019/04/450/index.html	/^<h3 id="allocator-2">内存池版本带回收的Allocator<\/h3>$/;"	I
+allocatoroperator-newoperator-delete	public/2019/04/450/index.html	/^<\/code><\/pre><\/div><h3 id="allocatoroperator-newoperator-delete">一个简单的Allocator的实/;"	I
+ambient	public/2019/10/phong_and_blinn_phong/index.html	/^<h2 id="ambient">ambient光照<\/h2>$/;"	I
+ambient光照	content/post/CG/phong_and_Blinn_Phong.md	/^## ambient光照$/;"	s
+ambient光照	public/2019/10/phong_and_blinn_phong/index.html	/^<h2 id="ambient">ambient光照<\/h2>$/;"	i
+anaconda	public/2019/06/debian10双显卡安装anaconda-cuda9-pytorch/index.html	/^<h2 id="anaconda">Anaconda环境的安装和配置<\/h2>$/;"	I
+atom	public/categories/c++/index.xml	/^<rss version="2.0" xmlns:atom="http:\/\/www.w3.org\/2005\/Atom">$/;"	n	uri:http://www.w3.org/2005/Atom
+atom	public/categories/cg/index.xml	/^<rss version="2.0" xmlns:atom="http:\/\/www.w3.org\/2005\/Atom">$/;"	n	uri:http://www.w3.org/2005/Atom
+atom	public/categories/cpp/index.xml	/^<rss version="2.0" xmlns:atom="http:\/\/www.w3.org\/2005\/Atom">$/;"	n	uri:http://www.w3.org/2005/Atom
+atom	public/categories/debian/index.xml	/^<rss version="2.0" xmlns:atom="http:\/\/www.w3.org\/2005\/Atom">$/;"	n	uri:http://www.w3.org/2005/Atom
+atom	public/categories/dl/index.xml	/^<rss version="2.0" xmlns:atom="http:\/\/www.w3.org\/2005\/Atom">$/;"	n	uri:http://www.w3.org/2005/Atom
+atom	public/categories/index.xml	/^<rss version="2.0" xmlns:atom="http:\/\/www.w3.org\/2005\/Atom">$/;"	n	uri:http://www.w3.org/2005/Atom
+atom	public/categories/leetcode/index.xml	/^<rss version="2.0" xmlns:atom="http:\/\/www.w3.org\/2005\/Atom">$/;"	n	uri:http://www.w3.org/2005/Atom
+atom	public/categories/linux/index.xml	/^<rss version="2.0" xmlns:atom="http:\/\/www.w3.org\/2005\/Atom">$/;"	n	uri:http://www.w3.org/2005/Atom
+atom	public/categories/opengl/index.xml	/^<rss version="2.0" xmlns:atom="http:\/\/www.w3.org\/2005\/Atom">$/;"	n	uri:http://www.w3.org/2005/Atom
+atom	public/categories/python/index.xml	/^<rss version="2.0" xmlns:atom="http:\/\/www.w3.org\/2005\/Atom">$/;"	n	uri:http://www.w3.org/2005/Atom
+atom	public/categories/stl/index.xml	/^<rss version="2.0" xmlns:atom="http:\/\/www.w3.org\/2005\/Atom">$/;"	n	uri:http://www.w3.org/2005/Atom
+atom	public/categories/默认分类/index.xml	/^<rss version="2.0" xmlns:atom="http:\/\/www.w3.org\/2005\/Atom">$/;"	n	uri:http://www.w3.org/2005/Atom
+atom	public/index.xml	/^<rss version="2.0" xmlns:atom="http:\/\/www.w3.org\/2005\/Atom">$/;"	n	uri:http://www.w3.org/2005/Atom
+atom	public/post/index.xml	/^<rss version="2.0" xmlns:atom="http:\/\/www.w3.org\/2005\/Atom">$/;"	n	uri:http://www.w3.org/2005/Atom
+atom	public/posts/index.xml	/^<rss version="2.0" xmlns:atom="http:\/\/www.w3.org\/2005\/Atom">$/;"	n	uri:http://www.w3.org/2005/Atom
+atom	public/tags/cpp/index.xml	/^<rss version="2.0" xmlns:atom="http:\/\/www.w3.org\/2005\/Atom">$/;"	n	uri:http://www.w3.org/2005/Atom
+atom	public/tags/fakestl/index.xml	/^<rss version="2.0" xmlns:atom="http:\/\/www.w3.org\/2005\/Atom">$/;"	n	uri:http://www.w3.org/2005/Atom
+atom	public/tags/index.xml	/^<rss version="2.0" xmlns:atom="http:\/\/www.w3.org\/2005\/Atom">$/;"	n	uri:http://www.w3.org/2005/Atom
+atom	public/tags/panda/index.xml	/^<rss version="2.0" xmlns:atom="http:\/\/www.w3.org\/2005\/Atom">$/;"	n	uri:http://www.w3.org/2005/Atom
+atom	public/tags/template/index.xml	/^<rss version="2.0" xmlns:atom="http:\/\/www.w3.org\/2005\/Atom">$/;"	n	uri:http://www.w3.org/2005/Atom
+avl	public/2019/06/fakestl_from_scratch____avl_tree的实现/index.html	/^<h2 id="avl">AVL树的实现<\/h2>$/;"	I
+avl-1	public/2019/06/fakestl_from_scratch____avl_tree的实现/index.html	/^<h3 id="avl-1">AVL节点定义和辅助函数<\/h3>$/;"	I
+avl-2	public/2019/06/fakestl_from_scratch____avl_tree的实现/index.html	/^<\/code><\/pre><\/div><h3 id="avl-2">AVL树的旋转<\/h3>$/;"	I
+avl-3	public/2019/06/fakestl_from_scratch____avl_tree的实现/index.html	/^<h3 id="avl-3">AVL树的插入<\/h3>$/;"	I
+avl-4	public/2019/06/fakestl_from_scratch____avl_tree的实现/index.html	/^<\/code><\/pre><\/div><h3 id="avl-4">AVL树的删除<\/h3>$/;"	I
+avl-5	public/2019/06/fakestl_from_scratch____avl_tree的实现/index.html	/^<h3 id="avl-5">AVL树的巡秩访问<\/h3>$/;"	I
+blinnphong	public/2019/10/phong_and_blinn_phong/index.html	/^<h1 id="blinnphong">BlinnPhong光照<\/h1>$/;"	I
+blockquote	public/css/style.css	/^blockquote {$/;"	s
+blockquote	themes/hugo-classic/static/css/style.css	/^blockquote {$/;"	s
+blog	public/index.html	/^<h3 id="blog">Blog<\/h3>$/;"	I
+blurred-code	public/index.html	/^<h1 id="blurred-code">Blurred Code<\/h1>$/;"	I
+body	public/css/style.css	/^body {$/;"	s
+body	themes/hugo-classic/static/css/style.css	/^body {$/;"	s
+chrome-sandbox	public/2017/04/415/index.html	/^<h3 id="chrome-sandbox">但是，这样重新打包后仍然无法运行，主要是chrome-sandb/;"	I
+cmakeliststxt	public/2019/03/452/index.html	/^<h3 id="cmakeliststxt">主目录的CMakeLists.txt<\/h3>$/;"	I
+code	public/css/fonts.css	/^code {$/;"	s
+code	public/css/style.css	/^code { background: #f9f9f9; }$/;"	s
+code	themes/hugo-classic/static/css/fonts.css	/^code {$/;"	s
+code	themes/hugo-classic/static/css/style.css	/^code { background: #f9f9f9; }$/;"	s
+const char*转string	content/post/C++/2017-08-04-C++的string和char*并不隐式转换.md	/^## const char*转string$/;"	s
+const char*转string	public/2017/08/421/index.html	/^<\/code><\/pre><\/div><h2 id="const-charstring">const char*转string<\/h2>$/;"	i
+const-charstring	public/2017/08/421/index.html	/^<\/code><\/pre><\/div><h2 id="const-charstring">const char*转string<\/h2>$/;"	I
+constexprconst	public/2019/06/谈谈constexprinline和static/index.html	/^<h3 id="constexprconst">constexpr和const的区别<\/h3>$/;"	I
+constexpr和const的区别	content/post/C++/谈谈constexpr,inline和static.md	/^### constexpr和const的区别$/;"	S
+constexpr和const的区别	public/2019/06/谈谈constexprinline和static/index.html	/^<h3 id="constexprconst">constexpr和const的区别<\/h3>$/;"	j
+convert-a-man-page-to-pdf	public/2015/10/man不-你需要cheat/index.html	/^<h1 id="convert-a-man-page-to-pdf">Convert a man page to pdf<\/h1>$/;"	I
+cpp	public/categories/cpp/index.html	/^<h1>cpp<\/h1>$/;"	h
+cpp	public/tags/cpp/index.html	/^<h1>cpp<\/h1>$/;"	h
+date: ''	themes/hugo-classic/archetypes/default.md	/^date: ''$/;"	s
+debian	public/categories/debian/index.html	/^<h1>debian<\/h1>$/;"	h
+diffuse	public/2019/10/phong_and_blinn_phong/index.html	/^<\/code><\/pre><\/div><h2 id="diffuse">diffuse光照<\/h2>$/;"	I
+diffuse光照	content/post/CG/phong_and_Blinn_Phong.md	/^## diffuse光照$/;"	s
+diffuse光照	public/2019/10/phong_and_blinn_phong/index.html	/^<\/code><\/pre><\/div><h2 id="diffuse">diffuse光照<\/h2>$/;"	i
+dl	public/categories/dl/index.html	/^<h1>dl<\/h1>$/;"	h
+fn:1	public/2019/05/459/index.html	/^<li id="fn:1" role="doc-endnote">$/;"	I
+fn:1	public/2019/09/lookat的实现/index.html	/^<li id="fn:1" role="doc-endnote">$/;"	I
+fn:1	public/2020/01/一次numpy读取txt文件优化/index.html	/^<li id="fn:1" role="doc-endnote">$/;"	I
+fn:2	public/2019/05/459/index.html	/^<li id="fn:2" role="doc-endnote">$/;"	I
+fnref:1	public/2019/05/459/index.html	/^<p><code>observer_ptr<\/code>是于14年的提案N4282<sup id="fnref:1"><a href="#fn:1" class="f/;"	I
+fnref:1	public/2019/09/lookat的实现/index.html	/^<p>流程图可以看<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1/;"	I
+fnref:1	public/2020/01/一次numpy读取txt文件优化/index.html	/^<p>先下结论:<strong>永远不要用numpy.loadtxt<\/strong>,非常非常慢<sup id="fnref:1">/;"	I
+fnref:2	public/2019/05/459/index.html	/^<p><code>observer_ptr<\/code>是于14年的提案N4282<sup id="fnref:1"><a href="#fn:1" class="f/;"	I
+font-family: -apple-system	public/css/fonts.css	/^  font-family: -apple-system, BlinkMacSystemFont, 'Avenir Next', Avenir, 'Segoe UI', Roboto, Hel/;"	s
+font-family: -apple-system	themes/hugo-classic/static/css/fonts.css	/^  font-family: -apple-system, BlinkMacSystemFont, 'Avenir Next', Avenir, 'Segoe UI', Roboto, Hel/;"	s
+footer	public/css/style.css	/^.menu, .article-meta, footer { text-align: center; }$/;"	s
+footer	public/css/theme-override.css	/^footer { font-size: 90%; font-family: monospace; }$/;"	s
+footer	static/css/theme-override.css	/^footer { font-size: 90%; font-family: monospace; }$/;"	s
+footer	themes/hugo-classic/exampleSite/static/css/theme-override.css	/^footer { font-size: 90%; font-family: monospace; }$/;"	s
+footer	themes/hugo-classic/static/css/style.css	/^.menu, .article-meta, footer { text-align: center; }$/;"	s
+footer a	public/css/style.css	/^footer a { text-decoration: none; }$/;"	s
+footer a	themes/hugo-classic/static/css/style.css	/^footer a { text-decoration: none; }$/;"	s
+header	public/css/style.css	/^header {$/;"	s
+header	themes/hugo-classic/static/css/style.css	/^header {$/;"	s
+header .current a	public/css/style.css	/^header .current a {$/;"	s
+header .current a	themes/hugo-classic/static/css/style.css	/^header .current a {$/;"	s
+header a	public/css/style.css	/^header a {$/;"	s
+header a	themes/hugo-classic/static/css/style.css	/^header a {$/;"	s
+header a:hover	public/css/style.css	/^header a:hover,$/;"	s
+header a:hover	themes/hugo-classic/static/css/style.css	/^header a:hover,$/;"	s
+header nav	public/css/style.css	/^header nav {$/;"	s
+header nav	themes/hugo-classic/static/css/style.css	/^header nav {$/;"	s
+header ol	public/css/style.css	/^header ol {$/;"	s
+header ol	themes/hugo-classic/static/css/style.css	/^header ol {$/;"	s
+header ul	public/css/style.css	/^header ul,$/;"	s
+header ul	themes/hugo-classic/static/css/style.css	/^header ul,$/;"	s
+heading	public/2017/04/414/index.html	/^<h3 id="heading">创新，还是分裂<\/h3>$/;"	I
+heading	public/2017/04/415/index.html	/^<h3 id="heading">拆包<\/h3>$/;"	I
+heading	public/2019/03/442/index.html	/^<h2 id="heading">车辆工程<\/h2>$/;"	I
+heading	public/2019/03/443/index.html	/^<h2 id="heading">引言<\/h2>$/;"	I
+heading	public/2019/03/452/index.html	/^<h2 id="heading">前言<\/h2>$/;"	I
+heading	public/2019/05/454/index.html	/^<h2 id="heading">从森林中合并为树<\/h2>$/;"	I
+heading	public/2019/06/博客迁移到hugo-github-pages/index.html	/^<h2 id="heading">迁移原因<\/h2>$/;"	I
+heading	public/2019/07/关于c-的命名约定/index.html	/^<h1 id="heading">谷歌命名约定<\/h1>$/;"	I
+heading	public/2019/08/kinect_v1在debian_testing的配置指北/index.html	/^<h1 id="heading">坑在哪里<\/h1>$/;"	I
+heading	public/2019/10/uefi-win7-linux双启动踩坑日记/index.html	/^<h1 id="heading">启动黑屏<\/h1>$/;"	I
+heading	public/2019/10/读machine-learning-yearning杂记/index.html	/^<h1 id="heading">数据处理<\/h1>$/;"	I
+heading	public/2020/01/一次numpy读取txt文件优化/index.html	/^<h2 id="heading">再进一步<\/h2>$/;"	I
+heading-1	public/2017/04/414/index.html	/^<h3 id="heading-1">造轮子，还能走多远<\/h3>$/;"	I
+heading-1	public/2019/03/442/index.html	/^<h2 id="heading-1">机械设计<\/h2>$/;"	I
+heading-1	public/2019/03/443/index.html	/^<h2 id="heading-1">需要的能力<\/h2>$/;"	I
+heading-1	public/2019/03/452/index.html	/^<h2 id="heading-1">包含单元测试的简单工程<\/h2>$/;"	I
+heading-1	public/2019/05/454/index.html	/^<h2 id="heading-1">递归法生成编码表<\/h2>$/;"	I
+heading-1	public/2019/06/博客迁移到hugo-github-pages/index.html	/^<h2 id="heading-1">迁移过程<\/h2>$/;"	I
+heading-1	public/2019/07/关于c-的命名约定/index.html	/^<h2 id="heading-1">文件名<\/h2>$/;"	I
+heading-1	public/2019/08/kinect_v1在debian_testing的配置指北/index.html	/^<\/code><\/pre><h2 id="heading-1">解决方案<\/h2>$/;"	I
+heading-1	public/2019/10/读machine-learning-yearning杂记/index.html	/^<h1 id="heading-1">误差分析<\/h1>$/;"	I
+heading-1	public/2020/01/一次numpy读取txt文件优化/index.html	/^<h2 id="heading-1">还可以再快<\/h2>$/;"	I
+heading-2	public/2019/03/443/index.html	/^<h2 id="heading-2">实现顺序和目标<\/h2>$/;"	I
+heading-2	public/2019/03/452/index.html	/^<h3 id="heading-2">一个典型的项目目录<\/h3>$/;"	I
+heading-2	public/2019/07/关于c-的命名约定/index.html	/^<h2 id="heading-2">类型命名<\/h2>$/;"	I
+heading-2	public/2019/10/读machine-learning-yearning杂记/index.html	/^<h1 id="heading-2">诊断学习过程<\/h1>$/;"	I
+heading-2	public/2020/01/一次numpy读取txt文件优化/index.html	/^<h2 id="heading-2">还可不可以更快？<\/h2>$/;"	I
+heading-3	public/2019/03/443/index.html	/^<h3 id="heading-3">实现顺序<\/h3>$/;"	I
+heading-3	public/2019/03/452/index.html	/^<h4 id="heading-3">传递编译参数<\/h4>$/;"	I
+heading-3	public/2019/07/关于c-的命名约定/index.html	/^<h2 id="heading-3">变量命名<\/h2>$/;"	I
+heading-3	public/2019/10/读machine-learning-yearning杂记/index.html	/^<h1 id="heading-3">端对端学习<\/h1>$/;"	I
+heading-4	public/2019/03/443/index.html	/^<h2 id="heading-4">目录<\/h2>$/;"	I
+heading-4	public/2019/03/452/index.html	/^<h4 id="heading-4">建立构建目标<\/h4>$/;"	I
+heading-4	public/2019/07/关于c-的命名约定/index.html	/^<h2 id="heading-4">常量<\/h2>$/;"	I
+heading-5	public/2019/03/443/index.html	/^<h2 id="heading-5">其他<\/h2>$/;"	I
+heading-5	public/2019/03/452/index.html	/^<h4 id="heading-5">子项目<\/h4>$/;"	I
+heading-5	public/2019/07/关于c-的命名约定/index.html	/^<h2 id="heading-5">函数命名<\/h2>$/;"	I
+heading-6	public/2019/03/452/index.html	/^<h4 id="heading-6">单元测试<\/h4>$/;"	I
+heading-6	public/2019/07/关于c-的命名约定/index.html	/^<h2 id="heading-6">命名空间<\/h2>$/;"	I
+heading-7	public/2019/03/452/index.html	/^<h3 id="heading-7">编译运行<\/h3>$/;"	I
+heading-7	public/2019/07/关于c-的命名约定/index.html	/^<\/code><\/pre><\/div><h2 id="heading-7">枚举命名<\/h2>$/;"	I
+heading-8	public/2019/07/关于c-的命名约定/index.html	/^<\/code><\/pre><\/div><h2 id="heading-8">宏命名<\/h2>$/;"	I
+html	public/css/fonts.css	/^  html { font-family:$/;"	s
+html	public/css/fonts.css	/^html { font-family:$/;"	s
+html	themes/hugo-classic/static/css/fonts.css	/^  html { font-family:$/;"	s
+html	themes/hugo-classic/static/css/fonts.css	/^html { font-family:$/;"	s
+iframe	public/css/style.css	/^img, iframe, video { max-width: 100%; }$/;"	s
+iframe	themes/hugo-classic/static/css/style.css	/^img, iframe, video { max-width: 100%; }$/;"	s
+img	public/css/style.css	/^img, iframe, video { max-width: 100%; }$/;"	s
+img	themes/hugo-classic/static/css/style.css	/^img, iframe, video { max-width: 100%; }$/;"	s
+in-code-we-trust	public/index.html	/^<h3 id="in-code-we-trust">In code We trust.<\/h3>$/;"	I
+inline	content/post/C++/谈谈constexpr,inline和static.md	/^### inline$/;"	S
+inline	public/2019/06/谈谈constexprinline和static/index.html	/^<h3 id="inline">inline<\/h3>$/;"	I
+inline	public/2019/06/谈谈constexprinline和static/index.html	/^<h3 id="inline">inline<\/h3>$/;"	j
+iterator	content/post/C++/2019-03-31-FakeSTL_From_Scratch____C++_从0开始写FakeSTL_[目录].md	/^####  iterator$/;"	t
+iterator	public/2019/03/443/index.html	/^<h4 id="iterator">iterator<\/h4>$/;"	I
+iterator	public/2019/04/452-1/index.html	/^<h3 id="iterator">Iterator<\/h3>$/;"	I
+iterator-1	public/2019/04/452-1/index.html	/^<h3 id="iterator-1">Iterator与重载决议<\/h3>$/;"	I
+iterator-helpersfinae	public/2019/04/452-1/index.html	/^<h3 id="iterator-helpersfinae">Iterator_helper和SFINAE<\/h3>$/;"	I
+keywords: [ ""]	archetypes/default.md	/^# keywords: [ ""]$/;"	c
+keywords: [ ""]	archetypes/posts.md	/^# keywords: [ ""]$/;"	c
+keywords: [ ""]	content/post/2019-06-02-博客迁移到Hugo_&_github_pages.md	/^# keywords: [ ""]$/;"	c
+keywords: [ ""]	content/post/C++/FakeSTL_From_Scratch____AVL_TREE的实现.md	/^# keywords: [ ""]$/;"	c
+keywords: [ ""]	content/post/C++/Kinect_V1在Debian10的配置.md	/^# keywords: [ ""]$/;"	c
+keywords: [ ""]	content/post/C++/一个有锁线程安全的队列实现.md	/^# keywords: [ ""]$/;"	c
+keywords: [ ""]	content/post/C++/关于C++的命名约定.md	/^# keywords: [ ""]$/;"	c
+keywords: [ ""]	content/post/C++/谈谈constexpr,inline和static.md	/^# keywords: [ ""]$/;"	c
+keywords: [ ""]	content/post/CG/LookAt的实现.md	/^# keywords: [ ""]$/;"	c
+keywords: [ ""]	content/post/CG/Matrix_Transformation.md	/^# keywords: [ ""]$/;"	c
+keywords: [ ""]	content/post/CG/phong_and_Blinn_Phong.md	/^# keywords: [ ""]$/;"	c
+keywords: [ ""]	content/post/UEFI+win7+Linux双启动踩坑日记.md	/^# keywords: [ ""]$/;"	c
+keywords: [ ""]	content/post/X11VNC搭建指北.md	/^# keywords: [ ""]$/;"	c
+keywords: [ ""]	content/post/debian/Debian10双显卡安装Anaconda+Cuda9+Pytorch.md	/^# keywords: [ ""]$/;"	c
+keywords: [ ""]	content/post/dl/读<machine-learning-yearning>杂记.md	/^# keywords: [ ""]$/;"	c
+keywords: [ ""]	content/post/一次numpy读取txt文件优化.md	/^# keywords: [ ""]$/;"	c
+keywords: [ ""]	content/post/我选择了Manjaro.md	/^# keywords: [ ""]$/;"	c
+ll	public/2019/06/fakestl_from_scratch____avl_tree的实现/index.html	/^<h4 id="ll">LL型<\/h4>$/;"	I
+lr	public/2019/06/fakestl_from_scratch____avl_tree的实现/index.html	/^<h4 id="lr">LR型<\/h4>$/;"	I
+main	public/css/style.css	/^main { hyphens: auto; }$/;"	s
+main	themes/hugo-classic/static/css/style.css	/^main { hyphens: auto; }$/;"	s
+man?不，你需要cheat	public/2015/10/man不-你需要cheat/index.html	/^<h1><span class="title">man?不，你需要cheat<\/span><\/h1>$/;"	h
+markup: mmark	content/post/CG/Matrix_Transformation.md	/^markup: mmark$/;"	s
+ns705935650101	public/sitemap.xml	/^  xmlns:xhtml="http:\/\/www.w3.org\/1999\/xhtml">$/;"	n	uri:http://www.sitemaps.org/schemas/sitemap/0.9
+numpy.loadtxt有多慢	content/post/一次numpy读取txt文件优化.md	/^## numpy.loadtxt有多慢$/;"	s
+numpy.loadtxt有多慢	public/2020/01/一次numpy读取txt文件优化/index.html	/^<h2 id="numpyloadtxt">numpy.loadtxt有多慢<\/h2>$/;"	i
+numpyloadtxt	public/2020/01/一次numpy读取txt文件优化/index.html	/^<h2 id="numpyloadtxt">numpy.loadtxt有多慢<\/h2>$/;"	I
+nvidia	public/2019/06/debian10双显卡安装anaconda-cuda9-pytorch/index.html	/^<h2 id="nvidia">Nvidia驱动的安装<\/h2>$/;"	I
+p code	public/css/style.css	/^p code {background: #f9f9f9;color: #FF0000}$/;"	s
+p code	themes/hugo-classic/static/css/style.css	/^p code {background: #f9f9f9;color: #FF0000}$/;"	s
+panda	public/1/01/442/index.html	/^<h2 class="author">panda<\/h2>$/;"	i
+panda	public/2015/10/man不-你需要cheat/index.html	/^<h2 class="author">panda<\/h2>$/;"	i
+panda	public/2015/11/debian开放ap热点/index.html	/^<h2 class="author">panda<\/h2>$/;"	i
+panda	public/2016/02/python-利用qtcreator和pyqt快速创建gui/index.html	/^<h2 class="author">panda<\/h2>$/;"	i
+panda	public/2016/03/关于chromebook在安装crouton后没有声音的解决办法/index.html	/^<h2 class="author">panda<\/h2>$/;"	i
+panda	public/2016/03/关于py2exe对pyqt5打包中的几个坑/index.html	/^<h2 class="author">panda<\/h2>$/;"	i
+panda	public/2016/04/python2生成简单验证码/index.html	/^<h2 class="author">panda<\/h2>$/;"	i
+panda	public/2016/04/解决debian和windows相差八小时的问题/index.html	/^<h2 class="author">panda<\/h2>$/;"	i
+panda	public/2016/05/debian-sid-搭建nodejs-electron/index.html	/^<h2 class="author">panda<\/h2>$/;"	i
+panda	public/2016/05/rsa与aes加密杂谈-兼python实现/index.html	/^<h2 class="author">panda<\/h2>$/;"	i
+panda	public/2017/04/413/index.html	/^<h2 class="author">panda<\/h2>$/;"	i
+panda	public/2017/04/414/index.html	/^<h2 class="author">panda<\/h2>$/;"	i
+panda	public/2017/04/415/index.html	/^<h2 class="author">panda<\/h2>$/;"	i
+panda	public/2017/08/420/index.html	/^<h2 class="author">panda<\/h2>$/;"	i
+panda	public/2017/08/421/index.html	/^<h2 class="author">panda<\/h2>$/;"	i
+panda	public/2017/08/422/index.html	/^<h2 class="author">panda<\/h2>$/;"	i
+panda	public/2017/08/423/index.html	/^<h2 class="author">panda<\/h2>$/;"	i
+panda	public/2017/08/425/index.html	/^<h2 class="author">panda<\/h2>$/;"	i
+panda	public/2017/09/427/index.html	/^<h2 class="author">panda<\/h2>$/;"	i
+panda	public/2018/01/433/index.html	/^<h2 class="author">panda<\/h2>$/;"	i
+panda	public/2018/01/434/index.html	/^<h2 class="author">panda<\/h2>$/;"	i
+panda	public/2019/01/435/index.html	/^<h2 class="author">panda<\/h2>$/;"	i
+panda	public/2019/01/436/index.html	/^<h2 class="author">panda<\/h2>$/;"	i
+panda	public/2019/02/437/index.html	/^<h2 class="author">panda<\/h2>$/;"	i
+panda	public/2019/03/438/index.html	/^<h2 class="author">panda<\/h2>$/;"	i
+panda	public/2019/03/442/index.html	/^<h2 class="author">panda<\/h2>$/;"	i
+panda	public/2019/03/443/index.html	/^<h2 class="author">panda<\/h2>$/;"	i
+panda	public/2019/03/452/index.html	/^<h2 class="author">panda<\/h2>$/;"	i
+panda	public/2019/04/450/index.html	/^<h2 class="author">panda<\/h2>$/;"	i
+panda	public/2019/04/452-1/index.html	/^<h2 class="author">panda<\/h2>$/;"	i
+panda	public/2019/05/454/index.html	/^<h2 class="author">panda<\/h2>$/;"	i
+panda	public/2019/05/457/index.html	/^<h2 class="author">panda<\/h2>$/;"	i
+panda	public/2019/05/459/index.html	/^<h2 class="author">panda<\/h2>$/;"	i
+panda	public/tags/panda/index.html	/^<h1>panda<\/h1>$/;"	h
+pandasread-csv	public/2020/01/一次numpy读取txt文件优化/index.html	/^<h2 id="pandasread-csv">换用pandas.read_csv看看<\/h2>$/;"	I
+phong-	public/2019/10/phong_and_blinn_phong/index.html	/^<h1 id="phong-">Phong 光照模型<\/h1>$/;"	I
+pre	public/css/style.css	/^pre {$/;"	s
+pre	themes/hugo-classic/static/css/style.css	/^pre {$/;"	s
+pre code	public/css/style.css	/^pre code { background: none; }$/;"	s
+pre code	themes/hugo-classic/static/css/style.css	/^pre code { background: none; }$/;"	s
+problems	public/2019/05/459/index.html	/^<h2 id="problems">Problems<\/h2>$/;"	I
+pytorch	public/2019/06/debian10双显卡安装anaconda-cuda9-pytorch/index.html	/^<h2 id="pytorch">Pytorch的安装<\/h2>$/;"	I
+raii	public/2019/03/438/index.html	/^<h3 id="raii">RAII<\/h3>$/;"	I
+rotation	content/post/CG/Matrix_Transformation.md	/^#### rotation$/;"	t
+rotation	public/2019/08/matrix_transformation/index.html	/^<h4 id="rotation">rotation<\/h4>$/;"	I
+sans-serif	public/css/fonts.css	/^  font-family: -apple-system, BlinkMacSystemFont, 'Avenir Next', Avenir, 'Segoe UI', Roboto, Hel/;"	s
+sans-serif	themes/hugo-classic/static/css/fonts.css	/^  font-family: -apple-system, BlinkMacSystemFont, 'Avenir Next', Avenir, 'Segoe UI', Roboto, Hel/;"	s
+scaling	public/2019/08/matrix_transformation/index.html	/^<h4 id="scaling">Scaling<\/h4>$/;"	I
+shared-ptr	public/2019/03/438/index.html	/^<h3 id="shared-ptr">Shared_ptr<\/h3>$/;"	I
+slug: "Debian10双显卡安装Anaconda+Cuda9+Pytorch"	content/post/debian/Debian10双显卡安装Anaconda+Cuda9+Pytorch.md	/^slug: "Debian10双显卡安装Anaconda+Cuda9+Pytorch"$/;"	s
+slug: "Kinect_V1在Debian_testing的配置指北"	content/post/C++/Kinect_V1在Debian10的配置.md	/^slug: "Kinect_V1在Debian_testing的配置指北"$/;"	s
+slug: "LookAt的实现"	content/post/CG/LookAt的实现.md	/^slug: "LookAt的实现"$/;"	s
+slug: "关于C++的命名约定"	content/post/C++/关于C++的命名约定.md	/^slug: "关于C++的命名约定"$/;"	s
+slug: "博客迁移到Hugo & github pages"	content/post/2019-06-02-博客迁移到Hugo_&_github_pages.md	/^slug: "博客迁移到Hugo & github pages"$/;"	s
+slug: "我选择了Manjaro"	content/post/我选择了Manjaro.md	/^slug: "我选择了Manjaro"$/;"	s
+slug: "谈谈constexpr,inline和static"	content/post/C++/谈谈constexpr,inline和static.md	/^slug: "谈谈constexpr,inline和static"$/;"	s
+slug: hacker-with-horn	themes/hugo-classic/exampleSite/content/post/2012-04-23-hacker-with-horn.md	/^slug: hacker-with-horn$/;"	s
+slug: juicy-code	themes/hugo-classic/exampleSite/content/post/2012-01-23-juicy-code.md	/^slug: juicy-code$/;"	s
+smart-pointers	public/2019/03/443/index.html	/^<h4 id="smart-pointers">smart_pointers<\/h4>$/;"	I
+smart_pointers	content/post/C++/2019-03-31-FakeSTL_From_Scratch____C++_从0开始写FakeSTL_[目录].md	/^#### smart_pointers$/;"	t
+specular	public/2019/10/phong_and_blinn_phong/index.html	/^<\/code><\/pre><\/div><h2 id="specular">specular光照<\/h2>$/;"	I
+specular光照	content/post/CG/phong_and_Blinn_Phong.md	/^## specular光照$/;"	s
+specular光照	public/2019/10/phong_and_blinn_phong/index.html	/^<\/code><\/pre><\/div><h2 id="specular">specular光照<\/h2>$/;"	i
+static	content/post/C++/谈谈constexpr,inline和static.md	/^### static$/;"	S
+static	public/2019/06/谈谈constexprinline和static/index.html	/^<h3 id="static">static<\/h3>$/;"	I
+static	public/2019/06/谈谈constexprinline和static/index.html	/^<h3 id="static">static<\/h3>$/;"	j
+stl	public/2019/03/443/index.html	/^<h2 id="stl">STL<\/h2>$/;"	I
+stringconst-char	public/2017/08/421/index.html	/^<h1 id="stringconst-char">string转const char*<\/h1>$/;"	I
+string转const char*	content/post/C++/2017-08-04-C++的string和char*并不隐式转换.md	/^# string转const char*$/;"	c
+string转const char*	public/2017/08/421/index.html	/^<h1 id="stringconst-char">string转const char*<\/h1>$/;"	h
+table	public/css/style.css	/^table {$/;"	s
+table	themes/hugo-classic/static/css/style.css	/^table {$/;"	s
+table thead th	public/css/style.css	/^table thead th { border-bottom: 1px solid #ddd; }$/;"	s
+table thead th	themes/hugo-classic/static/css/style.css	/^table thead th { border-bottom: 1px solid #ddd; }$/;"	s
+tags:	content/post/2019-03-29-中南大学_载运工具运用工程复试经验帖.md	/^tags: $/;"	s
+tags:	content/post/C++/2017-08-04-C++的string和char*并不隐式转换.md	/^tags: $/;"	s
+tags:	content/post/C++/2017-08-05-_陷阱！如何实现Vector作为Class成员的初始化.md	/^tags: $/;"	s
+tags:	content/post/C++/2017-08-22-Qt5.8_Patch:_Missing_&quot;qtmultimediadefs.h&quot;.md	/^tags: $/;"	s
+tags:	content/post/C++/2018-01-24-C++_lambda初探.md	/^tags: $/;"	s
+tags:	content/post/C++/2019-01-07-CPP_Exercises.md	/^tags: $/;"	s
+tags:	content/post/C++/2019-03-02-浅谈RAII和智能指针.md	/^tags:$/;"	s
+tags:	content/post/C++/2019-03-24-建立简单的带单元测试的CMake项目.md	/^tags: $/;"	s
+tags:	content/post/C++/2019-04-05-FakeSTL_From_Scratch___编写Allocator.md	/^tags: $/;"	s
+tags:	content/post/C++/2019-04-13-FakeSTL_From_Scratch___Iterator_and_Traits(迭代器与类型萃取).md	/^tags: $/;"	s
+tags:	content/post/C++/2019-05-20-Huffman编码与解码.md	/^tags: $/;"	s
+tags:	content/post/C++/2019-05-25-谈谈observer_ptr.md	/^tags:$/;"	s
+tags:	content/post/LeetCode/2019-01-09-[LeetCode]_771._Jewels_and_Stones_.md	/^tags: $/;"	s
+tags:	content/post/Python/2016-02-28-Python利用Qtcreator和Pyqt快速创建GUI.md	/^tags: $/;"	s
+tags:	content/post/Python/2016-03-05-关于Py2exe对Pyqt5.uic报错的解决.md	/^tags: $/;"	s
+tags:	content/post/Python/2016-04-23-Python2生成简单验证码.md	/^tags: $/;"	s
+tags:	content/post/Python/2016-05-22-RSA与AES加密杂谈——兼Python实现.md	/^tags: $/;"	s
+tags:	content/post/debian/2015-10-30-man?不，你需要cheat.md	/^tags: $/;"	s
+tags:	content/post/debian/2015-11-19-Debian开放AP热点.md	/^tags: $/;"	s
+tags:	content/post/debian/2016-03-25-关于chromebook在安装crouton后没有声音的解决办法.md	/^tags: $/;"	s
+tags:	content/post/debian/2016-04-10-解决Debian和windows相差八小时的问题.md	/^tags: $/;"	s
+tags:	content/post/debian/2016-05-22-Debian_sid_搭建Nodejs_+_Electron.md	/^tags: $/;"	s
+tags:	content/post/debian/2017-04-03-Crouton安装Debian_9+xfce4后出现触摸板不能轻触点击的问题.md	/^tags: $/;"	s
+tags:	content/post/debian/2017-04-08-造轮子能走多远？Ubuntu最终放弃了Unity.md	/^tags: $/;"	s
+tags:	content/post/debian/2017-04-09-Debian_9_stretch_解决网易云音乐(NetEase-music)的依赖问题.md	/^tags: $/;"	s
+tags:	content/post/debian/2017-08-01-Git_push_失败，提示'receive.denyCurrentBranch'_configuration_variable_to_'refuse'..md	/^tags: $/;"	s
+tags:	content/post/debian/2019-02-05-从Thunar中在xfce-terminal打开VIM.md	/^tags: $/;"	s
+tags:	content/post/debian/2019-05-23-Debian_字体回落到AR_PL_UKai、AR_PL_UMing的解决方法.md	/^tags: $/;"	s
+tags: [ "" ]	archetypes/default.md	/^# tags: [ "" ]$/;"	c
+tags: [ "" ]	archetypes/posts.md	/^# tags: [ "" ]$/;"	c
+tags: [ "" ]	content/post/2019-06-02-博客迁移到Hugo_&_github_pages.md	/^# tags: [ "" ]$/;"	c
+tags: [ "" ]	content/post/C++/FakeSTL_From_Scratch____AVL_TREE的实现.md	/^# tags: [ "" ]$/;"	c
+tags: [ "" ]	content/post/C++/Kinect_V1在Debian10的配置.md	/^# tags: [ "" ]$/;"	c
+tags: [ "" ]	content/post/C++/一个有锁线程安全的队列实现.md	/^# tags: [ "" ]$/;"	c
+tags: [ "" ]	content/post/C++/关于C++的命名约定.md	/^# tags: [ "" ]$/;"	c
+tags: [ "" ]	content/post/CG/LookAt的实现.md	/^# tags: [ "" ]$/;"	c
+tags: [ "" ]	content/post/CG/Matrix_Transformation.md	/^# tags: [ "" ]$/;"	c
+tags: [ "" ]	content/post/CG/phong_and_Blinn_Phong.md	/^# tags: [ "" ]$/;"	c
+tags: [ "" ]	content/post/UEFI+win7+Linux双启动踩坑日记.md	/^# tags: [ "" ]$/;"	c
+tags: [ "" ]	content/post/X11VNC搭建指北.md	/^# tags: [ "" ]$/;"	c
+tags: [ "" ]	content/post/debian/Debian10双显卡安装Anaconda+Cuda9+Pytorch.md	/^# tags: [ "" ]$/;"	c
+tags: [ "" ]	content/post/dl/读<machine-learning-yearning>杂记.md	/^# tags: [ "" ]$/;"	c
+tags: [ "" ]	content/post/一次numpy读取txt文件优化.md	/^# tags: [ "" ]$/;"	c
+tags: [ "" ]	content/post/我选择了Manjaro.md	/^# tags: [ "" ]$/;"	c
+td	public/css/style.css	/^th, td { padding: 5px; }$/;"	s
+td	themes/hugo-classic/static/css/style.css	/^th, td { padding: 5px; }$/;"	s
+template	public/tags/template/index.html	/^<h1>template<\/h1>$/;"	h
+testcmakeliststxt	public/2019/03/452/index.html	/^<h3 id="testcmakeliststxt">test目录的CMakeLists.txt<\/h3>$/;"	I
+test目录的CMakeLists.txt	content/post/C++/2019-03-24-建立简单的带单元测试的CMake项目.md	/^### test目录的CMakeLists.txt$/;"	S
+test目录的CMakeLists.txt	public/2019/03/452/index.html	/^<h3 id="testcmakeliststxt">test目录的CMakeLists.txt<\/h3>$/;"	j
+th	public/css/style.css	/^th, td { padding: 5px; }$/;"	s
+th	themes/hugo-classic/static/css/style.css	/^th, td { padding: 5px; }$/;"	s
+title: Home	content/_index.md	/^title: Home$/;"	s
+title: Home	themes/hugo-classic/exampleSite/content/_index.md	/^title: Home$/;"	s
+toc: false	archetypes/default.md	/^toc: false$/;"	s
+toc: false	archetypes/posts.md	/^toc: false$/;"	s
+toc: false	content/post/C++/一个有锁线程安全的队列实现.md	/^toc: false$/;"	s
+toc: false	content/post/X11VNC搭建指北.md	/^toc: false$/;"	s
+toc: false	content/post/一次numpy读取txt文件优化.md	/^toc: false$/;"	s
+toc: true	content/post/CG/phong_and_Blinn_Phong.md	/^toc: true$/;"	s
+toc: true	content/post/UEFI+win7+Linux双启动踩坑日记.md	/^toc: true$/;"	s
+toc: true	content/post/dl/读<machine-learning-yearning>杂记.md	/^toc: true$/;"	s
+tr:nth-child(even)	public/css/style.css	/^tr:nth-child(even) { background: #eee }$/;"	s
+tr:nth-child(even)	themes/hugo-classic/static/css/style.css	/^tr:nth-child(even) { background: #eee }$/;"	s
+translation	public/2019/08/matrix_transformation/index.html	/^<h4 id="translation">Translation<\/h4>$/;"	I
+unity8	content/post/debian/2017-04-08-造轮子能走多远？Ubuntu最终放弃了Unity.md	/^## unity8$/;"	s
+unity8	public/2017/04/414/index.html	/^<h2 id="unity8">unity8<\/h2>$/;"	I
+unity8	public/2017/04/414/index.html	/^<h2 id="unity8">unity8<\/h2>$/;"	i
+vector & list	content/post/C++/2019-03-31-FakeSTL_From_Scratch____C++_从0开始写FakeSTL_[目录].md	/^#### vector & list$/;"	t
+vector--list	public/2019/03/443/index.html	/^<h4 id="vector--list">vector &amp; list<\/h4>$/;"	I
+video	public/css/style.css	/^img, iframe, video { max-width: 100%; }$/;"	s
+video	themes/hugo-classic/static/css/style.css	/^img, iframe, video { max-width: 100%; }$/;"	s
+view-the-ascii-chart	public/2015/10/man不-你需要cheat/index.html	/^<h1 id="view-the-ascii-chart">View the ascii chart<\/h1>$/;"	I
+what-is-observer-ptr	public/2019/05/459/index.html	/^<h2 id="what-is-observer-ptr">What is observer_ptr<\/h2>$/;"	I
+why-avl-tree	public/2019/06/fakestl_from_scratch____avl_tree的实现/index.html	/^<h2 id="why-avl-tree">Why AVL Tree?<\/h2>$/;"	I
+windowsgrub	public/2019/10/uefi-win7-linux双启动踩坑日记/index.html	/^<h1 id="windowsgrub">windows覆盖grub问题<\/h1>$/;"	I
+windows覆盖grub问题	content/post/UEFI+win7+Linux双启动踩坑日记.md	/^# windows覆盖grub问题$/;"	c
+windows覆盖grub问题	public/2019/10/uefi-win7-linux双启动踩坑日记/index.html	/^<h1 id="windowsgrub">windows覆盖grub问题<\/h1>$/;"	h
+x11vncsystemed	public/2019/11/x11vnc搭建指北/index.html	/^<h3 id="x11vncsystemed">x11vnc的systemed配置<\/h3>$/;"	I
+x11vnc的systemed配置	content/post/X11VNC搭建指北.md	/^### x11vnc的systemed配置$/;"	S
+x11vnc的systemed配置	public/2019/11/x11vnc搭建指北/index.html	/^<h3 id="x11vncsystemed">x11vnc的systemed配置<\/h3>$/;"	j
+xhtml	public/sitemap.xml	/^  xmlns:xhtml="http:\/\/www.w3.org\/1999\/xhtml">$/;"	n	uri:http://www.w3.org/1999/xhtml
+{{ . }}	themes/hugo-classic/layouts/_default/single.html	/^{{ with .Params.author }}<h2 class="author">{{ . }}<\/h2>{{ end }}$/;"	i
+{{ .Date.Format "2006/01/02" }}	themes/hugo-classic/layouts/_default/single.html	/^{{ if .Params.date }}<h2 class="date">{{ .Date.Format "2006\/01\/02" }}<\/h2>{{ end }}$/;"	i
+{{ .Title | markdownify}}	themes/hugo-classic/layouts/_default/list.html	/^<h1>{{ .Title | markdownify}}<\/h1>$/;"	h
+{{ .Title | markdownify}}	themes/hugo-classic/layouts/_default/single.html	/^<h1><span class="title">{{ .Title | markdownify}}<\/span><\/h1>$/;"	h
+{{ .Title }}	themes/hugo-classic/layouts/_default/terms.html	/^<h1>{{ .Title }}<\/h1>$/;"	h
+一个典型的项目目录	content/post/C++/2019-03-24-建立简单的带单元测试的CMake项目.md	/^### 一个典型的项目目录$/;"	S
+一个典型的项目目录	public/2019/03/452/index.html	/^<h3 id="heading-2">一个典型的项目目录<\/h3>$/;"	j
+一个带链表回收的Allocator	content/post/C++/2019-04-05-FakeSTL_From_Scratch___编写Allocator.md	/^### 一个带链表回收的Allocator$/;"	S
+一个带链表回收的Allocator	public/2019/04/450/index.html	/^<\/code><\/pre><\/div><h3 id="allocator-1">一个带链表回收的Allocator<\/h3>$/;"	j
+一个简单的Allocator的实现（通过调用`operator new`和`operator delete`）	content/post/C++/2019-04-05-FakeSTL_From_Scratch___编写Allocator.md	/^### 一个简单的Allocator的实现（通过调用`operator new`和`operator delete`）$/;"	S
+一个简单的Allocator的实现（通过调用operator new和operator delete）	public/2019/04/450/index.html	/^<\/code><\/pre><\/div><h3 id="allocatoroperator-newoperator-delete">一个简单的Allocator的实/;"	j
+一次numpy读取txt文件优化	public/2020/01/一次numpy读取txt文件优化/index.html	/^<h1><span class="title">一次numpy读取txt文件优化<\/span><\/h1>$/;"	h
+中南大学 载运工具运用工程复试经验帖	public/1/01/442/index.html	/^<h1><span class="title">中南大学 载运工具运用工程复试经验帖<\/span><\/h1>$/;"	h
+中南大学 载运工具运用工程复试经验帖	public/2019/03/442/index.html	/^<h1><span class="title">中南大学 载运工具运用工程复试经验帖<\/span><\/h1>$/;"	h
+为什么要用齐次坐标	public/2019/08/matrix_transformation/index.html	/^<h2 id="为什么要用齐次坐标">为什么要用齐次坐标？<\/h2>$/;"	I
+为什么要用齐次坐标？	content/post/CG/Matrix_Transformation.md	/^##  为什么要用齐次坐标？$/;"	s
+为什么要用齐次坐标？	public/2019/08/matrix_transformation/index.html	/^<h2 id="为什么要用齐次坐标">为什么要用齐次坐标？<\/h2>$/;"	i
+主目录的CMakeLists.txt	content/post/C++/2019-03-24-建立简单的带单元测试的CMake项目.md	/^### 主目录的CMakeLists.txt$/;"	S
+主目录的CMakeLists.txt	public/2019/03/452/index.html	/^<h3 id="cmakeliststxt">主目录的CMakeLists.txt<\/h3>$/;"	j
+从Thunar中在xfce-terminal打开VIM	public/2019/02/437/index.html	/^<h1><span class="title">从Thunar中在xfce-terminal打开VIM<\/span><\/h1>$/;"	h
+从森林中合并为树	content/post/C++/2019-05-20-Huffman编码与解码.md	/^## 从森林中合并为树$/;"	s
+从森林中合并为树	public/2019/05/454/index.html	/^<h2 id="heading">从森林中合并为树<\/h2>$/;"	i
+传递编译参数	content/post/C++/2019-03-24-建立简单的带单元测试的CMake项目.md	/^#### 传递编译参数$/;"	t
+但是，这样重新打包后仍然无法运行，主要是chrome-sandbox的权限设置问题(原因不明，对打包机制不了解)	content/post/debian/2017-04-09-Debian_9_stretch_解决网易云音乐(NetEase-music)的依赖问题.md	/^### 但是，这样重新打包后仍然无法运行，主要是chrome-sandbox的权限设置问/;"	S
+但是，这样重新打包后仍然无法运行，主要是chrome-sandbox的权限设置问题(原因不明，对打包机制不了解)	public/2017/04/415/index.html	/^<h3 id="chrome-sandbox">但是，这样重新打包后仍然无法运行，主要是chrome-sandb/;"	j
+关于C++的命名约定	public/2019/07/关于c-的命名约定/index.html	/^<h1><span class="title">关于C++的命名约定<\/span><\/h1>$/;"	h
+关于Py2exe对Pyqt5.uic报错的解决	public/2016/03/关于py2exe对pyqt5打包中的几个坑/index.html	/^<h1><span class="title">关于Py2exe对Pyqt5.uic报错的解决<\/span><\/h1>$/;"	h
+关于chromebook在安装crouton后没有声音的解决办法	public/2016/03/关于chromebook在安装crouton后没有声音的解决办法/index.html	/^<h1><span class="title">关于chromebook在安装crouton后没有声音的解决办法<\/span><\//;"	h
+其他	content/post/C++/2019-03-31-FakeSTL_From_Scratch____C++_从0开始写FakeSTL_[目录].md	/^## 其他$/;"	s
+其他	public/2019/03/443/index.html	/^<h2 id="heading-5">其他<\/h2>$/;"	i
+内存池版本带回收的Allocator	content/post/C++/2019-04-05-FakeSTL_From_Scratch___编写Allocator.md	/^### 内存池版本带回收的Allocator$/;"	S
+内存池版本带回收的Allocator	public/2019/04/450/index.html	/^<h3 id="allocator-2">内存池版本带回收的Allocator<\/h3>$/;"	j
+再进一步	content/post/一次numpy读取txt文件优化.md	/^## 再进一步$/;"	s
+再进一步	public/2020/01/一次numpy读取txt文件优化/index.html	/^<h2 id="heading">再进一步<\/h2>$/;"	i
+函数命名	content/post/C++/关于C++的命名约定.md	/^## 函数命名$/;"	s
+函数命名	public/2019/07/关于c-的命名约定/index.html	/^<h2 id="heading-5">函数命名<\/h2>$/;"	i
+创新，还是分裂	content/post/debian/2017-04-08-造轮子能走多远？Ubuntu最终放弃了Unity.md	/^### 创新，还是分裂$/;"	S
+创新，还是分裂	public/2017/04/414/index.html	/^<h3 id="heading">创新，还是分裂<\/h3>$/;"	j
+前言	content/post/C++/2019-03-24-建立简单的带单元测试的CMake项目.md	/^## 前言$/;"	s
+前言	public/2019/03/452/index.html	/^<h2 id="heading">前言<\/h2>$/;"	i
+包含单元测试的简单工程	content/post/C++/2019-03-24-建立简单的带单元测试的CMake项目.md	/^## 包含单元测试的简单工程$/;"	s
+包含单元测试的简单工程	public/2019/03/452/index.html	/^<h2 id="heading-1">包含单元测试的简单工程<\/h2>$/;"	i
+单元测试	content/post/C++/2019-03-24-建立简单的带单元测试的CMake项目.md	/^#### 单元测试$/;"	t
+博客迁移到Hugo &amp; github pages	public/2019/06/博客迁移到hugo-github-pages/index.html	/^<h1><span class="title">博客迁移到Hugo &amp; github pages<\/span><\/h1>$/;"	h
+变量命名	content/post/C++/关于C++的命名约定.md	/^## 变量命名$/;"	s
+变量命名	public/2019/07/关于c-的命名约定/index.html	/^<h2 id="heading-3">变量命名<\/h2>$/;"	i
+启动黑屏	content/post/UEFI+win7+Linux双启动踩坑日记.md	/^# 启动黑屏$/;"	c
+启动黑屏	public/2019/10/uefi-win7-linux双启动踩坑日记/index.html	/^<h1 id="heading">启动黑屏<\/h1>$/;"	h
+命名空间	content/post/C++/关于C++的命名约定.md	/^## 命名空间$/;"	s
+命名空间	public/2019/07/关于c-的命名约定/index.html	/^<h2 id="heading-6">命名空间<\/h2>$/;"	i
+图形学中常见的线性变换	public/2019/08/matrix_transformation/index.html	/^<h1><span class="title">图形学中常见的线性变换<\/span><\/h1>$/;"	h
+坑在哪里	content/post/C++/Kinect_V1在Debian10的配置.md	/^# 坑在哪里$/;"	c
+坑在哪里	public/2019/08/kinect_v1在debian_testing的配置指北/index.html	/^<h1 id="heading">坑在哪里<\/h1>$/;"	h
+子项目	content/post/C++/2019-03-24-建立简单的带单元测试的CMake项目.md	/^#### 子项目$/;"	t
+宏命名	content/post/C++/关于C++的命名约定.md	/^## 宏命名$/;"	s
+宏命名	public/2019/07/关于c-的命名约定/index.html	/^<\/code><\/pre><\/div><h2 id="heading-8">宏命名<\/h2>$/;"	i
+实现顺序	content/post/C++/2019-03-31-FakeSTL_From_Scratch____C++_从0开始写FakeSTL_[目录].md	/^### 实现顺序$/;"	S
+实现顺序	public/2019/03/443/index.html	/^<h3 id="heading-3">实现顺序<\/h3>$/;"	j
+实现顺序和目标	content/post/C++/2019-03-31-FakeSTL_From_Scratch____C++_从0开始写FakeSTL_[目录].md	/^## 实现顺序和目标$/;"	s
+实现顺序和目标	public/2019/03/443/index.html	/^<h2 id="heading-2">实现顺序和目标<\/h2>$/;"	i
+常用的三种变换	content/post/CG/Matrix_Transformation.md	/^### 常用的三种变换$/;"	S
+常用的三种变换	public/2019/08/matrix_transformation/index.html	/^<h3 id="常用的三种变换">常用的三种变换<\/h3>$/;"	I
+常用的三种变换	public/2019/08/matrix_transformation/index.html	/^<h3 id="常用的三种变换">常用的三种变换<\/h3>$/;"	j
+常量	content/post/C++/关于C++的命名约定.md	/^## 常量$/;"	s
+常量	public/2019/07/关于c-的命名约定/index.html	/^<h2 id="heading-4">常量<\/h2>$/;"	i
+建立构建目标	content/post/C++/2019-03-24-建立简单的带单元测试的CMake项目.md	/^#### 建立构建目标$/;"	t
+建立简单的带单元测试的CMake项目	public/2019/03/452/index.html	/^<h1><span class="title">建立简单的带单元测试的CMake项目<\/span><\/h1>$/;"	h
+引言	content/post/C++/2019-03-31-FakeSTL_From_Scratch____C++_从0开始写FakeSTL_[目录].md	/^## 引言$/;"	s
+引言	public/2019/03/443/index.html	/^<h2 id="heading">引言<\/h2>$/;"	i
+我选择了Manjaro	public/2019/09/我选择了manjaro/index.html	/^<h1><span class="title">我选择了Manjaro<\/span><\/h1>$/;"	h
+拆包	content/post/debian/2017-04-09-Debian_9_stretch_解决网易云音乐(NetEase-music)的依赖问题.md	/^### 拆包$/;"	S
+拆包	public/2017/04/415/index.html	/^<h3 id="heading">拆包<\/h3>$/;"	j
+换用pandas.read_csv看看	content/post/一次numpy读取txt文件优化.md	/^## 换用pandas.read_csv看看$/;"	s
+换用pandas.read_csv看看	public/2020/01/一次numpy读取txt文件优化/index.html	/^<h2 id="pandasread-csv">换用pandas.read_csv看看<\/h2>$/;"	i
+数据处理	content/post/dl/读<machine-learning-yearning>杂记.md	/^# 数据处理 $/;"	c
+数据处理	public/2019/10/读machine-learning-yearning杂记/index.html	/^<h1 id="heading">数据处理<\/h1>$/;"	h
+文件名	content/post/C++/关于C++的命名约定.md	/^## 文件名$/;"	s
+文件名	public/2019/07/关于c-的命名约定/index.html	/^<h2 id="heading-1">文件名<\/h2>$/;"	i
+机械设计	content/post/2019-03-29-中南大学_载运工具运用工程复试经验帖.md	/^## 机械设计$/;"	s
+机械设计	public/1/01/442/index.html	/^<h2 id="机械设计">机械设计<\/h2>$/;"	I
+机械设计	public/1/01/442/index.html	/^<h2 id="机械设计">机械设计<\/h2>$/;"	i
+机械设计	public/2019/03/442/index.html	/^<h2 id="heading-1">机械设计<\/h2>$/;"	i
+枚举命名	content/post/C++/关于C++的命名约定.md	/^## 枚举命名$/;"	s
+枚举命名	public/2019/07/关于c-的命名约定/index.html	/^<\/code><\/pre><\/div><h2 id="heading-7">枚举命名<\/h2>$/;"	i
+浅谈RAII和智能指针	public/2019/03/438/index.html	/^<h1><span class="title">浅谈RAII和智能指针<\/span><\/h1>$/;"	h
+目录	content/post/C++/2019-03-31-FakeSTL_From_Scratch____C++_从0开始写FakeSTL_[目录].md	/^## 目录$/;"	s
+目录	public/2019/03/443/index.html	/^<h2 id="heading-4">目录<\/h2>$/;"	i
+端对端学习	content/post/dl/读<machine-learning-yearning>杂记.md	/^# 端对端学习$/;"	c
+端对端学习	public/2019/10/读machine-learning-yearning杂记/index.html	/^<h1 id="heading-3">端对端学习<\/h1>$/;"	h
+第一种 修改Windows BCD 来让Ubuntu默认启动	content/post/UEFI+win7+Linux双启动踩坑日记.md	/^## 第一种 修改Windows BCD 来让Ubuntu默认启动$/;"	s
+第一种 修改Windows BCD 来让Ubuntu默认启动	public/2019/10/uefi-win7-linux双启动踩坑日记/index.html	/^<h2 id="-windows-bcd-ubuntu">第一种 修改Windows BCD 来让Ubuntu默认启动<\/h2>$/;"	i
+第三种 替换windows的EFI(不推荐)	content/post/UEFI+win7+Linux双启动踩坑日记.md	/^## 第三种 替换windows的EFI(不推荐)$/;"	s
+第三种 替换windows的EFI(不推荐)	public/2019/10/uefi-win7-linux双启动踩坑日记/index.html	/^<\/code><\/pre><h2 id="-windowsefi-1">第三种 替换windows的EFI(不推荐)<\/h2>$/;"	i
+第二种 修改windows的启动项指向的EFI文件	content/post/UEFI+win7+Linux双启动踩坑日记.md	/^## 第二种 修改windows的启动项指向的EFI文件$/;"	s
+第二种 修改windows的启动项指向的EFI文件	public/2019/10/uefi-win7-linux双启动踩坑日记/index.html	/^<h2 id="-windowsefi">第二种 修改windows的启动项指向的EFI文件<\/h2>$/;"	i
+第四种 新建一个UEFI启动项(Most Recommended)	content/post/UEFI+win7+Linux双启动踩坑日记.md	/^## 第四种 新建一个UEFI启动项(Most Recommended)$/;"	s
+第四种 新建一个UEFI启动项(Most Recommended)	public/2019/10/uefi-win7-linux双启动踩坑日记/index.html	/^<\/code><\/pre><h2 id="-uefimost-recommended">第四种 新建一个UEFI启动项(Most Recommend/;"	i
+类型命名	content/post/C++/关于C++的命名约定.md	/^## 类型命名$/;"	s
+类型命名	public/2019/07/关于c-的命名约定/index.html	/^<h2 id="heading-2">类型命名<\/h2>$/;"	i
+经典光照模型:Phong光照模型以及BlinnPhong光照模型	public/2019/10/phong_and_blinn_phong/index.html	/^<h1><span class="title">经典光照模型:Phong光照模型以及BlinnPhong光照模型<\/span>/;"	h
+编译运行	content/post/C++/2019-03-24-建立简单的带单元测试的CMake项目.md	/^### 编译运行$/;"	S
+编译运行	public/2019/03/452/index.html	/^<h3 id="heading-7">编译运行<\/h3>$/;"	j
+解决Debian和windows相差八小时的问题	public/2016/04/解决debian和windows相差八小时的问题/index.html	/^<h1><span class="title">解决Debian和windows相差八小时的问题<\/span><\/h1>$/;"	h
+解决方案	content/post/C++/Kinect_V1在Debian10的配置.md	/^## 解决方案$/;"	s
+解决方案	public/2019/08/kinect_v1在debian_testing的配置指北/index.html	/^<\/code><\/pre><h2 id="heading-1">解决方案<\/h2>$/;"	i
+诊断学习过程	content/post/dl/读<machine-learning-yearning>杂记.md	/^# 诊断学习过程$/;"	c
+诊断学习过程	public/2019/10/读machine-learning-yearning杂记/index.html	/^<h1 id="heading-2">诊断学习过程<\/h1>$/;"	h
+误差分析	content/post/dl/读<machine-learning-yearning>杂记.md	/^# 误差分析$/;"	c
+误差分析	public/2019/10/读machine-learning-yearning杂记/index.html	/^<h1 id="heading-1">误差分析<\/h1>$/;"	h
+读Machine-Learning-Yearning杂记	public/2019/10/读machine-learning-yearning杂记/index.html	/^<h1><span class="title">读Machine-Learning-Yearning杂记<\/span><\/h1>$/;"	h
+谈谈constexpr,inline和static	public/2019/06/谈谈constexprinline和static/index.html	/^<h1><span class="title">谈谈constexpr,inline和static<\/span><\/h1>$/;"	h
+谈谈observer_ptr	public/2019/05/459/index.html	/^<h1><span class="title">谈谈observer_ptr<\/span><\/h1>$/;"	h
+谷歌命名约定	content/post/C++/关于C++的命名约定.md	/^# 谷歌命名约定$/;"	c
+谷歌命名约定	public/2019/07/关于c-的命名约定/index.html	/^<h1 id="heading">谷歌命名约定<\/h1>$/;"	h
+车辆工程	content/post/2019-03-29-中南大学_载运工具运用工程复试经验帖.md	/^## 车辆工程$/;"	s
+车辆工程	public/1/01/442/index.html	/^<h2 id="车辆工程">车辆工程<\/h2>$/;"	I
+车辆工程	public/1/01/442/index.html	/^<h2 id="车辆工程">车辆工程<\/h2>$/;"	i
+车辆工程	public/2019/03/442/index.html	/^<h2 id="heading">车辆工程<\/h2>$/;"	i
+迁移原因	content/post/2019-06-02-博客迁移到Hugo_&_github_pages.md	/^## 迁移原因$/;"	s
+迁移原因	public/2019/06/博客迁移到hugo-github-pages/index.html	/^<h2 id="heading">迁移原因<\/h2>$/;"	i
+迁移过程	content/post/2019-06-02-博客迁移到Hugo_&_github_pages.md	/^## 迁移过程$/;"	s
+迁移过程	public/2019/06/博客迁移到hugo-github-pages/index.html	/^<h2 id="heading-1">迁移过程<\/h2>$/;"	i
+还可不可以更快？	content/post/一次numpy读取txt文件优化.md	/^## 还可不可以更快？$/;"	s
+还可不可以更快？	public/2020/01/一次numpy读取txt文件优化/index.html	/^<h2 id="heading-2">还可不可以更快？<\/h2>$/;"	i
+还可以再快	content/post/一次numpy读取txt文件优化.md	/^## 还可以再快$/;"	s
+还可以再快	public/2020/01/一次numpy读取txt文件优化/index.html	/^<h2 id="heading-1">还可以再快<\/h2>$/;"	i
+递归法生成编码表	content/post/C++/2019-05-20-Huffman编码与解码.md	/^## 递归法生成编码表$/;"	s
+递归法生成编码表	public/2019/05/454/index.html	/^<h2 id="heading-1">递归法生成编码表<\/h2>$/;"	i
+造轮子能走多远？Ubuntu最终放弃了Unity	public/2017/04/414/index.html	/^<h1><span class="title">造轮子能走多远？Ubuntu最终放弃了Unity<\/span><\/h1>$/;"	h
+造轮子，还能走多远	content/post/debian/2017-04-08-造轮子能走多远？Ubuntu最终放弃了Unity.md	/^### 造轮子，还能走多远$/;"	S
+造轮子，还能走多远	public/2017/04/414/index.html	/^<h3 id="heading-1">造轮子，还能走多远<\/h3>$/;"	j
+陷阱！如何实现Vector作为Class成员的初始化	public/2017/08/422/index.html	/^<h1><span class="title">陷阱！如何实现Vector作为Class成员的初始化<\/span><\/h1>$/;"	h
+需要的能力	content/post/C++/2019-03-31-FakeSTL_From_Scratch____C++_从0开始写FakeSTL_[目录].md	/^## 需要的能力$/;"	s
+需要的能力	public/2019/03/443/index.html	/^<h2 id="heading-1">需要的能力<\/h2>$/;"	i
+默认分类	public/categories/默认分类/index.html	/^<h1>默认分类<\/h1>$/;"	h
