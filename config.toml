@@ -10,8 +10,7 @@ footnotereturnlinkcontents = "↩"
 hasCJKLanguage =  true
 enableRobotsTXT =   true
 enableGitInfo = true
-
-
+pygmentsCodeFences = false
 
 [permalinks]
     post = "/:year/:month/:slug/"
