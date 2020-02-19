@@ -35,3 +35,7 @@ pygmentsCodeFences = false
     description = "A simple, minimal blog for those who love text."
     footer = "自豪的采用 [Hugo](https://gohugo.io/) | [hugo-classic](https://github.com/goodroot/hugo-classic) | panda[at]blurredcode.com"
     custom_css = ["css/theme-override.css"]
+[markup]
+  [markup.tableOfContents]
+      endLevel = 3
+      startLevel = 1
