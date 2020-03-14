@@ -31,6 +31,8 @@ pygmentsCodeFences = false
     name = "Subscribe"
     url = "/index.xml"
 
+
+
 [params]
     description = "A simple, minimal blog for those who love text."
     footer = "自豪的采用 [Hugo](https://gohugo.io/) | [hugo-classic](https://github.com/goodroot/hugo-classic) | panda[at]blurredcode.com"
@@ -41,3 +43,7 @@ pygmentsCodeFences = false
       startLevel = 1
   [markup.goldmark.renderer]
       unsafe= true
+[frontmatter]
+date = [":git", "lastmod", "date",":fileModTime",":default"]
+lastmod = [":git", "lastmod", "date",":fileModTime",":default"]
+

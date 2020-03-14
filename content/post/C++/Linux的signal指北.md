@@ -4,7 +4,7 @@ title: "Linux的signal指北"
 date: 2020-02-19T17:53:26+08:00
 draft: false
 # tags: [ "" ]
-categories: [ "C++,Linux"]
+categories: [ "C++","Linux"]
 # keywords: [ ""]
 lastmod: 2020-02-19T17:53:26+08:00
 # CJKLanguage: Chinese, Japanese, Korean
