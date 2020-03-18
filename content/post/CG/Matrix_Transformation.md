@@ -1,12 +1,12 @@
 
 ---
-title: "图形学中常见的线性变换"
+title: "图形学中常见的变换"
 date: 2019-08-09T17:33:03+08:00
 draft: false
 # tags: [ "" ]
-categories: [ "OpenGL","C++"]
+categories: [ "CG","C++"]
 # keywords: [ ""]
-lastmod: 2019-08-09T17:33:03+08:00
+# lastmod: 2019-08-09T17:33:03+08:00
 # CJKLanguage: Chinese, Japanese, Korean
 isCJKLanguage: true
 slug: "Matrix_Transformation"
@@ -14,18 +14,13 @@ katex: true
 markup: mmark
 ---
 
-引言: https://learnopengl.com/Getting-started/Transformations 这里讲得不错。这篇文章不过是对链接指向地址的简单摘要。此外，推荐
-
-<Foundation of 3D computer graphics>，前六章的数学基础讲得不错。
-
-
-
+引言: https://learnopengl.com/Getting-started/Transformations 这里讲得不错。这篇文章不过是对链接指向地址的简单摘要。此外，推荐\<Foundation of 3D computer graphics\>，前六章的数学基础讲得不错。
 
 ##  为什么要用齐次坐标？
 
 
 
-Why use *affine matrix*? 图形学中常用4x4矩阵来进行变换，因为4x4能够帮助我们区分**点**和**向量**。
+Why use *homogeneous matrix*? 图形学中常用4x4矩阵来进行变换，因为 1. 升维后的向量能够帮助我们区分**点**和**向量**, 2 在齐次坐标下可以统一线性变换和平移变换。
 
 考虑如下 $$ \vec{v} $$
 
@@ -67,9 +62,11 @@ $$
   \right]
  $$
 
-矩阵与矩阵的操作需要保持相同的维度，所以线性变换的矩阵也要升格为4*4矩阵。
+矩阵与矩阵的操作需要保持相同的维度，所以变换的矩阵也要升维为4*4矩阵。
 
-### 常用的三种变换
+### 常用的仿射变换
+
+仿射变换主要由三种**线性变换**和非线性的**平移变换**组成。
 
 #### Scaling
 
@@ -98,6 +95,77 @@ S_{3} \cdot v_{3} \\
 1
  \end{array}
   \right)$$
+
+
+#### rotation
+这里采用**右手坐标系**。
+一个二维的旋转矩阵可以表示为，其中$$\theta$$代表逆时针旋转的角度。
+
+$$
+ \left[
+\begin{array}{cc}
+\cos\theta & -\sin\theta \\
+\sin\theta & \cos\theta
+ \end{array}
+  \right]
+  $$
+
+  二维的旋转默认以原点为中心，以z轴作为旋转轴，由此推广到三维
+
+  $$
+ \left[
+\begin{array}{cc}
+\cos\theta & -\sin\theta & 0 &0 \\
+\sin\theta & \cos\theta & 0  & 0\\
+0 & 0 & 1 &0 \\
+0 & 0 & 0 & 1
+ \end{array}
+  \right]
+  $$
+
+  表示三维空间内，绕z轴的逆时针转动$$\theta$$角。
+比较特殊的是绕y轴旋转，符号是反的(因为x轴crossz轴得到的方向和y轴相反)
+
+  $$
+ \left[
+\begin{array}{cc}
+\cos\theta &0 & -sin\theta & 0  \\
+0 & 1 & 0 &0 \\
+-\sin\theta &0 & \cos\theta  & 0\\
+0 & 0 & 0 & 1
+ \end{array}
+  \right]
+  $$
+
+可以推广到绕任意轴$$\vec{n}$$逆时针旋转$$\theta$$:
+
+$$ \mathbf{R(n,\theta) = \cos\theta I + (\text{1} - \cos\theta)nn^T + \sin\theta}
+\begin{Bmatrix}
+  0 & -n_z & ny \\
+  n_z & 0 & -n_x \\
+  -n_y& n_x &0
+\end{Bmatrix}
+ $$
+
+#### shear
+三维shear用的比较少。
+
+$$
+T = 
+\begin{bmatrix}
+ 1  & sh_y^x & sh_z^x  & 0\\
+ sh_x^y & 1 & sh_z^y & 0\\
+  sh_x^z & sh_x^y &   1 & 0\\
+  0 & 0 & 0 & 1
+\end{bmatrix}
+ $$
+ 
+$$
+ V' = T \cdot V \\
+ V'.x = V.x + sh_y^x V.y + sh_z^x V.z\\
+ ...
+ $$
+
 
 #### Translation
 
@@ -130,32 +198,3 @@ T_{z} + v_{3} \\
  $$
 
  其中，$$T_x,T_y,T_z$$分别代表原向量沿着$$x,y,z$$三轴移动的距离。
-
-#### rotation
-
-一个二维的旋转矩阵可以表示为，其中$\theta$代表逆时针旋转的角度。
-
-$$
- \left[
-\begin{array}{cc}
-\cos\theta & -\sin\theta \\
-\sin\theta & \cos\theta
- \end{array}
-  \right]
-  $$
-
-  二维的旋转默认以原点为中心，以z轴作为旋转轴，由此推广到三维
-
-  $$
- \left[
-\begin{array}{cc}
-\cos\theta & -\sin\theta & 0 &0 \\
-\sin\theta & \cos\theta & 0  & 0\\
-0 & 0 & 1 &0 \\
-0 & 0 & 0 & 1
- \end{array}
-  \right]
-  $$
-
-  表示三维空间内，绕z轴的逆时针转动$$\theta$$角。
-
