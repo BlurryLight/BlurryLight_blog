@@ -4,7 +4,7 @@ cid: 351
 title: "Python利用Qtcreator和Pyqt快速创建GUI"
 slug: python-利用qtcreator和pyqt快速创建gui
 date: 2016-02-28
-updated: 2019-03-07
+updated: 2016-02-28
 status: publish
 author: panda
 categories: 
@@ -47,3 +47,4 @@ if __name__ == '__main__':
 
 
 这样就成功载入ui了，而且修改界面只需要在qtcreator内部修改，不需要再对代码进行大修特修
+

@@ -4,7 +4,7 @@ cid: 401
 title: "Debian sid 搭建Nodejs + Electron"
 slug: debian-sid-搭建nodejs-electron
 date: 2016-05-22
-updated: 2019-03-07
+updated: 2016-05-22
 status: publish
 author: panda
 categories: 

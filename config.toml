@@ -40,6 +40,5 @@ pygmentsCodeFences = false
   [markup.goldmark.renderer]
       unsafe= true
 [frontmatter]
-date = [":git", "lastmod", "date",":fileModTime",":default"]
-lastmod = [":git", "lastmod", "date",":fileModTime",":default"]
+date = ["lastmod","updated",":git","date",":fileModTime",":default"]
 

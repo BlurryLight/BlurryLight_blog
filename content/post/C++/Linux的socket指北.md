@@ -4,7 +4,7 @@ title: "Linux的socket指北"
 date: 2020-03-16T22:13:26+08:00
 draft: false
 # tags: [ "" ]
-categories: [ "默认分类"]
+categories: [ "C++","Linux"]
 # keywords: [ ""]
 # lastmod: 2020-03-16T22:13:26+08:00
 # CJKLanguage: Chinese, Japanese, Korean

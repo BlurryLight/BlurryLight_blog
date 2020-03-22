@@ -4,7 +4,7 @@ cid: 380
 title: "解决Debian和windows相差八小时的问题"
 slug: 解决debian和windows相差八小时的问题
 date: 2016-04-10
-updated: 2019-03-07
+updated: 2016-04-10
 status: publish
 author: panda
 categories: 

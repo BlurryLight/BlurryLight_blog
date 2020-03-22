@@ -4,7 +4,7 @@ title: "UEFI+win7+Linux双启动踩坑日记"
 date: 2019-10-17T13:40:01+08:00
 draft: false
 # tags: [ "" ]
-categories: [ "默认分类"]
+categories: [ "Linux"]
 # keywords: [ ""]
 lastmod: 2019-10-17T13:40:01+08:00
 # CJKLanguage: Chinese, Japanese, Korean
