@@ -23,11 +23,6 @@ pygmentsCodeFences = false
     name = "Categories"
     url = "/categories/"
     weight = 2
-[[menu.feed]]
-    name = "Subscribe"
-    url = "/index.xml"
-
-
 
 [params]
     description = "A simple, minimal blog for those who love text."
