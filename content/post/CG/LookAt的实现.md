@@ -21,7 +21,7 @@ slug: "LookAt的实现"
 
 ![view矩阵](/image/lookat.png)
 
-其中P是相机的位置向量，U是需要计算的，相机的up向量，R也是需要计算的，相机坐标系的右向量，D是最好计算的，D是direction向量，是从物体到相机的向量。
+其中P是相机的位置向量，U是需要计算的，相机的up向量，R也是需要计算的，相机坐标系的右向量，D是最好计算的，D是direction向量，是从**物体到相机**的向量。
 因此代码可以写成如下，
 
 ```cpp
@@ -30,8 +30,8 @@ slug: "LookAt的实现"
                            glm::vec3 worldup) -> glm ::mat4 {
     glm::vec3 zaxis = glm::normalize(position - target);    //direction vector
     glm::vec3 xaxis =                                       //right vector
-        glm::normalize(glm::cross(glm::normalize(worldup), zaxis));     // camera up vector
-    glm::vec3 yaxis = glm::cross(zaxis, xaxis);
+        glm::normalize(glm::cross(glm::normalize(worldup), zaxis));     
+    glm::vec3 yaxis = glm::cross(zaxis, xaxis);  // camera up vector
 
     glm::mat4 trans = glm::mat4(1.0f);
     trans[3][0] = -position.x;
@@ -41,17 +41,17 @@ slug: "LookAt的实现"
     glm::mat4 rotation = glm::mat4(1.0f);
     rotation[0][0] = xaxis.x;
     rotation[1][0] = xaxis.y;
-    rotation[2][0] = xaxis.y;
+    rotation[2][0] = xaxis.z;
 
     rotation[0][1] = yaxis.x;
     rotation[1][1] = yaxis.y;
-    rotation[2][1] = yaxis.y;
+    rotation[2][1] = yaxis.z;
 
     rotation[0][2] = zaxis.x;
     rotation[1][2] = zaxis.y;
-    rotation[2][2] = zaxis.y;
+    rotation[2][2] = zaxis.z;
 
-    return trans * rotation;
+    return rotation * trans;
   };
 ```
 

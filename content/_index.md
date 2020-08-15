@@ -6,7 +6,7 @@ title: Home
 
 # Blurred Code
 
-### In code We trust.
+### In code we trust.
 
 <hr/>
 
