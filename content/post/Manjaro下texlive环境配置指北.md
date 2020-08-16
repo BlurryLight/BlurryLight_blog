@@ -28,7 +28,10 @@ Linux下安装texlive环境大致分为两种方式，一种是从包管理器�
 - `./install-tl --gui`(依赖图形库tk,没有的话需要`pacman -S tk`)
 - 高级设置，去除不需要的文字和editor
 
-![安装说明](https://cdn.jsdelivr.net/gh/BlurryLight/resource-files/img/texlive.png)
+![安装说明](/image/texlive.png)
+
+官网还会提示复制`texlive-fontconfig.conf`到`~/.fonts.conf`，以让系统找到texlive安装的字体。我没有做，因为texlive默认会安装`Fandol`系列的宋体，而Linux下一些wine出来的应用(`wine-qq`)会寻找宋体。如果系统里安装了宋体的话，wine出来的应用可能会以宋体来显示，很难看。实际测试不需要复制字体`xelatex`也能找到所需要的字体。
+
 
 # vscode配置
 
