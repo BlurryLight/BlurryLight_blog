@@ -37,3 +37,8 @@ pygmentsCodeFences = false
 [frontmatter]
 date = ["lastmod","updated",":git","date",":fileModTime",":default"]
 
+[params.utter]
+enable = true
+repo = "BlurryLight/BlurryLight.github.io"
+issueTerm = "title"
+theme = "github-light"
