@@ -25,6 +25,7 @@ toc: false
  - xfce4使用的dm是lightdm，所以要从/var/run/lightdm/root/:0中获取权限
  - 配置shared和forever,以允许多个vnc viewer访问
  - 不要开ncache,会导致不支持的客户端，比如手机上的realvnc客户端，获取到错误的分辨率
+ - 要加`-repeat`标签，否则无法连续输入多个按键
  
 ```
 [Unit]
@@ -32,7 +33,7 @@ Description=VNC Server for X11
 Requires=display-manager.service
 
 [Service]
-ExecStart=/usr/bin/x11vnc -display :0 -auth /var/run/lightdm/root/:0  -rfbauth /etc/x11vnc.pwd -shared -forever -o /var/log/x11vnc.log
+ExecStart=/usr/bin/x11vnc -repeat -display :0 -auth /var/run/lightdm/root/:0  -rfbauth /etc/x11vnc.pwd -shared -forever -o /var/log/x11vnc.log
 ExecStop=/usr/bin/x11vnc -R stop
 Restart=always
 RestartSec=2
