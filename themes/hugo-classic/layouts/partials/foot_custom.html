@@ -46,7 +46,7 @@ document.addEventListener('keyup', function(e) {
 })();
 </script>
 
-{{- if .Site.Params.utter.enable -}}
+{{ if and (not .IsHome) (.Site.Params.utter.enable) }}
     <script src="https://utteranc.es/client.js"
         repo= '{{ .Site.Params.utter.repo }}'
         issue-term= "{{ .Site.Params.utter.issueTerm }}"
@@ -54,5 +54,5 @@ document.addEventListener('keyup', function(e) {
         crossorigin= "anonymous"
         async>
     </script>
-  {{- end }}
+{{ end }}
 

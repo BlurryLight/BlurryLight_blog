@@ -15,13 +15,17 @@ pygmentsCodeFences = false
 [permalinks]
     post = "/:year/:month/:slug/"
 
- [[menu.main]]
-    name = "Home"
-    url = "/"
-    weight = 1
+#  [[menu.main]]
+#     name = "Home"
+#     url = "/"
+#     weight = 1
 [[menu.main]]
     name = "Categories"
     url = "/categories/"
+    weight = 1
+[[menu.main]]
+    name = "About me"
+    url = "/about/"
     weight = 2
 
 [params]
