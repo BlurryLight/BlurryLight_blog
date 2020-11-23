@@ -1,10 +1,10 @@
 
 ---
-title: "Xv6的内核态与用户态的切换"
+title: "xv6的内核态与用户态的切换"
 date: 2020-11-17T15:00:03+08:00
 draft: false
 # tags: [ "" ]
-categories: [ "默认分类"]
+categories: [ "xv6","Linux"]
 # keywords: [ ""]
 lastmod: 2020-11-17T15:00:03+08:00
 # CJKLanguage: Chinese, Japanese, Korean
