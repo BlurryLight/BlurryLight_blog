@@ -94,6 +94,7 @@ code { background: #f9f9f9; }
 pre code { background: none; }
 /* pre code {background: #f9f9f9;color: #FF0000} */
 p code {background: #f9f9f9;color: #FF0000}
+li code {background: #f9f9f9;color: #FF0000}
 
 /* Images, tables, misc. */
 img, iframe, video { max-width: 100%; }
