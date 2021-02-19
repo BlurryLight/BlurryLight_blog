@@ -10,13 +10,16 @@
   {{ $pages := .Pages }}
   {{ if .IsHome }}{{ $pages = .Site.RegularPages }}{{ end }}
    <!-- only the post dir will be listed -->
-  {{ range (where $pages "Section" "!=" "") }}
+  {{/* range (where $pages "Section" "!=" "") */}}
+  {{ $paginator := .Paginate (where $pages "Section" "!=" "") }}
+  {{ range $paginator.Pages }}
   <li>
-    <span class="date">{{ .Date.Format "2006/01/02" }}</span>
+    <span class="date">{{ .Params.date.Format "2006/01/02" }}</span>
     <a href="{{ .RelPermalink}}">{{ .Title | markdownify}}</a>
   </li>
   {{ end }}
  <button onclick="topFunction()" id="topBtn" title="Go to top">Top</button>
 </ul>
+{{ template "_internal/pagination.html" . }}
 
 {{ partial "footer.html" . }}
