@@ -6,7 +6,7 @@ title: Home
 
 # Blurred Code
 
-### In code we trust.
+### In [code](https://github.com/BlurryLight) we trust.
 
 <hr/>
 
