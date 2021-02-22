@@ -16,7 +16,7 @@ toc: false
 # markup: mmark
 ---
 
-![Debugger](https://cdn.jsdelivr.net/gh/BlurryLight/DiRender@master/images/debugger.gif)
+![Debugger](/image/debugger.gif)
 
 光线追踪渲染debug很困难，当然实时渲染debug也很难。有的时候材质实现的不太对，可能很长一段时间都看不出来。渲染环境下Debugger基本是不可用的，多线程+十万/百万条光线加上递归的求解算法，断点打上也看不出毛病在哪里。条件断点等偶尔有所帮助，不过总体帮助不大，渲染中常见的debugger方法还是刻意构造一些简单场景(全是镜子的房间、两个相切的球)，或者输出法向量图等来debug。
 
