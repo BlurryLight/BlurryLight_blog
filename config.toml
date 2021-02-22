@@ -47,7 +47,7 @@ date = ["date",":default"]
 
 [params.utter]
 enable = true
-repo = "BlurryLight/BlurryLight.github.io"
+repo = "BlurryLight/BlurryLight_blog"
 issueTerm = "title"
 theme = "github-light"
 
