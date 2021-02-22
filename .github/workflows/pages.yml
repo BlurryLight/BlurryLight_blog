@@ -25,5 +25,5 @@ jobs:
 
       - name: Deploy
         run: |
-        chmod +x ./deploy.sh
-        ./deploy.sh
+          chmod +x ./deploy.sh
+          ./deploy.sh
