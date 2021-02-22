@@ -4,7 +4,11 @@ on:
   push:
     branches:
       - pages-src
-
+env:
+  OSS_ENDPOINT: ${{secrets.OSS_ENDPOINT}}
+  OSS_KEY_ID: ${{secrets.OSS_KEY_ID}}
+  OSS_KEY_SECRET: ${{secrets.OSS_KEY_SECRET}}
+  OSS_BUCKET_NAME: ${{secrets.OSS_BUCKET_NAME}}
 jobs:
   deploy:
     runs-on: ubuntu-18.04
