@@ -4,7 +4,7 @@ title: "C++的六种Memory_order"
 date: 2020-11-21T20:59:04+08:00
 draft: false
 # tags: [ "" ]
-categories: [ "C++"]
+categories: [ "cpp"]
 # keywords: [ ""]
 lastmod: 2020-11-21T20:59:04+08:00
 # CJKLanguage: Chinese, Japanese, Korean

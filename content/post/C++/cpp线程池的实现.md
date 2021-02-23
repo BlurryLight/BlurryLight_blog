@@ -4,7 +4,7 @@ title: "CPP线程池的实现"
 date: 2020-12-01T20:51:22+08:00
 draft: false
 # tags: [ "" ]
-categories: [ "C++"]
+categories: [ "cpp"]
 # keywords: [ ""]
 lastmod: 2020-12-01T20:51:22+08:00
 # CJKLanguage: Chinese, Japanese, Korean

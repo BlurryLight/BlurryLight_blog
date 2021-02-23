@@ -8,7 +8,7 @@ updated: 2019-05-25
 status: publish
 author: panda
 categories:
-  - C++
+  - cpp
   - STL
 tags:
 ---

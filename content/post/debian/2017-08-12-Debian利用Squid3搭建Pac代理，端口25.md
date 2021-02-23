@@ -8,7 +8,7 @@ updated: 2018-12-19
 status: hidden
 author: panda
 categories: 
-  - debian
+  - linux
 tags: 
   - panda
 ---

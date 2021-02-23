@@ -4,7 +4,7 @@ title: "关于C++的命名约定"
 date: 2019-07-30T18:59:25+08:00
 draft: false
 # tags: [ "" ]
-categories: [ "C++"]
+categories: [ "cpp"]
 # keywords: [ ""]
 lastmod: 2019-07-30T18:59:25+08:00
 # CJKLanguage: Chinese, Japanese, Korean

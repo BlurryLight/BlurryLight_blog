@@ -4,7 +4,7 @@ title: "我选择了Manjaro"
 date: 2019-09-14T16:48:10+08:00
 draft: false
 # tags: [ "" ]
-categories: [ "debian"]
+categories: [ "linux"]
 # keywords: [ ""]
 lastmod: 2019-09-14T16:48:10+08:00
 # CJKLanguage: Chinese, Japanese, Korean

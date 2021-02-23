@@ -4,7 +4,7 @@ title: "Pthread指北"
 date: 2020-02-25T23:35:58+08:00
 draft: false
 # tags: [ "" ]
-categories: [ "C++","Linux"]
+categories: [ "cpp","Linux"]
 # keywords: [ ""]
 # CJKLanguage: Chinese, Japanese, Korean
 isCJKLanguage: true

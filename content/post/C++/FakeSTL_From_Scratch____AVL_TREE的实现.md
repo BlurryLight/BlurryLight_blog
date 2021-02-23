@@ -3,7 +3,7 @@ title: "FakeSTL From Scratch | AVL TREE的实现"
 date: 2019-06-04T16:57:12+08:00
 draft: false
 # tags: [ "" ]
-categories: [ "C++","STL"]
+categories: [ "cpp","STL"]
 # keywords: [ ""]
 lastmod: 2019-06-04T16:57:12+08:00
 # CJKLanguage: Chinese, Japanese, Korean

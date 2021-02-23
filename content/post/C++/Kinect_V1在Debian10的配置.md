@@ -4,7 +4,7 @@ title: "Kinect_V1在Debian testing的配置指北"
 date: 2019-08-29T17:07:59+08:00
 draft: false
 # tags: [ "" ]
-categories: ["C++"]
+categories: ["cpp"]
 # keywords: [ ""]
 lastmod: 2019-08-29T17:07:59+08:00
 # CJKLanguage: Chinese, Japanese, Korean

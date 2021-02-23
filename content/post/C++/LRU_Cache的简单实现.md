@@ -4,7 +4,7 @@ title: "LRU Cache的简单实现"
 date: 2021-01-10T20:20:31+08:00
 draft: false
 # tags: [ "" ]
-categories: [ "C++"]
+categories: [ "cpp"]
 # keywords: [ ""]
 lastmod: 2021-01-10T20:20:31+08:00
 # CJKLanguage: Chinese, Japanese, Korean

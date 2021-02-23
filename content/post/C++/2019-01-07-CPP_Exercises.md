@@ -8,7 +8,7 @@ updated: 2019-01-09
 status: publish
 author: panda
 categories: 
-  - C++
+  - cpp
   - LeetCode
 tags: 
 ---

@@ -4,7 +4,7 @@ title: "LookAt的实现"
 date: 2019-09-14T21:28:47+08:00
 draft: false
 # tags: [ "" ]
-categories: [ "C++"]
+categories: [ "cpp"]
 # keywords: [ ""]
 lastmod: 2019-09-14T21:28:47+08:00
 # CJKLanguage: Chinese, Japanese, Korean

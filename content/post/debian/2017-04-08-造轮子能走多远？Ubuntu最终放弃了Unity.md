@@ -8,7 +8,7 @@ updated: 2017-08-03
 status: publish
 author: panda
 categories: 
-  - debian
+  - linux
 tags: 
 ---
 

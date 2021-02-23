@@ -4,7 +4,7 @@ title: "图形学中常见的变换"
 date: 2019-08-09T17:33:03+08:00
 draft: false
 # tags: [ "" ]
-categories: [ "CG","C++"]
+categories: [ "CG","cpp"]
 # keywords: [ ""]
 # lastmod: 2019-08-09T17:33:03+08:00
 # CJKLanguage: Chinese, Japanese, Korean

@@ -4,7 +4,7 @@ title: "Debian10双显卡安装Anaconda+Cuda9+Pytorch"
 date: 2019-06-11T16:46:04+08:00
 draft: false
 # tags: [ "" ]
-categories: [ "debian","Python"]
+categories: [ "linux","Python"]
 # keywords: [ ""]
 lastmod: 2019-06-11T16:46:04+08:00
 # CJKLanguage: Chinese, Japanese, Korean
