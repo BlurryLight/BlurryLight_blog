@@ -55,6 +55,6 @@ chmod +x oss
 ./oss config -e $OSS_ENDPOINT -i $OSS_KEY_ID -k $OSS_KEY_SECRET
 echo "oss config initial completed,ready to upload files from $UPLOAD_PATH ...\n\r"
 
-./oss sync -r $UPLOAD_PATH/ oss://$OSS_BUCKET_NAME/ --delete -f -exclude=*.DS* 
+./oss sync -r $UPLOAD_PATH/ oss://$OSS_BUCKET_NAME/ --delete -f --update
 echo "\n\rdone"
 exit 0
