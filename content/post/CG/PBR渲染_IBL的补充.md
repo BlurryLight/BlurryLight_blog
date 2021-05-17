@@ -14,6 +14,7 @@ toc: false
 #latex support
 katex: true
 markup: mmark
+mmarktoc: true
 ---
 
 # Cook-Torrance反射方程
