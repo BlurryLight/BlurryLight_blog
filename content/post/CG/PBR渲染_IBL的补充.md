@@ -2,7 +2,7 @@
 ---
 title: "PBR渲染: CookTorrance的实现与补充"
 date: 2021-05-15T23:08:49+08:00
-draft: true
+draft: false
 # tags: [ "" ]
 categories: [ "CG"]
 # keywords: [ ""]
