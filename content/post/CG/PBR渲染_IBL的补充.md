@@ -6,7 +6,6 @@ draft: false
 # tags: [ "" ]
 categories: [ "CG"]
 # keywords: [ ""]
-lastmod: 2021-05-15T23:08:49+08:00
 # CJKLanguage: Chinese, Japanese, Korean
 isCJKLanguage: true
 slug: "dec701b2"
