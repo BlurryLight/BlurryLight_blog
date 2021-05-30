@@ -52,5 +52,5 @@ issueTerm = "title"
 theme = "github-light"
 
 [params.CDN]
-enable = true
+enable = false
 Host = "https://cdn.jsdelivr.net/gh/blurrylight/blurrylight_blog@pages-src/static/"

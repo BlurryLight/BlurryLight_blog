@@ -19,7 +19,7 @@
 
 <main>
 {{ partial "table-of-contents" .  }}
-{{ if and (.Site.Params.utter.enable) (not .Params.draft) }}
+{{ if .Site.Params.CDN.enable }}
     {{ $reAltIn := "<img src=\"/([^\"]+)\" alt=\"([^\"]+)\">"}}
     {{ $reAltOut := (printf "<img src=\"%s$1\" alt=\"$2\">" .Site.Params.CDN.Host )}}
     {{ $altContent := .Content | replaceRE $reAltIn $reAltOut | safeHTML }}

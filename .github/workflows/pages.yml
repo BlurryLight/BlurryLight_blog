@@ -9,6 +9,7 @@ env:
   OSS_KEY_ID: ${{secrets.OSS_KEY_ID}}
   OSS_KEY_SECRET: ${{secrets.OSS_KEY_SECRET}}
   OSS_BUCKET_NAME: ${{secrets.OSS_BUCKET_NAME}}
+  HUGO_PARAMS_CDN_enable: true
 jobs:
   deploy:
     runs-on: ubuntu-18.04
