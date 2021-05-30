@@ -6,8 +6,14 @@
     {{ $img_destination = (print .Page.Site.Params.CDN.HOST (path.Join .Destination)) }}
     {{ end }}
 {{ end }}
+
 <p style="text-align:center", class="md_image">
-<img alt="{{ $.Text }}" src="{{ $img_destination | safeURL }}"  class="center"/>
+{{ if .Title }}
+  <figure>
+    <img src="{{ $img_destination | safeURL }}" alt="{{ .Text }}" class="center">
+    <figcaption>{{ .Title }}</figcaption>
+  </figure>
+{{ else }}
+  <img src="{{ $img_destination| safeURL }}" alt="{{ .Text }}" class="center">
+{{ end }}
 </p>
-
-

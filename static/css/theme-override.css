@@ -3,3 +3,5 @@ p{
     text-indent: 2em; /*首行缩进*/
 }
 
+a[href^="#fn:"]:before{ content: '[' }
+a[href^="#fn:"]:after{ content: ']' }
