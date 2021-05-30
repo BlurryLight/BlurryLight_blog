@@ -53,5 +53,4 @@ theme = "github-light"
 
 [params.CDN]
 enable = true
-# Host must NOT end with `/`
-Host = "https://cdn.jsdelivr.net/gh/blurrylight/blurrylight_blog@pages-src/static"
+Host = "https://cdn.jsdelivr.net/gh/blurrylight/blurrylight_blog@pages-src/static/"

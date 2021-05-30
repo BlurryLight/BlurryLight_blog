@@ -19,7 +19,19 @@
 
 <main>
 {{ partial "table-of-contents" .  }}
-{{ .Content }}
+{{ if and (.Site.Params.utter.enable) (not .Params.draft) }}
+    {{ $reAltIn := "<img src=\"/([^\"]+)\" alt=\"([^\"]+)\">"}}
+    {{ $reAltOut := (printf "<img src=\"%s$1\" alt=\"$2\">" .Site.Params.CDN.Host )}}
+    {{ $altContent := .Content | replaceRE $reAltIn $reAltOut | safeHTML }}
+
+    {{ $reAltTitleIn := "<img src=\"/([^\"]+)\" alt=\"([^\"]+)\" title=\"([^\"]+)\">" }}
+    {{ $reAltTitleOut := (printf "<img src=\"%s$1\" alt=\"$2\" title=\"$3\">" .Site.Params.CDN.Host )}}
+    {{ $finalContent := $altContent | replaceRE $reAltTitleIn $reAltTitleOut | safeHTML }}
+
+    {{ $finalContent }}
+{{ else }}
+    {{ .Content }}
+{{ end }}
 <button onclick="topFunction()" id="topBtn" title="Go to top">Top</button>
 </main>
 {{ partial "footer.html" . }}

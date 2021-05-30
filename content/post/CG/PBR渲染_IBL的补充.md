@@ -116,6 +116,7 @@ $$
 GGX是一个二维的函数，输入域包括$$(n \cdot h)$$和$$\alpha$$两个变量，作图的时候需要固定住$$\alpha$$。
 其形状类似于正态分布，在$$(n \cdot h) \approx 0$$，也就是接近镜面反射的时候值比较大，这是实现`glossy`材质的关键。
 ![GGX](/image/ggx_distribution.jpg)
+
 # ...
 (to be continued)
 
