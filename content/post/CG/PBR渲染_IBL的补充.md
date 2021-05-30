@@ -1,6 +1,6 @@
 
 ---
-title: "PBR渲染: 对IBL的理解"
+title: "PBR渲染: CookTorrance的实现与补充"
 date: 2021-05-15T23:08:49+08:00
 draft: false
 # tags: [ "" ]
@@ -91,6 +91,7 @@ pdf_{ggx}(n,h,\alpha) = \frac{\alpha^{2} (\mathbf{n} \cdot \mathbf{h})}{\pi\left
 $$
  
  这个推论会帮助后续对`brdf`进行重要性采样。对这个pdf积分，进行逆变换采样得到
+
  $$
 \theta=\arccos \sqrt{\frac{1-r_1}{r_1\left(\alpha^{2}-1\right)+1}} \\
 \phi = 2\pi r_2
@@ -121,4 +122,4 @@ GGX是一个二维的函数，输入域包括$$(n \cdot h)$$和$$\alpha$$两个�
 [^1]: [Cook, Robert L., and Kenneth E. Torrance. "A reflectance model for computer graphics." ACM Transactions on Graphics (ToG) 1.1 (1982): 7-24.](https://inst.cs.berkeley.edu/~cs283/sp13/lectures/cookpaper.pdf)
 [^wardnotes]: [Walter, Bruce. "Notes on the Ward BRDF." Program of Computer Graphics, Cornell University, Technical report PCG-05 6 (2005).](https://www.graphics.cornell.edu/~bjw/wardnotes.pdf)
 [^kulla-conty]: [Revisiting Physically Based Shading at Imageworks](https://blog.selfshadow.com/publications/s2017-shading-course/imageworks/s2017_pbs_imageworks_slides_v2.pdf)
-[^filament]: [Energy loss in specular reflectance](https://google.github.io/filament/Filament.md.html#toc4.7)
+[^filament]: [Filament: Energy loss in specular reflectance](https://google.github.io/filament/Filament.md.html#toc4.7)
