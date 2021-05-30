@@ -1,7 +1,7 @@
 baseurl = "/"
 languageCode = "zh-CN"
 title = "Blurred code"
-theme = "hugo-classic"
+theme = ["hugo-notice","hugo-classic"]
 googleAnalytics = "UA-71864552-1"
 ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
 preserveTaxonomyNames = true
