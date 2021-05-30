@@ -2,7 +2,7 @@
 ---
 title: "PBR渲染: CookTorrance的实现与补充"
 date: 2021-05-15T23:08:49+08:00
-draft: false
+draft: true
 # tags: [ "" ]
 categories: [ "CG"]
 # keywords: [ ""]
@@ -117,6 +117,28 @@ GGX是一个二维的函数，输入域包括$$(n \cdot h)$$和$$\alpha$$两个�
 其形状类似于正态分布，在$$(n \cdot h) \approx 0$$，也就是接近镜面反射的时候值比较大，这是实现`glossy`材质的关键。
 ![GGX](/image/ggx_distribution.jpg)
 
+## 几何遮蔽项G
+几何遮蔽项$$G$$描述了表面的自遮挡程度。当光线以0度直射表面的时候，其自遮挡应该接近于0，而当接近`grazing angle`的时候, 其自遮挡应该有明显提高。几何遮蔽项描述了自遮蔽后的能量强度。
+其通常可以拆分为两部分，光线被遮挡的部分(shadowing)和视线被遮挡的部分(masking)。
+一个可以选择的`G`的公式为`schlick-GGX`近似，其形如
+
+$$
+G_{ggx}(n, v, k)=\frac{n \cdot v}{(n \cdot v)(1-k)+k}
+$$
+
+其中$$k$$是一个和粗糙度`roughness`有关的常数。
+一个完整的`G`函数由两部分组成:
+
+$$
+G(n, v, l, k) \approx G_{ggx}(n,v,k) G_{ggx}(n,l,k)
+$$
+
+其可视化可以见[^EG07Walter]
+![shadow-mask-G](/image/shadow-mask-G.jpg)
+
+可以观察到，除了接近`grazing angle`的时候，其他时候G项都接近于1，代表所有能量都没有被遮挡。
+
+另外一个可以值得注意的，在接近`grazing angle`的时候，`BRDF`的分母有一个$$(N \cdot V)$$接近于0，如果分子没有一个$$(N \cdot V)$$做抵消，那么在`grazing angle`的地方会因为`brdf`无穷大而开始**发光**。如果渲染球体的时候G项有bug，那么球的边缘会有明显的一圈白光。
 # ...
 (to be continued)
 
@@ -124,3 +146,4 @@ GGX是一个二维的函数，输入域包括$$(n \cdot h)$$和$$\alpha$$两个�
 [^wardnotes]: [Walter, Bruce. "Notes on the Ward BRDF." Program of Computer Graphics, Cornell University, Technical report PCG-05 6 (2005).](https://www.graphics.cornell.edu/~bjw/wardnotes.pdf)
 [^kulla-conty]: [Revisiting Physically Based Shading at Imageworks](https://blog.selfshadow.com/publications/s2017-shading-course/imageworks/s2017_pbs_imageworks_slides_v2.pdf)
 [^filament]: [Filament: Energy loss in specular reflectance](https://google.github.io/filament/Filament.md.html#toc4.7)
+[^EG07Walter]: [Walter, B., Marschner, S. R., Li, H., & Torrance, K. E. (2007). Microfacet Models for Refraction through Rough Surfaces. Rendering techniques, 2007, 18th.](https://www.graphics.cornell.edu/~bjw/microfacetbsdf.pdf)
