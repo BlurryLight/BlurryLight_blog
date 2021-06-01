@@ -51,6 +51,7 @@ $$
 
 经过能量补偿的GGX白炉测试。
 ![ggx_kulla_conty](/image/ggx_kulla_conty.jpg)
+
 {{% /notice %}}
 
 # DFG的选择
@@ -65,10 +66,10 @@ $$
 
 注意该函数是关于$$h,v$$的函数，其中$$h$$需要格外注意。
 在`dielectric`物体中，从0度看过去的初始反射率$$F_0$$比较低，只有到接近$$90\degree$$的时候形成`grazing angle`,反射率会大幅提高, 关注下图的下面曲线。
-![frenel_dielectric](/image/Fresnel_power_air-to-glass.jpg)
+{{< figure src="/image/Fresnel_power_air-to-glass.jpg" width="70%" caption="电介质菲涅尔项">}}
 
 而对于`conductor`，比如金属，他们的初始反射率就比较高,但是仍然会形成`grazing angle`。
-![frenel_conductor](/image/frenel_conductor.jpg)
+{{< figure src="/image/frenel_conductor.jpg" width="70%" caption="导体的菲涅尔项">}}
 
 ## 法线分布函数(NDF）
 `NDF`函数描述了微表面模型的法线分布。关于它的选择有很多，常用的包括Trowbridge-Reitz GGX函数。它是形如
@@ -114,8 +115,8 @@ $$
 作图可视化，巧合的是NDF的形状恰好类似于正态分布，名字也比较像:)。
 GGX是一个二维的函数，输入域包括$$(n \cdot h)$$和$$\alpha$$两个变量，作图的时候需要固定住$$\alpha$$。
 其形状类似于正态分布，在$$(n \cdot h) \approx 0$$，也就是接近镜面反射的时候值比较大，这是实现`glossy`材质的关键。
-![GGX](/image/ggx_distribution.jpg)
 
+{{< figure src="/image/ggx_distribution.jpg" width="70%" caption="GGX和BeckmanNDF对比<br/>GGX的曲线更平滑，意味着在渲染中高光边缘更加的平滑">}}
 ## 几何遮蔽项G
 几何遮蔽项$$G$$描述了表面的自遮挡程度。当光线以0度直射表面的时候，其自遮挡应该接近于0，而当接近`grazing angle`的时候, 其自遮挡应该有明显提高。几何遮蔽项描述了自遮蔽后的能量强度。
 其通常可以拆分为两部分，光线被遮挡的部分(shadowing)和视线被遮挡的部分(masking)。

@@ -20,13 +20,11 @@
 <main>
 {{ partial "table-of-contents" .  }}
 {{ if .Site.Params.CDN.enable }}
-    {{ $reAltIn := "<img src=\"/([^\"]+)\" alt=\"([^\"]+)\">"}}
-    {{ $reAltOut := (printf "<img src=\"%s$1\" alt=\"$2\">" .Site.Params.CDN.Host )}}
+    {{ $reAltIn := "<img src=\"/([^\"]+)\""}}
+    {{ $reAltOut := (printf "<img src=\"%s$1\"" .Site.Params.CDN.Host )}}
     {{ $altContent := .Content | replaceRE $reAltIn $reAltOut | safeHTML }}
 
-    {{ $reAltTitleIn := "<img src=\"/([^\"]+)\" alt=\"([^\"]+)\" title=\"([^\"]+)\">" }}
-    {{ $reAltTitleOut := (printf "<img src=\"%s$1\" alt=\"$2\" title=\"$3\">" .Site.Params.CDN.Host )}}
-    {{ $finalContent := $altContent | replaceRE $reAltTitleIn $reAltTitleOut | safeHTML }}
+    {{ $finalContent := $altContent | safeHTML }}
 
     {{ $finalContent }}
 {{ else }}
