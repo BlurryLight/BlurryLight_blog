@@ -88,7 +88,8 @@ $$
 这个式子隐含了一个重要的推论：所有的`NDF`乘以`cosine`项都代表了一个`pdf`函数。这意味着`GGX`的`pdf`函数就是
 
 $$
-pdf_{ggx}(n,h,\alpha) = \frac{\alpha^{2} (\mathbf{n} \cdot \mathbf{h})}{\pi\left((n \cdot h)^{2}\left(\alpha^{2}-1\right)+1\right)^{2}}
+pdf_{ggx}(n,h,\alpha) = 
+\frac{\alpha^{2} (\mathbf{n} \cdot \mathbf{h})}{\pi\left((n \cdot h)^{2}\left(\alpha^{2}-1\right)+1\right)^{2}}
 $$
  
  这个推论会帮助后续对`brdf`进行重要性采样。对这个pdf积分，进行逆变换采样得到
@@ -109,7 +110,8 @@ $$
 \begin{aligned}
 p_{o}(\mathbf{o}) &=p_{h}(\mathbf{h})\left\|\frac{\partial\left[\theta_{h}^{\star}, \phi_{h}^{\star}\right]}{\partial\left[\theta_{o}^{\star}, \phi_{o}^{\star}\right]}\right\| \frac{\sin \theta_{h}^{\star}}{\sin \theta_{o}^{\star}} \\
 &=p_{h}(\mathbf{h})\left|\frac{1}{2}-0\right| \frac{\sin \theta_{h}^{\star}}{\sin 2 \theta_{h}^{\star}} \\
-&=\frac{p_{h}(\mathbf{h})}{4 \cos \theta_{h}^{\star}}=\frac{p_{h}(\mathbf{h})}{4(\mathbf{h} \cdot \mathbf{i})}
+&=\frac{p_{h}(\mathbf{h})}{4 \cos \theta_{h}^{\star}}=\frac{p_{h}(\mathbf{h})}{4(\mathbf{h} \cdot \omega_o)}\\
+&=\frac{D(n,h,\alpha)(\mathbf{n} \cdot \mathbf{h})}{4(\mathbf{h} \cdot \omega_o)}
 \end{aligned}
 $$
 
@@ -140,7 +142,55 @@ $$
 可以观察到，除了接近`grazing angle`的时候，其他时候G项都接近于1，代表所有能量都没有被遮挡。
 
 另外一个可以值得注意的，在接近`grazing angle`的时候，`BRDF`的分母有一个$$(N \cdot V)$$接近于0，如果分子没有一个$$(N \cdot V)$$做抵消，那么在`grazing angle`的地方会因为`brdf`无穷大而开始**发光**。如果渲染球体的时候G项有bug，那么球的边缘会有明显的一圈白光。
-# ...
+# 两次Split Sum
+## 分离光照和BRDF
+
+第一次拆积分是发生在渲染方程中，我们将光照项$$L_i(p,\omega_i)$$和`brdf`项拆开。
+
+$$
+\begin{aligned}
+L_{o}\left(p, \omega_{o}\right) &=\int_{\Omega^+}\left(f_r(p,\omega_i \rArr \omega_o)\right) L_{i}\left(p, \omega_{i}\right) (n \cdot \omega_{i}) d \omega_{i}\\
+&\approx \int_{\Omega^+}\left(f_r(p,\omega_i \rArr \omega_o)\right) (n \cdot \omega_{i}) d \omega_{i}
+\times  
+\frac{\int_{\Omega^+}L_{i}\left(p, \omega_{i}\right)(n \cdot \omega_{i}) d \omega_{i}}{\int_{\Omega^+}(n \cdot \omega_{i}) d \omega_{i}}\\
+\text{Monte Carlo Method}:\\
+&\approx \frac{1}{N_1}\sum_{1}^{N_1}\frac{f_r(p,\omega_i \rArr \omega_o)(n \cdot \omega_{i})}{pdf(n,\omega_o,\alpha)}
+\times  
+\frac{\frac{1}{N_2}\sum_{1}^{N_2}\frac{L_{i}\left(p, \omega_{i}\right)(n \cdot \omega_{i})}{pdf}}{\frac{1}{N_2}\sum_{1}^{N_2}\frac{n \cdot \omega_{i}}{pdf}}\labeltag{4}
+\end{aligned}
+$$
+
+对待环境光的采样，我们不需要使用复杂的采样策略，对半球面进行均匀采样就可以了，意味着其`pdf`是一个常数，所以等式$$\eqref{4}$$的后半部分可以直接化简为
+
+$$
+\frac{\sum_{1}^{N_2}L_{i}\left(p, \omega_{i}\right)(n \cdot \omega_{i})}{\sum_{1}^{N_2}n \cdot \omega_{i}}\labeltag{5}
+$$
+
+通过`mipmap`配合，我们可以对一个环境光照的`cubemap`进行不同粗糙度和分辨率的预积分。 
+
+- **怎么计算这个公式**：
+
+我们在预积分的时候，在积分的pixel上知道每一个点的法向量。通过`Hammersley`采样获取视角向量$$V$$,有了`V`和`N`我们可以利用重要性采样采样出符合GGX分布的半程向量`H`。有了`H`和`V`以后我们可以计算出`L`的方向，有了`L`方向以后就可以在`cubemap`上进行texture查询了。
+
+虽然式子$$\eqref{5}$$中不包含`roughness`，但是在以上提到的实现中需要用到GGX重要性采样，而GGX的重要性采样公式$$\eqref{2}$$里包含了`roughness`项。
+
+{{% notice info%}}
+- 式子\\(\eqref{4}\\)的第二步拆出的积分项为什么上下有\\((n \cdot \omega_i)\\)?
+
+Epic的公式推导里并没有写`cosine`,但是shader代码里有。脚注里语焉不详, 仅仅说加了`cosine`效果会更好。
+
+**Todo**:补充自己的想法
+
+{{% /notice %}}
+Epic原始文章见[^Epic],效果见如图,来自[^learnopengl].
+
+{{< figure src="/image/prefilter_roughness_light.jpg" width="80%" height="80%" caption="不同粗糙度下的预计算环境光源积分">}}
+
+
+## split BRDF
+
+
+#...
 (to be continued)
 
 [^1]: [Cook, Robert L., and Kenneth E. Torrance. "A reflectance model for computer graphics." ACM Transactions on Graphics (ToG) 1.1 (1982): 7-24.](https://inst.cs.berkeley.edu/~cs283/sp13/lectures/cookpaper.pdf)
@@ -148,3 +198,5 @@ $$
 [^kulla-conty]: [Revisiting Physically Based Shading at Imageworks](https://blog.selfshadow.com/publications/s2017-shading-course/imageworks/s2017_pbs_imageworks_slides_v2.pdf)
 [^filament]: [Filament: Energy loss in specular reflectance](https://google.github.io/filament/Filament.md.html#toc4.7)
 [^EG07Walter]: [Walter, B., Marschner, S. R., Li, H., & Torrance, K. E. (2007). Microfacet Models for Refraction through Rough Surfaces. Rendering techniques, 2007, 18th.](https://www.graphics.cornell.edu/~bjw/microfacetbsdf.pdf)
+[^Epic]:[Real Shading in Unreal Engine 4](https://blog.selfshadow.com/publications/s2013-shading-course/karis/s2013_pbs_epic_notes_v2.pdf)
+[^learnopengl]: [Specular IBL,learnopengl](https://learnopengl.com/PBR/IBL/Specular-IBL)
