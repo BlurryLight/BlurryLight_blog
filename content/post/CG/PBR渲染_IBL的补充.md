@@ -60,11 +60,12 @@ $$
 `F`项我们可以选用`schilick`近似。`F`函数描述了光线在经过某个物体表面的反射率和折射率。`F`函数中的$$F_0$$项描述了光线以0度的偏差(沿着法线方向）碰撞表面的时候的反射率，电介质这个值很低。那么剩下的$$1 - F_0$$就是发生
 折射的能量。
 如果把角度和微表面模型考虑进去，那么在Cook-Torrance中，它会形如
+
 $$
-F_{Schlick}\left(h, v, F_{0}\right)=F_{0}+\left(1-F_{0}\right)(1-(h \cdot v))^{5}
+F_{Schlick}\left(h, v, F_{0}\right)=F_{0}+\left(1-F_{0}\right)(1-(h \cdot v))^{5}\labeltag{1}
 $$
 
-注意该函数是关于$$h,v$$的函数，其中$$h$$需要格外注意。
+注意该函数 $$\eqref{1}$$ 是关于$$h,v$$的函数，其中$$h$$需要格外注意。
 在`dielectric`物体中，从0度看过去的初始反射率$$F_0$$比较低，只有到接近$$90\degree$$的时候形成`grazing angle`,反射率会大幅提高, 关注下图的下面曲线。
 {{< figure src="/image/Fresnel_power_air-to-glass.jpg" width="70%" caption="电介质菲涅尔项">}}
 
@@ -75,10 +76,10 @@ $$
 `NDF`函数描述了微表面模型的法线分布。关于它的选择有很多，常用的包括Trowbridge-Reitz GGX函数。它是形如
 
 $$
-NDF_{GGX}(n, h, \alpha)=\frac{\alpha^{2}}{\pi\left((n \cdot h)^{2}\left(\alpha^{2}-1\right)+1\right)^{2}}
+NDF_{GGX}(n, h, \alpha)=\frac{\alpha^{2}}{\pi\left((n \cdot h)^{2}\left(\alpha^{2}-1\right)+1\right)^{2}}\labeltag{2}
 $$
 
-有一点需要格外注意，它是有关$$h$$的一个函数。并且所有的NDF都遵循一个性质: 如果给定一个点，已知它的法线和粗糙度，那么
+有一点需要格外注意，函数$$\eqref{2}$$是有关$$h$$的一个函数。并且所有的NDF都遵循一个性质: 如果给定一个点，已知它的法线和粗糙度，那么
 
 $$
 \int_{\Omega} D(h) \cos \left(\theta_{h}\right) d \omega=1
@@ -130,7 +131,7 @@ $$
 一个完整的`G`函数由两部分组成:
 
 $$
-G(n, v, l, k) \approx G_{ggx}(n,v,k) G_{ggx}(n,l,k)
+G(n, v, l, k) \approx G_{ggx}(n,v,k) G_{ggx}(n,l,k)\labeltag{3}
 $$
 
 其可视化可以见[^EG07Walter]
