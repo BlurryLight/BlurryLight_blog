@@ -2,6 +2,9 @@
     {{- if .Get "link" -}}
         <a href="{{ .Get "link" }}"{{ with .Get "target" }} target="{{ . }}"{{ end }}{{ with .Get "rel" }} rel="{{ . }}"{{ end }}>
     {{- end -}}
+    {{- if .Get "id" -}}
+            <p id="fig:{{- .Get "id" -}}"></p>
+    {{- end -}}
     <img src="{{ .Get "src" }}"
          {{- if or (.Get "alt") (.Get "caption") }}
          alt="{{ with .Get "alt" }}{{ . }}{{ else }}{{ .Get "caption" | markdownify| plainify }}{{ end }}"
@@ -13,6 +16,10 @@
     {{- if or (.Get "title") (.Get "caption") -}}
         <figcaption>
             <p class='caption'>
+                <b>Fig. </b>
+                {{- if .Get "id" -}}
+                        {{- .Get "id" -}}:  
+                {{- end -}} 
                 {{- .Get "caption" | markdownify -}}
                 {{- .Get "title" | markdownify -}}
             </p>

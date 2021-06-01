@@ -182,9 +182,9 @@ Epic的公式推导里并没有写`cosine`,但是shader代码里有。脚注里�
 **Todo**:补充自己的想法
 
 {{% /notice %}}
-Epic原始文章见[^Epic],效果见如图,来自[^learnopengl].
+Epic原始文章见[^Epic],效果见如图$$\figref{1}$$,来自[^learnopengl].
 
-{{< figure src="/image/prefilter_roughness_light.jpg" width="80%" height="80%" caption="不同粗糙度下的预计算环境光源积分">}}
+{{< figure src="/image/prefilter_roughness_light.jpg" id="1" width="80%" height="80%" caption="不同粗糙度下的预计算环境光源积分">}}
 
 
 ## split BRDF
