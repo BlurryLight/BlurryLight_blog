@@ -174,15 +174,18 @@ $$
 
 虽然式子$$\eqref{5}$$中不包含`roughness`，但是在以上提到的实现中需要用到GGX重要性采样，而GGX的重要性采样公式$$\eqref{2}$$里包含了`roughness`项。
 
-{{% notice info%}}
-- 式子\\(\eqref{4}\\)的第二步拆出的积分项为什么上下有\\((n \cdot \omega_i)\\)?
+{{% notice info %}}
+
+- 式子$$\eqref{4}$$的第二步拆出的积分项为什么上下有$$(n \cdot \omega_i)$$?
 
 Epic的公式推导里并没有写`cosine`,但是shader代码里有。脚注里语焉不详, 仅仅说加了`cosine`效果会更好。
 
 **Todo**:补充自己的想法
 
-{{% /notice %}}
 Epic原始文章见[^Epic],效果见如图$$\figref{1}$$,来自[^learnopengl].
+
+{{% /notice %}}
+
 
 {{< figure src="/image/prefilter_roughness_light.jpg" id="1" width="80%" height="80%" caption="不同粗糙度下的预计算环境光源积分">}}
 
