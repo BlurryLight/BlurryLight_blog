@@ -160,7 +160,7 @@ L_{o}\left(p, \omega_{o}\right) &=\int_{\Omega^+}\left(f_r(p,\omega_i \rArr \ome
 \end{aligned}
 $$
 
-对待环境光的采样，我们不需要使用复杂的采样策略，对半球面进行均匀采样就可以了，意味着其`pdf`是一个常数，所以等式$$\eqref{4}$$的后半部分可以直接化简为
+等式$$\eqref{4}$$的后半部分上下采样同种采样方式和采样数量，因此`pdf`和$$N_2$$可以约去，化简为
 
 $$
 \frac{\sum_{1}^{N_2}L_{i}\left(p, \omega_{i}\right)(n \cdot \omega_{i})}{\sum_{1}^{N_2}n \cdot \omega_{i}}\labeltag{5}
