@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode }}">
   <header>
+    <script>
+      if (location.protocol !== 'https:') {
+      location.replace(`https:${location.href.substring(location.protocol.length)}`);
+    </script>
     <!-- redirect http to https -->
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <meta charset="utf-8">
@@ -13,6 +17,7 @@
     {{- end }}
     {{ partial "head_custom.html" . }}
   </header>
+}
 
 <body>
   <br/>
