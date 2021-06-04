@@ -16,9 +16,9 @@ markup: mmark
 mmarktoc: true
 ---
 
-# CookTorrance反射方程
+# Cook-Torrance反射方程 {#cook-torrance反射方程}
 
-原始的CookTorrance反射方程来自论文[^1]. (注：原文的公式里的分母少了一个4)
+原始的Cook-Torrance反射方程来自论文[^1]. (注：原文的公式里的分母少了一个4)
 $$
 \begin{aligned}
 &L_{o}\left(p, \omega_{o}\right) =\int_{\Omega^+}\left(k_{d} f_d(\omega_i \rArr \omega_o)+ k_{s}f_{s}(\omega_i \rArr \omega_o)\right) L_{i}\left(p, \omega_{i}\right) (n \cdot \omega_{i}) d \omega_{i}\\

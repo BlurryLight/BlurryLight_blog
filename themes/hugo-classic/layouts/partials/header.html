@@ -2,7 +2,7 @@
 <html lang="{{ .Site.LanguageCode }}">
   <header>
     <script>
-      if (location.protocol !== 'https:') {
+      if (location.protocol !== 'https:' && location.hostname !== "localhost") {
       location.replace(`https:${location.href.substring(location.protocol.length)}`);
       }
     </script>
