@@ -1,6 +1,6 @@
 
 ---
-title: "PBR渲染: CookTorrance的实现与补充"
+title: "PBR渲染: Cook-Torrance的实现与补充"
 date: 2021-05-15T23:08:49+08:00
 draft: false
 # tags: [ "" ]
