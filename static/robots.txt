@@ -1,6 +1,2 @@
-User-agent: Baiduspider
-Disallow: /
-User-agent: Baiduspider-video
-Disallow: /
-User-agent: Baiduspider-image
-Disallow: /
+User-agent: *
+Sitemap: https://www.blurredcode.com/sitemap.xml

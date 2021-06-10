@@ -32,3 +32,9 @@ jobs:
         run: |
           chmod +x ./deploy.sh
           ./deploy.sh
+          
+      - name: update search engines
+        run: |
+          curl http://www.google.com/webmasters/sitemaps/ping?sitemap=https://www.blurredcode.com/sitemap.xml
+          curl http://www.bing.com/webmaster/ping.aspx?siteMap=https://www.blurredcode.com/sitemap.xml
+
