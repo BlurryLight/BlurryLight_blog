@@ -64,10 +64,16 @@
       {{end}}
 
       <li class="pull-right">
-      <form target="_blank" method="get" id="googleSearch" action="https://google.com/search">
-        <input type="hidden" name="sitesearch" value="www.blurredcode.com"/>
-        <input type="text" name="q" placeholder="Search…" aria-label="Google Search"/>
-        <button type="submit">Google</button>
+        <!-- <form target="_blank" method="get" id="googleSearch" action="https://google.com/search">
+          <input type="hidden" name="sitesearch" value="www.blurredcode.com"/>
+          <input type="text" name="q" placeholder="Search…" aria-label="Google Search"/>
+          <button type="submit">Google</button>
+        </form> -->
+      
+      <form target="_blank" method="get" id="bingSearch" action="https://www.bing.com/search">
+        <input type="hidden" name="q1" value="site:blurredcode.com"/>
+        <input type="text" name="q" placeholder="Search…" aria-label="Search blurredcode.com on Bing"/>
+        <button type="submit">Bing</button>
       </form>
 
       </li>
