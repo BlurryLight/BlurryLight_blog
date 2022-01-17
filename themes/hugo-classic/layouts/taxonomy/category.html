@@ -1,0 +1,25 @@
+{{ partial "header.html" . }}
+
+{{if not .IsHome }}
+<h1>{{ .Title | markdownify}}</h1>
+{{ end }}
+
+{{ .Content }}
+
+<!-- 规则 -->
+<!-- https://gohugobrasil.netlify.app/templates/taxonomy-templates/ -->
+<ul>
+  {{ $pages := .Pages }}
+  {{ if .IsHome }}{{ $pages = .Site.RegularPages }}{{ end }}
+  {{ $paginator := .Paginate (where $pages "Section" "!=" "")  }}
+  {{ range $paginator.Pages }}
+  <li>
+    <span class="date">{{ .Params.date.Format "2006/01/02" }}</span>
+    <a href="{{ .RelPermalink}}">{{ .Title | markdownify}}</a>
+  </li>
+  {{ end }}
+ <button onclick="topFunction()" id="topBtn" title="Go to top">Top</button>
+</ul>
+{{ template "_internal/pagination.html" . }}
+
+{{ partial "footer.html" . }}
