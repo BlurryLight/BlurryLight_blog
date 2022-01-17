@@ -9,10 +9,8 @@
 <ul>
   {{ $pages := .Pages }}
   {{ if .IsHome }}{{ $pages = .Site.RegularPages }}{{ end }}
-  <!-- the default list.html is to list all files under content -->
-  <!-- {{/* $paginator := .Paginate (where $pages "Section" "!=" "")  */}} -->
-  <!-- nope! the default list.html is to only list files under post -->
-  {{ $paginator := .Paginate (where $pages "Type" "post") }}
+   <!-- only the misc dir will be listed -->
+  {{ $paginator := .Paginate (where $pages "Type" "misc") }}
   {{ range $paginator.Pages }}
   <li>
     <span class="date">{{ .Params.date.Format "2006/01/02" }}</span>

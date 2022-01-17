@@ -22,14 +22,20 @@ paginate= 40
 #     name = "Home"
 #     url = "/"
 #     weight = 1
+
+[[menu.main]]
+    name = "misc"
+    url = "/misc/"
+    weight = 1
+
 [[menu.main]]
     name = "Categories"
     url = "/categories/"
-    weight = 1
+    weight = 2
 [[menu.main]]
     name = "About me"
     url = "/about/"
-    weight = 2
+    weight = 3
 
 [params]
     description = "A simple, minimal blog for those who love text."

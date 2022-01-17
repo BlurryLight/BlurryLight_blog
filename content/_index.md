@@ -2,7 +2,7 @@
 title: Home
 ---
 
-[<img src="https://cdn.jsdelivr.net/gh/blurrylight/blurrylight_blog@pages-src/static/image/partywizard.gif" style="max-width:15%;min-width:40px;float:right;" alt="Github repo" />](https://github.com/BlurryLight)
+[<img src="https://cdn.jsdelivr.net/gh/blurrylight/blurrylight_blog@pages-src/static/image/partywizard.gif" style="max-width:15%;min-width:40px;float:right;" alt="Github repo" />](https://github.com/goodroot/hugo-classic)
 
 # Blurred Code
 
@@ -10,4 +10,4 @@ title: Home
 
 <hr/>
 
-### Blog
+### Posts

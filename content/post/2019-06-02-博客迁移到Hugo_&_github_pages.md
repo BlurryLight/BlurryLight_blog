@@ -3,7 +3,7 @@ title: "博客迁移到Hugo & github pages"
 date: 2019-06-02T10:30:01+08:00
 draft: false
 # tags: [ "" ]
-categories: [ "默认分类"]
+categories: [ "hugo"]
 # keywords: [ ""]
 lastmod: 2019-06-02T10:30:01+08:00
 # CJKLanguage: Chinese, Japanese, Korean
