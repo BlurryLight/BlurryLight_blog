@@ -17,4 +17,16 @@ figcaption .caption {
     font-size:small;
     text-align: center;
  }
- 
+
+details{
+     text-indent: 2em;
+}
+
+details summary {
+  font-style: italic;
+  cursor: pointer;
+}
+
+details p{
+    background-color: #f9f9f9;
+}

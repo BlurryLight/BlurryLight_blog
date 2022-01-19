@@ -1,0 +1,6 @@
+<details>
+<summary>
+    {{ with .Get 0}}{{.}}{{else}}Click to expand{{ end }}
+</summary>
+<p>{{.Inner | markdownify}}</p>
+</details>
