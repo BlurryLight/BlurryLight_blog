@@ -1,7 +1,7 @@
 ---
 layout: post
 cid: 425
-title: "Qt5.8 Patch: Missing &quot;qtmultimediadefs.h&quot;"
+title: "Qt5.8 Patch: Missing qtmultimediadefs.h"
 slug: 425
 date: 2017-08-22
 updated: 2017-08-22
