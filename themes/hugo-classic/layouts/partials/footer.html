@@ -5,5 +5,15 @@
       {{ . | markdownify }}
       {{ end }}
     </footer>
+    
+    <script>
+      (function(e,t,n,i,s,a,c){e[n]=e[n]||function(){(e[n].q=e[n].q||[]).push(arguments)}
+      ;a=t.createElement(i);c=t.getElementsByTagName(i)[0];a.async=true;a.src=s
+      ;c.parentNode.insertBefore(a,c)
+      })(window,document,"galite","script","/js/ga-lite.min.js");
+
+      galite('create',{{ .Site.GoogleAnalytics }}, 'auto');
+      galite('send', 'pageview');
+    </script>
   </body>
 </html>
