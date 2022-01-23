@@ -44,7 +44,7 @@ $$
 \bm \Phi(r) = \frac{1}{2}\sum_{i=1}^{n}\Theta_i(r)\bm \Gamma_i(r), \tag{0}
 $$
 
-![e04138d6b690b06ded80dc9ecdbf901a.png](resources/4713a628f9d1443f831fed3d1ef037a7.png)
+![LTC面光源着色-2022-01-23-14-26-19](https://img.blurredcode.com/img/LTC面光源着色-2022-01-23-14-26-19.png?x-oss-process=style/compress)
 
 $$\Theta_k(r)$$ 和 $$\bm \Gamma_k(r)$$ 分别计算如下
 $$
@@ -140,14 +140,18 @@ M^{-1}=\left[\begin{array}{ccc}
 c & 0 & -b c \\
 0 & a-b d & 0 \\
 -c d & 0 & a c
-\end{array}\right] /(a c-b c d)=\left[\begin{array}{ccc}
+\end{array}\right] /(ac- bcd)=\left[\begin{array}{ccc}
 1 & 0 & -b \\
 0 & (a-b d) / c & 0 \\
 -d & 0 & a
-\end{array}\right] /(a-b d)
+\end{array}\right] /(a - bd)
 $$
 
-在后续的改进中，在拟合过程中对求得的$$M$$矩阵的m11元素进行归一化调整其他行，这样只用保存四个元素(可以塞进一张纹理，巨大的进步)
+在后续的改进中，在拟合过程中对求得的$$M$$矩阵的中间元素进行归一化并调整其他行以保证行列式不变，代码变更具体可以见[diff](https://github.com/selfshadow/ltc_code/commit/5c0770b74114b5dd38e9dae1b93f8486af7eac1b)。
+因为对右下角的元素进行归一化的话,会出现数值不稳定的现象，这在Bilinear texture采样的时候会有问题，因此最初的实现中是保存了5个元素，在shader中进行实际的归一化。
+{{< figure src="https://img.blurredcode.com/img/LTC面光源着色-2022-01-23-15-42-46.png?x-oss-process=style/compress" caption="以右下角元素归一化的Minv矩阵" width=80% >}}
+
+后续改进发现以中间的元素进行归一化的数值稳定性更好，只用保存四个角的四个元素(然而仍然需要第二章纹理来保存菲涅尔项，所以也不是那么的有用)。
 
 $$
 M=\left[\begin{array}{lll}
@@ -158,7 +162,7 @@ c & 0 & d
 d & 0 & -b \\
 0 & 1 & 0 \\
 -c & 0 & a
-\end{array}\right] /(a d-b c)
+\end{array}\right] /(ad - bc)
 $$
 
 拟合的过程用的[Nelder–Mead方法](https://en.wikipedia.org/wiki/Nelder%E2%80%93Mead_method#cite_note-PM-1),用于在多维空间内搜索目标函数的最小值，用于对导数不可知的目标函数进行搜索，但是其对初值比较敏感。其拟合过程大致是猜一个M值，并对BRDF Lob和$$M*cos$$进行采样以比较其差异，计算`loss`。
@@ -193,7 +197,7 @@ $$
     float lodA = floor(lod);
     float lodB = ceil(lod);
     float t = lod - lodA;
-
+![4713a628f9d1443f831fed3d1ef037a7](https://img.blurredcode.com/img/4713a628f9d1443f831fed3d1ef037a7.png?x-oss-process=style/compress)
     //不同的mipmap上线性插值
     vec3 a = FetchColorTexture(Puv, lodA);
     vec3 b = FetchColorTexture(Puv, lodB);

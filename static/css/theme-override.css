@@ -30,3 +30,10 @@ details summary {
 details p{
     background-color: #f9f9f9;
 }
+
+form#bingSearch{
+    padding-top: 3px;
+}
+header {
+    height: 0.9fit-content;
+}
