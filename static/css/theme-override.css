@@ -35,5 +35,5 @@ form#bingSearch{
     padding-top: 3px;
 }
 header {
-    height: 0.9fit-content;
+    height: fit-content;
 }
