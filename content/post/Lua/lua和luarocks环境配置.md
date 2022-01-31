@@ -30,7 +30,7 @@ Lua原生只提供`makefile`，而且是Linux下的`makefile`,有人提供了MSV
 因为我想要自动化下载源代码，编译和打包这个流程，所以干脆就用`cmake`搞了一下。
 Lua的源代码里不考虑MSVC的私货`dllexport`那一坨，所以在Win下编译要格外注意符号导出，或者就别搞动态链接库，直接打包成静态库(有个坑就是`luac`必须静态链接`lualib`，用动态链接找不到符号)。
 
-自己用cmake打包了一份，支持从环境变量导入想要的版本号。
+自己fork了一份代码改了下cmake,工程在[`https://github.com/BlurryLight/Lua-with-cmake`](https://github.com/BlurryLight/Lua-with-cmake)，支持从环境变量`LUA_VERSION`导入想要的版本号,pwsh中可以使用`$env:LUA_VERSION = "5.3.5"`, `bash`直接用`export`就完事。
 `install`部分参照着`5.3.6`的源码结构编写的，编译低版本(`5.1.x`)的话,由于部分头文件位置不一样所以install的时候可能会出错，需要手动复制一下`lua.hpp`这个头文件。
 
 ```
@@ -143,3 +143,19 @@ function set_lua_53
 
 当然也可以简单一点，用VS提供的![x64toolchains](https://img.blurredcode.com/img/202201310126223.png?x-oss-process=style/compress)
 设置好编译器的路径，然后`cd`到不同lua版本的`luarocks`下装包也不是不行，本身装包也是个低频操作，不需要特地在`powershell`里折腾半天。
+
+## 测试
+
+安装完成后可以用`luarocks install luasocket`测试一下，这个库需要编译C库，可以检验环境是否配置对。
+
+```powershell
+#.1 激活lua53环境,设置lua53和luarocks53的环境变量
+set_lua_53
+#.2 安装luasocket
+luarocks53.bat install luasocket
+#.3 正常情况下应该看见编译和安装成功的提示
+# luasocket 3.0rc1-2 is now installed in D:\opt\Luarocks53\systree (license: MIT)
+```
+调用`require('socket')`检查
+
+![luasocket](https://img.blurredcode.com/img/202201311455165.png?x-oss-process=style/compress)
