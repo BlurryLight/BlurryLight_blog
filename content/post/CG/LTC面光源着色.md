@@ -197,7 +197,7 @@ $$
     float lodA = floor(lod);
     float lodB = ceil(lod);
     float t = lod - lodA;
-![4713a628f9d1443f831fed3d1ef037a7](https://img.blurredcode.com/img/4713a628f9d1443f831fed3d1ef037a7.png?x-oss-process=style/compress)
+
     //不同的mipmap上线性插值
     vec3 a = FetchColorTexture(Puv, lodA);
     vec3 b = FetchColorTexture(Puv, lodB);
