@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode }}">
   <head>
-    <script>
+    <!-- <script>
+      // im using cloudflare this is unnecessary
       if (location.protocol !== 'https:' && location.hostname !== "localhost") {
       location.replace(`https:${location.href.substring(location.protocol.length)}`);
       }
-    </script>
+    </script> -->
     
      <!-- redirect http to https -->
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
