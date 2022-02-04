@@ -14,6 +14,7 @@ toc: false
 katex: true
 markup: mmark
 mmarktoc: true
+mermaid: true
 ---
 
 # Cook-Torrance反射方程 {#cook-torrance反射方程}
@@ -73,7 +74,7 @@ $$
 {{< figure src="/image/frenel_conductor.jpg" width="70%" caption="导体的菲涅尔项">}}
 
 ## 法线分布函数(NDF）
-`NDF`函数描述了微表面模型的法线分布，在给定$$n \cdot h$$和粗糙度`\alpha`下，其反映了当前模型上有多少微表面的法线与给定输入$h$重合。关于它的选择有很多，常用的包括Trowbridge-Reitz GGX函数。它是形如
+`NDF`函数描述了微表面模型的法线分布，在给定$$n \cdot h$$和粗糙度$$\alpha$$下，其反映了当前模型上有多少微表面的法线与给定输入$$h$$重合。关于它的选择有很多，常用的包括Trowbridge-Reitz GGX函数。它是形如
 
 $$
 NDF_{GGX}(n, h, \alpha)=\frac{\alpha^{2}}{\pi\left((n \cdot h)^{2}\left(\alpha^{2}-1\right)+1\right)^{2}}\labeltag{2}
@@ -177,7 +178,7 @@ $$
 
 ### 计算prefiltered envmap
 
-与diffuse的情况不同，specular部分涉及到复杂的BRDF，所以可以根据BRDF的分布(主要是NDF函数的分布)进行重要性采样。同时，NDF函数$$D$$是一个与半程向量$$h$$有关的函数，半程向量$$h$$与视角方向$$V$$有关，在预积分的时候我们并不知道视角方向$$V$$，因此做一个假设$$V$$与法线同向(引入了误差，导致glazing angle的锐利反射丢失)，则$$V = R = N$$。
+与BRDF为常数的diffuse情况不同，specular部分涉及到复杂的BRDF，所以可以根据BRDF的分布(主要是NDF函数的分布)进行重要性采样，对不同NDF的采样推导可以见[Importance Sampling techniques for GGX with Smith Masking-Shadowing: Part 1](https://schuttejoe.github.io/post/ggximportancesamplingpart1/)和[Sampling microfacet BRDF](https://agraphicsguy.wordpress.com/2015/11/01/sampling-microfacet-brdf/)两篇文章，常读常新。同时，NDF函数$$D$$是一个与半程向量$$h$$有关的函数，半程向量$$h$$与视角方向$$V$$有关，在预积分的时候我们并不知道视角方向$$V$$，因此做一个假设$$V$$与法线同向(引入了误差，导致glazing angle的锐利反射丢失)，则$$V = R = N$$。
 
 通过以上假设，知道了每一个像素的法向量$$N$$和$$V$$。通过GGX重要性采样获取半程向量$$H$$。有了`H`和`V`以后我们可以计算出`L`的方向，有了`L`方向以后就可以在`cubemap`上进行texture查询了。
 
@@ -205,10 +206,43 @@ Epic原始文章见[^Epic],效果见如图$$\figref{1}$$,来自[^learnopengl].
 
 
 ## split BRDF
+采用`schlick`近似，可以将渲染方程拆分为
 
+$$
+F_{0} \int_{\Omega} \frac{f_{r}\left(p, \omega_{i}, \omega_{o}\right)}{F_{schlick}}\left(1-\left(1-\omega_{o} \cdot h\right)^{5}\right) n \cdot \omega_{i} d \omega_{i}+\int_{\Omega} \frac{f_{r}\left(p, \omega_{i}, \omega_{o}\right)}{F_{schlick}}\left(1-\omega_{o} \cdot h\right)^{5} n \cdot \omega_{i} d \omega_{i}
+$$
 
-#...
-(to be continued)
+注意到`BRDF`内$$fr()$$本身含有`frenel`项，所以其分子只剩下$$D(n,h,\alpha),G(n,v,k)$$项。当采用重要性采样的时候($$D$$乘以`cos`即为`pdf`)做蒙特卡洛积分的时候需要除以`pdf`，因此`D`项被消去，分子只剩下$$G(n,v,k)$$项,其中$$k$$是$$\alpha$$的函数,$$\omega_o$$是$$v$$的另一个记号。
+$$F_0$$是常数，法线$$N$$已知。在蒙特卡洛积分的过程中通过采样获取$$H$$，已知$$V$$可以算出$$L$$,也就是$$\omega_i$$，式子中全部符号现在均已知。
+
+该式子可以打表，其只与$$n \cdot v$$和$$\alpha$$有关,因此可以打表为二维纹理，代码见[precompute_brdf.frag](https://github.com/BlurryLight/DiRenderLab/blob/551f38c865886ba663e4eb2a54c1e060e688b706/resources/shaders/pbrRender/precompute_brdf.frag)。
+
+最后合并两个splitsum的结果可以写作(摘抄自LearnOpenGL),再加上diffuse的部分(或者kulla-conty补的能量)就完成了。
+
+```glsl
+float lod             = getMipLevelFromRoughness(roughness);
+vec3 prefilteredColor = textureCubeLod(PrefilteredEnvMap, refVec, lod);
+vec2 envBRDF          = texture2D(BRDFIntegrationMap, vec2(NdotV, roughness)).xy;
+```
+
+# 总结
+`MC`为蒙特卡洛方法。
+
+{{<mermaid>}}
+graph TD;
+  A[绘制方程]--diffuse-->K[漫反射部分公式]
+  K--黎曼积分/蒙特卡洛/球谐函数-->B[Diffuse Irradiance Map];
+  A--specular-->C[高光部分公式];
+  C--SplitSum-->D[Light Integration]
+  D --MC V=R=N-->F[pre-filtered env irradiance map]
+  C--SplitSum-->E[BRDF Integration]
+  E--split frenel-->G[BRDF Lut]
+  F-->H(specular Radiance)
+  G-->H
+  B--lambert BRDF-->I(Diffuse Radiance)
+  I--kd-->J(radiance)
+  H--ks-->J(radiance)
+{{</mermaid>}}
 
 [^1]: [Cook, Robert L., and Kenneth E. Torrance. "A reflectance model for computer graphics." ACM Transactions on Graphics (ToG) 1.1 (1982): 7-24.](https://inst.cs.berkeley.edu/~cs283/sp13/lectures/cookpaper.pdf)
 [^wardnotes]: [Walter, Bruce. "Notes on the Ward BRDF." Program of Computer Graphics, Cornell University, Technical report PCG-05 6 (2005).](https://www.graphics.cornell.edu/~bjw/wardnotes.pdf)

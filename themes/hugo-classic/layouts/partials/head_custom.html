@@ -1,6 +1,10 @@
 
 <!-- KaTeX -->
     <link rel="stylesheet" href="/css/katex.min.css">
+    {{ if (.Params.mermaid) }}
+    <!-- MermaidJS support -->
+    <script async src="/js/mermaid.min.js"></script>
+    {{ end }}
 
     <!-- The loading of KaTeX is deferred to speed up page rendering -->
     <script defer src="/js/katex.min.js"></script>
