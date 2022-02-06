@@ -33,9 +33,13 @@ paginate= 40
     url = "/categories/"
     weight = 2
 [[menu.main]]
+    name = "Links"
+    url = "/links/"
+    weight = 3
+[[menu.main]]
     name = "About me"
     url = "/about/"
-    weight = 3
+    weight = 4
 
 [params]
     description = "A simple, minimal blog for those who love text."
