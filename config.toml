@@ -52,7 +52,8 @@ paginate= 40
   [markup.goldmark.renderer]
       unsafe= true
 [frontmatter]
-lastmod = ["lastmod","updated",":git",":fileModTime",":default"]
+# lastmod = ["lastmod","updated",":git",":fileModTime",":default"]
+lastmod = [":git",":fileModTime",":default"]
 date = ["date",":default"]
 
 [params.utter]

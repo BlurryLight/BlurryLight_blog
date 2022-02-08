@@ -4,7 +4,7 @@ title: "为什么延迟渲染和MSAA不搭"
 date: 2022-02-04T15:10:42+08:00
 draft: false
 # tags: [ "" ]
-categories: [ "默认分类"]
+categories: [ "CG"]
 # keywords: [ ""]
 # lastmod: 2022-02-04T15:10:42+08:00
 # CJKLanguage: Chinese, Japanese, Korean

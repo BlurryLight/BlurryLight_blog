@@ -4,7 +4,7 @@ title: "C++跨平台新体验: Vcpkg Manifest与Github Actions"
 date: 2021-05-05T16:36:54+08:00
 draft: false
 # tags: [ "" ]
-categories: [ "C++"]
+categories: [ "cpp"]
 # keywords: [ ""]
 lastmod: 2021-05-05T16:36:54+08:00
 # CJKLanguage: Chinese, Japanese, Korean
