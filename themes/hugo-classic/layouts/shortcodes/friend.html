@@ -1,6 +1,6 @@
 {{ if .IsNamedParams }}
-<p><a target="_blank" href={{ .Get "url" }} title={{ .Get "name" }} class="friendurl"></p> 
 	<div class="frienddiv">
+      <a target="_blank" href={{ .Get "url" }} title={{ .Get "name" }} class="friendurl">
       <div class="frienddivleft">
         <img class="myfriend" src="{{ with .Get "logo"}}{{.}}{{else}}/image/default_avatar.svg{{ end }}" />
       </div>
