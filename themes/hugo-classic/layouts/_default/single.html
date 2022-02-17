@@ -3,11 +3,11 @@
 <h1><span class="title">{{ .Title | markdownify}}</span></h1>
 {{ with .Params.author }}<h2 class="author">{{ . }}</h2>{{ end }}
 {{ if .Params.date }}<p class="date">{{ .Params.date.Format "2006/01/02" }}</p>{{ end }}
-{{ if and (.Site.Params.GitRepo.enable) (.Page.GitInfo)}}
-<p class="updatedate" title="Commit: {{ .Page.GitInfo.Subject }}">LastMod:<a href="{{ .Site.Params.GitRepo.Host }}/{{ .Page.GitInfo.AbbreviatedHash}}">{{ .Params.lastmod.Format "2006/01/02" }}</a></p> 
+{{ if and (.Site.Params.GitRepo.enable) (.GitInfo)}}
+<p class="updatedate" title="Commit: {{ .GitInfo.Subject }}">LastMod:<a href="{{ .Site.Params.GitRepo.Host }}/{{ .GitInfo.AbbreviatedHash}}">{{ .Params.lastmod.Format "2006/01/02" }}</a></p> 
 {{ else }}
 <script>
-  console.log("{{ printf "%#v" $.Page.GitInfo }}")
+  console.log("{{ printf "%#v" $.GitInfo }}")
   console.log("{{ printf "%#v" $.Site.Params.GitRepo }}")
 </script>
 <p class="updatedate">LastMod:{{ .Params.lastmod.Format "2006/01/02" }}</p> 
