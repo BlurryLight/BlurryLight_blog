@@ -2,9 +2,13 @@
 <div class="article-meta">
 <h1><span class="title">{{ .Title | markdownify}}</span></h1>
 {{ with .Params.author }}<h2 class="author">{{ . }}</h2>{{ end }}
-{{ if .Params.date }}<p class="date">{{ .Params.date.Format "2006/01/02" }}</p>{{ end }}
-<!-- remove last mod because it doesnot accurate -->
-<!-- <p class="date">LastMod:{{ .Params.lastmod.Format "2006/01/02" }}</p>  -->
+{{ $date := .Date.Format "2006/01/02" }}
+{{ $lastmod := .Lastmod.Format "2006/01/02" }}
+
+<p class="date">{{ $date }}</p>
+{{ if ne $lastmod $date }}
+  <p class="date">LastMod:{{ $lastmod }}</p> 
+{{ end }}
 
 <p class="terms">
   {{ range $i := (slice "categories" "tags") }}

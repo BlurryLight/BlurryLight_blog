@@ -53,8 +53,10 @@ paginate= 40
       unsafe= true
 [frontmatter]
 # lastmod = ["lastmod","updated",":git",":fileModTime",":default"]
-lastmod = [":git",":fileModTime",":default"]
-date = ["date",":default"]
+# lastmod = [":git",":fileModTime",":default"]
+# date = ["date",":default"]
+date = ["date", "publishDate", "lastmod"]
+lastmod = ["lastmod", ":git", "date", "publishDate"]
 
 [params.utter]
 enable = true
