@@ -6,6 +6,10 @@
 {{ if and (.Site.Params.GitRepo.enable) (.GitInfo)}}
 <p class="updatedate" title="Commit: {{ .GitInfo.Subject }}">LastMod:<a href="{{ .Site.Params.GitRepo.Host }}/{{ .GitInfo.AbbreviatedHash}}">{{ .Params.lastmod.Format "2006/01/02" }}</a></p> 
 {{ else }}
+<script>
+  console.log("{{ printf "%#v" $.GitInfo }}")
+  console.log("{{ printf "%#v" $.Site.Params.GitRepo }}")
+</script>
 <p class="updatedate">LastMod:{{ .Params.lastmod.Format "2006/01/02" }}</p> 
 {{ end }}
 

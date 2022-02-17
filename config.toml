@@ -68,5 +68,5 @@ Host = "https://cdn.jsdelivr.net/gh/blurrylight/blurrylight_blog@pages-src/stati
 
 [params.GitRepo]
 # this is for "Updated: time" with an hyperlink to commit hash, see single.html
-enable = true 
+enable = true
 Host = "https://github.com/BlurryLight/BlurryLight_blog/commit/"

@@ -3,9 +3,11 @@
 echo "clone all history for .GitInfo...\n\r"
 git pull --unshallow
 git checkout pages-src
+git pull origin pages-src
 
-ls
+ls -al
 echo "build hugo\n\r"
-hugo
+chmod +x hugo
+./hugo --enableGitInfo
 
 exit 0
