@@ -3,7 +3,8 @@
 <h1><span class="title">{{ .Title | markdownify}}</span></h1>
 {{ with .Params.author }}<h2 class="author">{{ . }}</h2>{{ end }}
 {{ if .Params.date }}<p class="date">{{ .Params.date.Format "2006/01/02" }}</p>{{ end }}
-<p class="date">LastMod:{{ .Params.lastmod.Format "2006/01/02" }}</p> 
+<!-- remove last mod because it doesnot accurate -->
+<!-- <p class="date">LastMod:{{ .Params.lastmod.Format "2006/01/02" }}</p>  -->
 
 <p class="terms">
   {{ range $i := (slice "categories" "tags") }}
