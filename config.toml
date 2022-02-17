@@ -65,3 +65,8 @@ theme = "github-light"
 [params.CDN]
 enable = false
 Host = "https://cdn.jsdelivr.net/gh/blurrylight/blurrylight_blog@pages-src/static/"
+
+[params.GitRepo]
+# this is for "Updated: time" with an hyperlink to commit hash, see single.html
+enable = true 
+Host = "https://github.com/BlurryLight/BlurryLight_blog/commit/"

@@ -195,7 +195,7 @@ $$
 - 式子$$\eqref{4}$$的第二步拆出的积分项为什么上下有$$(n \cdot \omega_i)$$?
 
 Epic的公式推导里并没有写`cosine`,但是shader代码里有。脚注里语焉不详, 仅仅说加了`cosine`效果会更好。 
-自己的思考：`cosine`项起了一个加权平均的效果。$L_i$对最终的`irradiance`的贡献与其入射角度有关系。
+自己的思考：`cosine`项起了一个加权平均的效果。$$L_i$$对最终的`irradiance`的贡献与其入射角度有关系。
 
 Epic原始文章见[^Epic],效果见如图$$\figref{1}$$,来自[^learnopengl].
 

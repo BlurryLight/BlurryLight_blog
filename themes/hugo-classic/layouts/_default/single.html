@@ -3,7 +3,12 @@
 <h1><span class="title">{{ .Title | markdownify}}</span></h1>
 {{ with .Params.author }}<h2 class="author">{{ . }}</h2>{{ end }}
 {{ if .Params.date }}<p class="date">{{ .Params.date.Format "2006/01/02" }}</p>{{ end }}
-<p class="date">Updated:{{ .Params.lastmod.Format "2006/01/02" }}</p> 
+{{ if and (.Site.Params.GitRepo.enable) (.GitInfo)}}
+<p class="updatedate" title="Commit: {{ .GitInfo.Subject }}">LastMod:<a href="{{ .Site.Params.GitRepo.Host }}/{{ .GitInfo.AbbreviatedHash}}">{{ .Params.lastmod.Format "2006/01/02" }}</a></p> 
+{{ else }}
+<p class="updatedate">Updated:{{ .Params.lastmod.Format "2006/01/02" }}</p> 
+{{ end }}
+
 <p class="terms">
   {{ range $i := (slice "categories" "tags") }}
   {{ with ($.Param $i) }}
