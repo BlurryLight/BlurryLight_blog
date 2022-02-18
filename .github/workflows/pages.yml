@@ -30,6 +30,10 @@ jobs:
         with:
           hugo-version: '0.68.3'
           # extended: true
+          
+      - name: set git config
+        run: |
+          git config core.quotePath false
 
       - name: Build
         run: hugo --minify
@@ -41,9 +45,6 @@ jobs:
       #   run: |
       #     chmod +x ./deploy_oss.sh
       #     ./deploy_oss.sh
-      - name: set git config
-        run: |
-          git config core.quotePath false
 
       - name: Deploy github
         uses: peaceiris/actions-gh-pages@v3
