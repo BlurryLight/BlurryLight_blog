@@ -6,7 +6,10 @@
 {{ $lastmod := .Lastmod.Format "2006/01/02" }}
 
 <p class="date">{{ $date }}</p>
-{{ if ne $lastmod $date }}
+
+{{ if and (.Site.Params.GitRepo.enable) (.GitInfo)}}
+  <p class="date" title="Commit: {{ .GitInfo.Subject }}">LastMod:<a href="{{ .Site.Params.GitRepo.Host }}/{{ .GitInfo.AbbreviatedHash}}">{{ $lastmod }}</a></p> 
+{{ else }}
   <p class="date">LastMod:{{ $lastmod }}</p> 
 {{ end }}
 
