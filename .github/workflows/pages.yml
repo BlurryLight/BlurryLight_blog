@@ -41,6 +41,9 @@ jobs:
       #   run: |
       #     chmod +x ./deploy_oss.sh
       #     ./deploy_oss.sh
+      - name: set git config
+        run: |
+          git config core.quotePath false
 
       - name: Deploy github
         uses: peaceiris/actions-gh-pages@v3
