@@ -6,9 +6,11 @@
 
 {{ .Content }}
 
+{{ $pages := .Pages }}
+{{ if .IsHome }}{{ $pages = .Site.RegularPages }}{{ end }}
+{{ $posts := (where $pages "Type" "misc" ) }}
+<h4> {{ len $posts  }} miscs</h4>
 <ul>
-  {{ $pages := .Pages }}
-  {{ if .IsHome }}{{ $pages = .Site.RegularPages }}{{ end }}
    <!-- only the misc dir will be listed -->
   {{ $paginator := .Paginate (where $pages "Type" "misc") }}
   {{ range $paginator.Pages }}
