@@ -1,0 +1,26 @@
+{{ partial "header.html" . }}
+
+{{if not .IsHome }}
+<h1>{{ .Title | markdownify}}</h1>
+{{ end }}
+
+{{ .Content }}
+
+{{ $pages := .Pages }}
+{{ if .IsHome }}{{ $pages = .Site.RegularPages }}{{ end }}
+{{ $posts := (where $pages "Type" "notes" ) }}
+<h4> {{ len $posts  }} notes</h4>
+<ul>
+   <!-- only the misc dir will be listed -->
+  {{ $paginator := .Paginate (where $pages "Type" "notes") }}
+  {{ range $paginator.Pages }}
+  <li>
+    <span class="date">{{ .Params.date.Format "2006/01/02" }}</span>
+    <a href="{{ .RelPermalink}}">{{ .Title | markdownify}}</a>
+  </li>
+  {{ end }}
+ <button onclick="topFunction()" id="topBtn" title="Go to top">Top</button>
+</ul>
+{{ template "_internal/pagination.html" . }}
+
+{{ partial "footer.html" . }}
