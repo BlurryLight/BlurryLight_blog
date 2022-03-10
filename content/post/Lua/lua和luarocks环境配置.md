@@ -116,8 +116,11 @@ luarocks提供了一个命令来设置环境变量, 不过也挺sb的，比bash�
 通过`install.bat`安装的目录下都包含`luarocks.bat`，这样如果都加到环境变量里会有冲突，可以酌情改成`luarocks51.bat`和`luarocks53.bat`。
 ### Powershell设置(可选)
 
-具体可以看powershell的配置文件[Microsoft.PowerShell_profile.ps1](https://github.com/BlurryLight/dotfiles/blob/master/Microsoft.PowerShell_profile.ps1)
-我从[posh的脚本库](https://github.com/majkinetor/posh/blob/master/MM_Admin/Invoke-Environment.ps1)拿了个脚本，可以从`powershell`里调用`bat`从而设置环境变量。
+具体可以看powershell的配置文件
+
+<script src="https://gist.github.com/BlurryLight/b94fad8b8a95ce147894055be45b7954.js"></script>
+
+我从[majkinetor的posh脚本库](https://github.com/majkinetor/posh/blob/master/MM_Admin/Invoke-Environment.ps1)拿了个脚本，可以从`powershell`里调用`bat`从而设置环境变量。
 通过设置`alias`，注意要设置`Scope`以使得alias在函数外生效，以使得`lua`和`luarocks`指向不同版本的lua。
 注意不同lua的`bin`目录下也要加入到环境变量下，不然可能会找不到对应的`lua.exe`。
 
