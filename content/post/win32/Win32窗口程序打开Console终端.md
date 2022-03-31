@@ -22,7 +22,7 @@ mermaid: false
 
 要想在执行程序的时候同时打开黑框(Console)有两种方式
 
-- 改变Link符号和入口点
+# 改变Link符号和入口点
 
 可以通过以下的链接指令修改入口点到`mainCRTStartup`，也可以在`Properties->Linker->System->Subsystem`里修改为`Console`，这样入口点也会调整到`mainCRTStartup`。
 ```
@@ -40,9 +40,9 @@ int main()
 {
 	auto hInstance = GetModuleHandle(0);
 	GameApp theApp(hInstance);
-    HINSTANCE prev  = NULL;
-    LPSTR     cmdline = GetCommandLineA();
-    int       showCmd;
+	HINSTANCE prev  = NULL;
+	LPSTR     cmdline = GetCommandLineA();
+	int       showCmd;
 	if (!theApp.Init())
 		return 0;
 
@@ -51,7 +51,7 @@ int main()
 
 ```
 
--  在Win32窗口程序里打开Console
+# 在WinMain函数里重新启用Console
 还有一种方式是在`WinMain`函数里重新启用Console，注意最好在其他代码运行前启用。
 需要启用宏`#define _CRT_SECURE_NO_WARNINGS`，或者用微软的私活`freopen_s`。
 
