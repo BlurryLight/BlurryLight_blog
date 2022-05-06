@@ -5,6 +5,13 @@
   <span class="nav-next">{{ with .NextInSection }}<a href="{{ .RelPermalink }}">{{ .Title }}</a> &rarr;{{ end }}</span>
 </nav>
 <script type="text/javascript">
+const viewers = document.querySelectorAll("#image-compare");
+console.log(viewers);
+viewers.forEach((element) => {
+  let view = new ImageCompare(element,image_compare_options).mount();
+});
+</script>
+<script type="text/javascript">
 document.addEventListener('keyup', function(e) {
   if (e.target.nodeName.toUpperCase() != 'BODY') return;
   var url = false;

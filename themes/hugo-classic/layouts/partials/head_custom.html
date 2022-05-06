@@ -14,6 +14,41 @@
 
     <link href="/css/copy-tex.min.css" rel="stylesheet" type="text/css">
     <script src="/js/copy-tex.min.js"></script>
+
+    <!-- https://github.com/kylewetton/image-compare-viewer -->
+    <script src="https://unpkg.com/image-compare-viewer/dist/image-compare-viewer.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/image-compare-viewer/dist/image-compare-viewer.min.css">
+    <script>
+      var image_compare_options = {
+          // UI Theme Defaults
+
+          controlColor: "#FFFFFF",
+          controlShadow: true,
+          addCircle: false,
+          addCircleBlur: true,
+
+          // Label Defaults
+
+          showLabels: true,
+          labelOptions: {
+            before: 'Before',
+            after: 'After',
+            onHover: false
+          },
+
+          // Smoothing
+
+          smoothing: false,
+          smoothingAmount: 100,
+
+          // Other options
+
+          hoverStart: false,
+          verticalMode: false,
+          startingPoint: 50,
+          fluidMode: false
+          };
+    </script>
     <script>
     document.addEventListener("DOMContentLoaded", function() {
       renderMathInElement(document.body, {

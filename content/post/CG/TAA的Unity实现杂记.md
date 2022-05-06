@@ -104,6 +104,7 @@ Neighborhood clamping也有他的问题(https://blog.csdn.net/weixin_30396699/ar
 这个问题比较复杂，往往是由于小三角形引起的。比如远处的树叶等小三角形，其大小甚至小于一个像素，这会导致在相机jitter过程中该三角形一会出现一会不出现。
 灵魂画师画个图，方框代表一个像素。在`jitter`过程中，采样点不一定能采样到这个三角形。
 ![TAA的Unity实现杂记-2022-05-06-19-00-01](https://img.blurredcode.com/img/TAA的Unity实现杂记-2022-05-06-19-00-01.png?x-oss-process=style/compress)
+
 这一问题的解决方式在这篇文章中得到了讨论(https://zhuanlan.zhihu.com/p/71173025)。
 
 - 着色高光锯齿
@@ -115,6 +116,14 @@ Neighborhood clamping也有他的问题(https://blog.csdn.net/weixin_30396699/ar
 
 ### 画面变模糊
 `Unity`在TAA处理中还加入了一个锐化来防止画面变糊。
+
+# 结果
+左:NO TAA 右: TAA
+<div id="image-compare">
+  <img src="https://img.blurredcode.com/img/TAA的Unity实现杂记-2022-05-06-19-18-14.png?x-oss-process=style/compress" alt="NO TAA" />
+  <img src="https://img.blurredcode.com/img/TAA的Unity实现杂记-2022-05-06-19-17-58.png?x-oss-process=style/compress" alt="TAA" />
+</div>
+
 
 # Reference
 
