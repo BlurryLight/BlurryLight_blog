@@ -55,6 +55,6 @@ jobs:
           
       - name: update search engines
         run: |
-          curl http://www.google.com/webmasters/sitemaps/ping?sitemap=https://www.blurredcode.com/sitemap.xml
-          curl http://www.bing.com/webmaster/ping.aspx?siteMap=https://www.blurredcode.com/sitemap.xml
+          curl http://www.google.com/webmasters/sitemaps/ping?sitemap=https://www.blurredcode.com/index.xml
+          curl http://www.bing.com/webmaster/ping.aspx?siteMap=https://www.blurredcode.com/index.xml
 
