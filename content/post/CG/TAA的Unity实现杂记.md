@@ -86,20 +86,63 @@ float4 HistoryColor = _HistoryTex.Sample(sampler_LinearClamp, HistoryUV);
 一种可行的方式是采样当前像素在当前帧周围的 $$ 3\times3 $$ 邻居的像素的颜色值，计算一个最大的颜色`AABB`包围盒。这个所谓的**颜色**可以选用在不同的色彩空间，比如RGB,YCoCg等不同的颜色空间做。对于在包围盒以外的点，也即是发生了`history mismatch`的像素，有`clamp`和`clip`两种不同的处理方式。
 ![edit-84c9ebe0655e44b9a7e08e01ff355f1f-2022-05-06-17-52-18](https://img.blurredcode.com/img/edit-84c9ebe0655e44b9a7e08e01ff355f1f-2022-05-06-17-52-18.png?x-oss-process=style/compress)
 
-Neighborhood clamping也有他的问题(https://blog.csdn.net/weixin_30396699/article/details/99515560)，如在相邻像素差别很大的情况下所计算的颜色包围盒可能相当大，此时裁剪完全失效。
+Neighborhood clamping也有他的问题，比如如这篇文章里描述的场景[TAA Ghosting 的相关问题](https://www.cnblogs.com/crazii/p/7244300.html)，在相邻像素差别很大的情况(比如一个白色`1,1,1`，一个黑色`0,0,0`)下所计算的颜色包围盒可能相当大，此时裁剪完全失效。
 
 同时，对于`history mismatch`的处理方式也是值得考量的。
-极端情况下，一律接受`history`，那么就是鬼影加上画面变糊，一律拒绝`history`，那么就是没有TAA抗锯齿的效果。
-因此`AABB`画的越大，画面就会越糊，`AABB`越小，比如Nvidia提出的variance Clip，越容易拒绝历史帧的颜色，走样就会冒出来。
+考虑极端情况下，一律接受`history`，那么就是鬼影加上画面变糊，一律拒绝`history`，那么就是没有TAA抗锯齿的效果。
+因此`AABB`画的越大，画面就会越糊，`AABB`越小，比如Nvidia提出的`Variance Clip`，越容易拒绝历史帧的颜色，走样就会冒出来。
 
+#### YCoCg空间AABB
+
+颜色空间是一个三维空间，选取不同的基函数，可以以不同的形式表示相同的空间。
+UE认为同一个物体表面附近的像素在色调上往往类似，只是着色上亮度有较大差异，想了下`diffuse`表面的物体好像差不多是这个情况。
+`YCoCg`颜色空间有一维是亮度`luma`，因此在`YCoCg`下做计算AABB，转换到RGB空间下做可视化可以发现得到的包围盒比较像有向包围盒，其包围盒有一维是沿着亮度方向的，其AABB会更窄。
+
+![TAA的Unity实现杂记-2022-05-08-00-41-32](https://img.blurredcode.com/img/TAA的Unity实现杂记-2022-05-08-00-41-32.png?x-oss-process=style/compress)
+
+#### Variance Clip
+
+`Nvidia`的[GDC分享](https://developer.download.nvidia.com/gameworks/events/GDC2016/msalvi_temporal_supersampling.pdf)里从正态分布的角度出发，其不是直接计算周围9个像素点颜色的AABB。
+而是先用这九个像素点作为样本，估计一个正态分布的期望$$\mu$$和标准差$$\sigma$$。
+并将AABB的最小值和最大值确立为$$ \mu - \gamma \sigma$$，$$ \mu + \gamma \sigma$$，其中$$ \gamma $$是一个默认值为1的超参数，通过人为调节$$\gamma$$可以调整AABB的大小。
+
+在原来的情况下，如果周围的邻居有一个亮点，那么AABB会被画的特别大。
+但是在`variance clip`这种正态分布的模型下，单个离群像素点的影响被降低了，所以可以得到更小的AABB。
+
+
+<div id="image-compare" style="width:40%;margin: 0px auto;">
+  <img src="https://img.blurredcode.com/img/TAA的Unity实现杂记-2022-05-08-00-53-41.png?x-oss-process=style/compress" alt="NO TAA" />
+  <img src="https://img.blurredcode.com/img/TAA的Unity实现杂记-2022-05-08-00-54-00.png?x-oss-process=style/compress" alt="TAA" />
+</div>
+
+左:Raw AABB 右: Variance Clip
+
+写成伪代码大致可以写作
+```c
+float3 m1 = 0,m2 = 0;
+for (int k = 0; k < 9; k++)
+{
+	float3 C = RGBToYCoCg(_MainTex.Sample(sampler_PointClamp, uv, kOffsets3x3[k]));
+	m1 += C;
+	m2 += C * C;
+}
+
+float3 mu = m1 / 9;
+// sigma的计算公式严格来说不是这样的https://en.wikipedia.org/wiki/Standard_deviation，这里是一个近似
+float3 sigma = sqrt(abs(m2 / 9 - mu * mu));
+#define GAMMA 1.0f
+
+AABBMin = mu - GAMMA * sigma;
+AABBMax = mu + GAMMA * sigma;
+```
 ### 锯齿
-- 边缘几何锯齿
+#### 边缘几何锯齿
 
 由于`Motion Vectors`图也是有锯齿的，所以直接用中心点采样的方式在边缘处抗锯齿会失效。
 一种保守的策略是选取$$3\times3$$区域内的深度最小的点，这样可以确保在几何边缘的像素点能采样到`Motion Vector`，从而正确采样history颜色。
 ![edit-84c9ebe0655e44b9a7e08e01ff355f1f-2022-05-06-18-02-20](https://img.blurredcode.com/img/edit-84c9ebe0655e44b9a7e08e01ff355f1f-2022-05-06-18-02-20.png?x-oss-process=style/compress)
 
-- 内部几何锯齿
+#### 内部几何锯齿
 
 这个问题比较复杂，往往是由于小三角形引起的。比如远处的树叶等小三角形，其大小甚至小于一个像素，这会导致在相机jitter过程中该三角形一会出现一会不出现。
 灵魂画师画个图，方框代表一个像素。在`jitter`过程中，采样点不一定能采样到这个三角形。
@@ -107,7 +150,7 @@ Neighborhood clamping也有他的问题(https://blog.csdn.net/weixin_30396699/ar
 
 这一问题的解决方式在这篇文章中得到了讨论(https://zhuanlan.zhihu.com/p/71173025)。
 
-- 着色高光锯齿
+#### 着色高光锯齿
 
 这个问题的成因感觉还没完全想清楚，但是大概和上一个的原因差不多。
 一些零碎的点状的高光，在相机抖动的过程中，可能一帧高光被采样到，一帧没有。这样会导致`AABB Clip`反复发生，从而使得该像素不能稳定的和历史帧的颜色混合，呈现出高光闪烁的特点。
@@ -130,3 +173,4 @@ Neighborhood clamping也有他的问题(https://blog.csdn.net/weixin_30396699/ar
 1. [TAA原理与OpenGL实现 - Irimsky](https://www.irimsky.top/archives/301/)
 2. [Temporal AA Anti-Flicker](https://zhuanlan.zhihu.com/p/71173025)
 3. [DX12渲染管线(2) - 时间性抗锯齿(TAA)](https://zhuanlan.zhihu.com/p/64993622)
+4. 以及文章里出现的其他引用

@@ -13,9 +13,9 @@ slug: "d791911c"
 toc: true
 mermaid: false
 # latex support
-# katex: true
-# markup: mmark
-# mmarktoc: false 
+katex: true
+markup: mmark
+mmarktoc: true
 ---
 ## Lighting
 
@@ -69,7 +69,8 @@ CBUFFER_START(_CustomLight)
 CBUFFER_END
 ```
 
-注意在shader里的`lightDirection`是从着色点`p`指向光源的($\omega_i$)。
+注意在shader里的`lightDirection`是从着色点`p`指向光源的 $$ \omega_i $$。
+
 `color.linear` 自带从SRGB到`Linear`的转换。
 ```C#
 buffer.SetGlobalVector(dirLightColorId, light.color.linear * light.intensity);
