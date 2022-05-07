@@ -51,13 +51,13 @@ mmarktoc: true
 `Motion Vectors`表示了同一个顶点在前后两帧中被渲染到`screenspace`的`uv`坐标之差。
 不考虑jitter情况下，计算`Motion Vectors`可以划分为三种情况:
 1. 相机不动，场景无运动物体: 不需要考虑`Motion Vectors`，加点jitter出来的结果直接颜色混合就行。
-2. 镜头在动，场景不动：在冯乐乐的书籍里讨论了在这种场景下计算Motion Blur的方法。由于没有物体的运动，可以不通过额外的Pass(利用cur_vp矩阵和prev_vp矩阵)简单计算Motion Vector。
+2. 镜头在动，场景不动：在冯乐乐的书籍里讨论了在这种场景下计算Motion Blur的方法。由于没有物体的运动，可以不通过额外的Pass，在屏幕空间利用cur_vp矩阵的逆矩阵从深度和uv重建世界坐标，并通过prev_vp矩阵计算上一帧的uv坐标，从而得到Motion Vector。
 3. 镜头在动，场景在动：需要保存上一帧的mvp和这一帧的mvp，上一帧的uv信息可以通过上一帧MVP得到，当前帧的UV信息可以通过当前帧的MVP得到。需要额外一个Pass渲染整个场景的物体，以计算每个物体的Motion Vectors并写入到`R16G16_TYPELESS`纹理中。精细化的处理可以单独处理动态物体，以降低Overdraw。
    
 写成伪代码可以写作
 ```
-    newNDCPos = projection * view * translation * position;
-    preNDCPos = projection * previousView * previousTranslation * position;
+    newNDCPos = cur_frame_MVP * vertexPos;
+    preNDCPos = prev_frame_MVP * vertexPos;
     new_uv = 0.5 * newNDCPos.xy + 0.5;
     pre_uv = 0.5 * preNDCPos.xy + 0.5;
     motion_vector = new_uv - pre_uv;
