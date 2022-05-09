@@ -70,7 +70,7 @@ Unity的默认管线提供了`DepthTextureMode.MotionVectors`选项以帮助计�
 
 采样Motion Vectors纹理获得`Motion Vectors`，即可获得上一帧的，也即在`_HistoryBuffer`纹理上的采样坐标。
 伪代码可写作
-```c
+```hlsl
 float2 HistoryUV = i.texcoord - Motion;
 float4 HistoryColor = _HistoryTex.Sample(sampler_LinearClamp, HistoryUV);
 ```
@@ -118,7 +118,7 @@ UE认为同一个物体表面附近的像素在色调上往往类似，只是着
 左:Raw AABB 右: Variance Clip
 
 写成伪代码大致可以写作
-```c
+```hlsl
 float3 m1 = 0,m2 = 0;
 for (int k = 0; k < 9; k++)
 {
@@ -128,7 +128,8 @@ for (int k = 0; k < 9; k++)
 }
 
 float3 mu = m1 / 9;
-// sigma的计算公式严格来说不是这样的https://en.wikipedia.org/wiki/Standard_deviation，这里是一个近似
+// sigma的计算公式严格来说不是这样的
+//https://en.wikipedia.org/wiki/Standard_deviation，这里是一个近似
 float3 sigma = sqrt(abs(m2 / 9 - mu * mu));
 #define GAMMA 1.0f
 
@@ -158,7 +159,28 @@ AABBMax = mu + GAMMA * sigma;
 其他的方式可以参考这篇文章(https://zhuanlan.zhihu.com/p/64993622)。
 
 ### 画面变模糊
+由于在采样历史帧的时候采用`Linear Sample`可能导致画面，尤其是几何边缘变糊。
 `Unity`在TAA处理中还加入了一个锐化来防止画面变糊。
+
+其代码大致可以写成
+```hlsl
+float2 uv = i.texcoord - _Jitter;
+float4 Color = _MainTex.Sample(sampler_LinearClamp, uv);
+float4 topLeft = _MainTex.Sample(sampler_LinearClamp, uv - _MainTex_TexelSize.xy * 0.5);
+float4 bottomRight = _MainTex.Sample(sampler_LinearClamp, uv + _MainTex_TexelSize.xy * 0.5);
+float4 corners = 4.0 * (topLeft + bottomRight) - 2.0 * Color;
+// Sharpen output
+//这里实际上是一个这样的核,0.166667是1/6，2.718是自然对数
+    /*              | -(2/3)*x                          |      |topLeft     |
+	*   Color = |          ((4/3)x + 1)             | *    |Color       |
+	*           |                          -(2/3)x  |      |bottomRight |
+	*  其中 x = e * _Sharpness。通过_Sharpness参数控制锐化核的程度
+	*/
+Color = Color + (Color - (corners * 0.166667)) * 2.718282 * _Sharpness;
+
+// ...
+// do blending with Color and HistoryColor
+```
 
 # 结果
 左:NO TAA 右: TAA
