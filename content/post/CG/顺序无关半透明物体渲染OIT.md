@@ -55,20 +55,25 @@ $$
 
 ## Depth Peeling
 
-**我觉得我还没有真正理解它。**
+~~**我觉得我还没有真正理解它。**~~
 
-本来想自己实现一下没想到翻车了0v0，实现了`Depth Peeling`的效果，但是混合有Bug，没找到原因。
-正确的工程可以看[FrontToBackPeeling](https://github.com/bagobor/opengl33_dev_cookbook_2013/tree/master/Chapter6/FrontToBackPeeling)
+~~本来想自己实现一下没想到翻车了0v0，实现了`Depth Peeling`的效果，但是混合有Bug，没找到原因。~~
+~~正确的工程可以看[FrontToBackPeeling](https://github.com/bagobor/opengl33_dev_cookbook_2013/tree/master/Chapter6/FrontToBackPeeling)~~
+
+一个用Unity正确实现的工程可以见:[depthPeeling-fork](https://github.com/BlurryLight/depthPeeling-fork)。
 
 大概过程就跟剥洋葱一样，需要重复渲染场景很多次，没有太多的实用价值。
-1. 首先渲染整个场景，获得所有的半透明物体，但是此时由于是乱序渲染的，透视不正确。
-2. 再渲染整个场景，将渲染过程中小于等于上一个Pass的深度的像素`discard`掉，相当于把上一次Pass的像素扔掉，渲染半透明表面后面的物体。
-3. 做一次全屏后处理，与1的渲染结果混合。
-重复2-3过程，直到到达指定的渲染次数或者没有需要剥离的半透明物体。
 
+一种naive的思路可以是：
+0. 全程关闭blend，最后一个pass手动实现混合，新建一个`vector<Texture>`。
+1. 首先渲染整个场景，获得所有的半透明物体的最表面的一层，记录渲染的color和深度到纹理。
+2. 渲染整个场景，将渲染过程中小于等于上一个Pass的深度的像素`discard`掉，渲染上一次渲染的场景后面的物体，并记录颜色和alpha值。
+3. 重复上述过程，直到达到预设的最大剥离次数或者没有半透明物体可以渲染。
+4. 做一次全屏后处理，从后到前依次混合每一次混合的纹理，混合公式可以采用默认的`SrcAlpha, OneMinusSrcAlpha`混合。也可以根据`Nvidia`的[实现笔记 Page6](https://my.eng.utah.edu/~cs5610/handouts/DualDepthPeeling.pdf)所记录的公式从前往后混合。
 
+一种更复杂的策略是每剥离一次就混合一次，这样不用暂存中间纹理结果。如下图所示。
 
-{{< figure src="https://img.blurredcode.com/img/edit-bb6690fb71fe44bfa6f1e10014e6b767-2022-05-07-23-44-22.png?x-oss-process=style/compress" width="70%" caption="最开始的Pass，透视不正确">}}
+{{< figure src="https://img.blurredcode.com/img/edit-bb6690fb71fe44bfa6f1e10014e6b767-2022-05-07-23-44-22.png?x-oss-process=style/compress" width="70%" caption="最开始的Pass">}}
 
 
 {{< figure src="https://img.blurredcode.com/img/edit-bb6690fb71fe44bfa6f1e10014e6b767-2022-05-07-23-52-01.png?x-oss-process=style/compress" width="70%" caption="后续剥离过程">}}
