@@ -100,6 +100,9 @@ UE认为同一个物体表面附近的像素在色调上往往类似，只是着
 
 ![TAA的Unity实现杂记-2022-05-08-00-41-32](https://img.blurredcode.com/img/TAA的Unity实现杂记-2022-05-08-00-41-32.png?x-oss-process=style/compress)
 
+三维情况下的RGB空间的AABB和`YCoCg`空间的AABB对比可见图，具体见附录:
+
+{{< figure src="https://img.blurredcode.com/img/TAA的Unity实现杂记-2022-05-21-00-05-32.png" width="50%" caption="黑色为RGB AABB，蓝色为YCoCg AABB">}}
 #### Variance Clip
 
 `Nvidia`的[GDC分享](https://developer.download.nvidia.com/gameworks/events/GDC2016/msalvi_temporal_supersampling.pdf)里从正态分布的角度出发，其不是直接计算周围9个像素点颜色的AABB。
@@ -196,3 +199,8 @@ Color = Color + (Color - (corners * 0.166667)) * 2.718282 * _Sharpness;
 2. [Temporal AA Anti-Flicker](https://zhuanlan.zhihu.com/p/71173025)
 3. [DX12渲染管线(2) - 时间性抗锯齿(TAA)](https://zhuanlan.zhihu.com/p/64993622)
 4. 以及文章里出现的其他引用
+
+
+# Appendix
+
+<script src="https://gist.github.com/BlurryLight/70e2c778d912996901a0a9d0e3ce18f5.js"></script>
