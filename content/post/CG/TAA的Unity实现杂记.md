@@ -103,6 +103,8 @@ UE认为同一个物体表面附近的像素在色调上往往类似，只是着
 三维情况下的RGB空间的AABB和`YCoCg`空间的AABB对比可见图，具体见附录:
 
 {{< figure src="https://img.blurredcode.com/img/TAA的Unity实现杂记-2022-05-21-00-05-32.png" width="50%" caption="黑色为RGB AABB，蓝色为YCoCg AABB">}}
+
+![aabb comparison](https://img.blurredcode.com/img/202205211438006.gif)
 #### Variance Clip
 
 `Nvidia`的[GDC分享](https://developer.download.nvidia.com/gameworks/events/GDC2016/msalvi_temporal_supersampling.pdf)里从正态分布的角度出发，其不是直接计算周围9个像素点颜色的AABB。
