@@ -305,7 +305,6 @@ cullingResults.ComputeDirectionalShadowMatricesAndCullingPrimitives(
 软阴影
 `SAMPLE_TEXTURE2D_SHADOW`宏调用` textureName.SampleCmpLevelZero`，在Dx上支持硬件2x2 PCF。
 
-todo : 看一下四个tap的分布
 ```
 #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Shadow/ShadowSamplingTent.hlsl"
 
@@ -315,6 +314,32 @@ todo : 看一下四个tap的分布
 #endif
 
 ```
+
+{{% notice info %}}
+Q: 看一下四个tap的分布
+
+A: 深入进去看了下代码大概核心代码是
+```
+//确保中心点在最近的纹素的左上角。
+real2 centerOfFetchesInTexelSpace = floor(tentCenterInTexelSpace + 0.5);
+//用一个没看懂的算法计算四采样点的weights
+real2 fetchesOffsetsU = texelsWeightsU.yw / fetchesWeightsU.xy + real2(-1.5,0.5);
+real2 fetchesOffsetsV = texelsWeightsV.yw / fetchesWeightsV.xy + real2(-1.5,0.5);
+//考虑到采样权重都是正数，而且采样权重都不会超过1，所以姑且理解为亚像素级别上偏移一下四个采样点。。
+fetchesUV[0] = bilinearFetchOrigin + real2(fetchesOffsetsU.x, fetchesOffsetsV.x);
+fetchesUV[1] = bilinearFetchOrigin + real2(fetchesOffsetsU.y, fetchesOffsetsV.x);
+fetchesUV[2] = bilinearFetchOrigin + real2(fetchesOffsetsU.x, fetchesOffsetsV.y);
+fetchesUV[3] = bilinearFetchOrigin + real2(fetchesOffsetsU.y, fetchesOffsetsV.y);
+```
+
+所以结论就是以`uv`坐标所对应的纹素的左上角为中心，以周围的`[±1.5,±0.5]`的四个采样点，并且加上一点亚像素偏移。
+以确保`bilinear sampler`能够采样到周围的像素，但我感觉bilinear的影响范围应该超过了`9x9`范围了。
+
+灵魂示意图如图所示。
+{{< figure src="https://img.blurredcode.com/img/chapter4-2022-06-08-00-29-03.png?x-oss-process=style/compress" width="50%" caption="4个采样点示意图。<br/> 绿色为中心，红色为采样点，箭头方向为亚像素偏移方向">}}
+
+{{% /notice %}}
+
 
 ## Blending Cascades
 
