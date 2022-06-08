@@ -6,7 +6,6 @@ draft: false
 # tags: [ "" ]
 categories: [ "Linux"]
 # keywords: [ ""]
-lastmod: 2020-08-15T17:58:25+08:00
 # CJKLanguage: Chinese, Japanese, Korean
 isCJKLanguage: true
 slug: "Linux下texlive环境配置指北"
@@ -22,7 +21,9 @@ Linux下安装texlive环境大致分为两种方式，一种是从包管理器�
 
 # Texlive安装
 
-这部分没什么好说的，在喜欢的镜像处下载texlive的完整安装包texlive.iso(我用的[阿里云镜像](https://mirrors.aliyun.com/CTAN/systems/texlive/Images/)）,挂载后安装。
+~~这部分没什么好说的，在喜欢的镜像处下载texlive的完整安装包texlive2020.iso(我用的[阿里云镜像](https://mirrors.aliyun.com/CTAN/systems/texlive/Images/)）,挂载后安装~~。
+
+发现`ctan`的texlive镜像只会保留最新的texlive版本。[犹他大学的ftp服务器](http://ftp.math.utah.edu/pub/texlive/historic/systems/texlive/)有所有历史版本和当前版本的texlive镜像，可以自由选择。我一般习惯用2020的版本。
 
 - 挂载iso `mkdir iso & sudo mount -o loop ./texlive.iso ./iso `
 - `./install-tl --gui`(依赖图形库tk,没有的话需要`pacman -S tk`)
