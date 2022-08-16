@@ -17,6 +17,12 @@ katex: true
 markup: mmark
 mmarktoc: true
 ---
+
+{{% spoiler "笔记栏文章声明"%}} 
+    {{% notice warning %}}
+    笔记栏所记录文章往往未经校对，或包含错误认识或偏颇观点，亦或采用只有自身能够理解的记录。
+    {{% /notice %}}
+{{% /spoiler %}}
 ## Lighting
 
 ### Lit Shader

@@ -18,6 +18,12 @@ mermaid: false
 # mmarktoc: false 
 ---
 
+{{% spoiler "笔记栏文章声明"%}} 
+    {{% notice warning %}}
+    笔记栏所记录文章往往未经校对，或包含错误观点以及认知，亦或采用只有自身能够理解的表达。
+    {{% /notice %}}
+{{% /spoiler %}}
+
 这是来自对[Catlike Coding的SRP教程](https://catlikecoding.com/unity/tutorials/custom-srp/)的整理，约等于简单的复制粘贴，其`License`为[MIT-0](https://catlikecoding.com/unity/tutorials/license/)，版权作者为Jasper Flick。
 目录包括
 - [Chapter 1 Pipeline Asset](/notes/catlikecodingsrp/18139ebf/)

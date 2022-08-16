@@ -123,3 +123,21 @@ header {
 footer {
 	font-family:'Lucida Console', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Noto Sans','Noto Sans CJK SC', sans-serif;
 }
+aside {
+  right: 70px;
+  z-index: 99;
+  position: fixed;
+  float: right;
+  font-style: italic;
+  overflow: auto;
+  top: 10%;
+  width: 20%;
+  height: 40vw;
+  bottom:50px"
+}
+
+@media only screen and (max-width: 1440px) {
+    aside {
+        display: none;
+    }
+} 

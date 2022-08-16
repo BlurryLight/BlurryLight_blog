@@ -26,8 +26,24 @@
 {{ .TableOfContents }}
 {{ end }}
 
+<!-- We regex only once -->
+{{ $headers := findRE "<h[1-6].*?>(.|\n])+?</h[1-6]>" .Content }}
+{{ .Scratch.Set "LocalHeaders" $headers }}
+{{ partial "table-of-contents" . }}
+
+<aside id="TableOfContentsContainer">
+  {{ if and (.Params.toc) (gt (len .TableOfContents) 30) }}
+  <h3>Table of contents</h3>
+  {{ .TableOfContents }}
+  {{ end }}
+
+  {{ if and ($.Params.mmarktoc) (gt (len $headers) 3) }}
+  <h3>Table of contents</h3>
+  {{ partial "table-of-contents" . }}
+  {{ end }}
+</aside>
+
 <main>
-{{ partial "table-of-contents" .  }}
 {{ if .Site.Params.CDN.enable }}
     {{ $reAltIn := "<img src=\"/([^\"]+)\""}}
     {{ $reAltOut := (printf "<img src=\"%s$1\"" .Site.Params.CDN.Host )}}
@@ -40,5 +56,6 @@
     {{ .Content }}
 {{ end }}
 <button onclick="topFunction()" id="topBtn" title="Go to top">Top</button>
+
 </main>
 {{ partial "footer.html" . }}
