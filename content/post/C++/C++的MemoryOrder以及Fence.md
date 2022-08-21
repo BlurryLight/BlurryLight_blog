@@ -52,7 +52,8 @@ foo():
 ```
 
 手动加上编译期fence后,cppreference指出不同于`std::atomic_thread_fence`，`std::atomic_signal_fence`不会生成运行期fence指令
-```
+
+```c
 void foo() {
 g_a = g_b + 1;
 std::atomic_signal_fence(std::memory_order_seq_cst);
@@ -344,4 +345,76 @@ void consumer()
 # Lockfree SPSC-Queue
 
 我们可以用`Acquire-Release`语义构建无锁固定大小的`SPSC`队列。
-TODO: Lockfree-SPSC-Queue
+
+分析`MengRao`大佬的代码: (https://github.com/MengRao/SPSC_Queue.git)
+
+其`SPSCQueue`为固定大小的单入单出队列，消息大小以`128`字节对齐。
+
+固定大小的`SPSCQueue`可以被实现为RingBuffer的形式，由`read_idx`和`write_idx`在环上一直走。其中`push/front`只关心`write_idx`走到哪里，因此可以构成一个同步。`pop/alloc`操作与`read_idx`有关，构成另外一对同步。
+
+其用法可以在[multhread_q.cc](https://github.com/MengRao/SPSC_Queue/blob/master/test/multhread_q.cc)中看到。
+
+当写入消息时，其代码约为
+
+```cpp
+struct Msg
+{
+  int val_len;
+  uint64_t ts;
+  long val[4];
+};
+
+
+  Msg* msg = q->alloc();
+  msg->val = ..
+  q->push();
+```
+
+读取消息时为
+
+```cpp
+ Msg* msg = q->front();
+ ...
+ q->pop();
+```
+
+其中包含两个`Acquire-Release`同步关系，一个是`push`和`front`之间
+
+```cpp
+void push() {
+    ((std::atomic<uint32_t>*)&write_idx)->store(write_idx + 1, std::memory_order_release);
+}
+T* front() {
+    if (read_idx == ((std::atomic<uint32_t>*)&write_idx)->load(std::memory_order_acquire)) {
+        return nullptr;
+    }
+    return &data[read_idx % CNT];
+}
+```
+在消息写入线程中，调用push会更新`write_idx`的数值，并且获得`release`语义，而在读取线程中会调用`load + acquire`语义，构成读写屏障。
+在`q->push()`之前，也就是填充`msg`结构体的相关store操作，将会在读取线程`load`以后立刻可见。
+
+另外一对同步发生在`alloc`和`pop`之间。
+
+```cpp
+T* alloc() {
+    if (write_idx - read_idx_cach == CNT) {
+    read_idx_cach = ((std::atomic<uint32_t>*)&read_idx)->load(std::memory_order_consume);
+    if (__builtin_expect(write_idx - read_idx_cach == CNT, 0)) { // no enough space
+        return nullptr;
+    }
+    }
+    return &data[write_idx % CNT];
+}
+void pop() {
+    ((std::atomic<uint32_t>*)&read_idx)->store(read_idx + 1, std::memory_order_release);
+}
+```
+
+其中`alloc`是判断队列是否还有空的slot，而pop是移动`read_idx`而让出新的slot。
+在这里作者做了点优化，即缓存了`read_idx`的值。
+
+- 当`write_idx - read_idx < CNT`时，说明队列里还有至少1个slot，此时写的线程并不用关心到底还剩多少个slot，也即不关心read_idx究竟等于多少。
+- 当`write_idx == read_idx_cache`，此时写的线程通过缓存的read_idx认为slot已经用尽。此时通过`load(acquire)`语义获取真的read_index的值，判断是否真的已经耗尽。
+  
+`pop`和`alloc`的`store-load`构成`release-acquire`语义(没有编译器实现了consume语义，因此consume就等于acquire)。在写的线程`read_idx->load`时，`req_acq`语义确保其能看到最新的read_idx的值。
