@@ -120,7 +120,7 @@ UE认为同一个物体表面附近的像素在色调上往往类似，只是着
   <img src="https://img.blurredcode.com/img/TAA的Unity实现杂记-2022-05-08-00-54-00.png?x-oss-process=style/compress" alt="TAA" />
 </div>
 
-左:Raw AABB 右: Variance Clip
+<center>左:Raw AABB 右: Variance Clip</center>
 
 写成伪代码大致可以写作
 ```hlsl
@@ -188,12 +188,12 @@ Color = Color + (Color - (corners * 0.166667)) * 2.718282 * _Sharpness;
 ```
 
 # 结果
-左:NO TAA 右: TAA
 <div id="image-compare">
   <img src="https://img.blurredcode.com/img/TAA的Unity实现杂记-2022-05-06-19-18-14.png?x-oss-process=style/compress" alt="NO TAA" />
   <img src="https://img.blurredcode.com/img/TAA的Unity实现杂记-2022-05-06-19-17-58.png?x-oss-process=style/compress" alt="TAA" />
 </div>
 
+<center>左:NO TAA 右: TAA</center>
 
 # Reference
 
