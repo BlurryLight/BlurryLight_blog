@@ -22,7 +22,7 @@ mmarktoc: true
 - 利用`Project_Inv`到`ViewSpace`，然后再用`View_Inv`到`WorldSpace`。
 - 用摄像机的世界坐标以及屏幕射线插值方法实现
 
-# 第一种方法
+# Inverse Projection
 
 一种从NDC坐标到`ViewPos`的代码可以写做(见：https://stackoverflow.com/questions/11277501/how-to-recover-view-space-position-given-view-space-depth-value-and-ndc-xy)
 
@@ -59,7 +59,7 @@ $$
 $$v_{view} = \frac{\mathbf{P}^{-1}v_{ndc}} {(\mathbf{P}^{-1}v_{ndc}).w }$$
 
 从`ViewSpace`到`WorldSpace`是trivial的就不推了。
-# 第二种方法
+# Interpolated Ray
 
 这种方法不展开说，`Unity Shader入门精要`里给了详细推导。
 简单地说就是
@@ -136,9 +136,11 @@ $$
 \left[\begin{matrix}- \frac{x_{v}}{z_{v} \left(50.0005 + \frac{49.9995 \left(- 1.0000200002 z_{v} - 0.020000200002\right)}{z_{v}}\right)}\\- \frac{y_{v}}{z_{v} \left(50.0005 + \frac{49.9995 \left(- 1.0000200002 z_{v} - 0.020000200002\right)}{z_{v}}\right)}\\- \frac{1}{50.0005 + \frac{49.9995 \left(- 1.0000200002 z_{v} - 0.020000200002\right)}{z_{v}}}\\1\end{matrix}\right]
 $$
 
-把第三项单独拿出来,这个式子应该等于$$z_v$$，分母粗略化简约等于
-$$0.02 * 49.9995 * z_v$$，其实就是$$z_v$$。
+把第三项单独拿出来,这个式子应该等于$$z_v$$
 
 $$
 -\frac{1}{50.0005 + \frac{49.9995 \left(- 1.0000200002 z_{v} - 0.020000200002\right)}{z_{v}}}
 $$
+
+该式粗略化简约等于
+$$\frac{z_v}{0.02 * 49.9995}$$，约等于$$z_v$$。
