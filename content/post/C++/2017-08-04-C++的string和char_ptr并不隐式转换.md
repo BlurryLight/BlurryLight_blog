@@ -6,6 +6,7 @@ slug: 421
 date: 2017-08-04
 updated: 2017-08-04
 status: publish
+draft: true
 author: panda
 categories: 
   - cpp

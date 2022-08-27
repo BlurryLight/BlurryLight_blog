@@ -6,6 +6,7 @@ slug: debian-sid-搭建nodejs-electron
 date: 2016-05-22
 updated: 2016-05-22
 status: publish
+draft: true
 author: panda
 categories: 
   - linux
