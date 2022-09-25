@@ -1,6 +1,6 @@
 
 ---
-title: "Monkey语言 | 1. Parser"
+title: "Monkey语言 | 1. Lexer & Parser"
 date: 2022-09-14T21:52:05+08:00
 draft: false
 # tags: [ "" ]
@@ -11,7 +11,7 @@ categories: [ "pl"]
 isCJKLanguage: true
 slug: "85f52114"
 toc: true 
-mermaid: false
+mermaid: true 
 # latex support
 # katex: true
 # markup: mmark
@@ -28,6 +28,24 @@ mermaid: false
 最近在阅读[Writing An Interpreter In Go](https://interpreterbook.com/)。
 
 ![](https://interpreterbook.com/img/cover-cb2da3d1.png)
+
+# Lexer
+
+{{<mermaid>}}
+
+graph LR
+A[source] --> B[Lexer]
+B--Tokens-->C[Parser]
+C--Ast-->D[Evaluator]
+D-->Value
+
+{{</mermaid>}}
+
+`Lexer`把原始的代码(包含空格、注释、换行符等额外的符号)转换为Parser关注的一连串的*词*，以方便解析器将一连串的Token转换为抽象语法树(AST)。
+
+然而`Lexer/Parser`分离只是一种抽象方法，实际上并没有什么限制必须要分层制作。
+一些简易的配置文件的Parser(比如ini,json)由于其语法足够简单，可以不经过Lexer阶段，从头到尾一次扫描得到解析结果。
+然而这样混杂在一起会导致在Parser的代码里会有许多关于处理空格、换行符、注释以及循环读取标识符(identifier)等代码，并且在碰见错误的时候不方便提示错误信息(混在一起只能提供当前和之前字符的信息，而经过Lexer阶段可以报错当前和之前的Token，更加清晰)。
 
 # Statement和Expression
 
@@ -65,8 +83,42 @@ if true {
 };
 ```
 
-# 普拉特解析法
+# 递归下降解析
 
+`Monkey`的语法符合`LL(1)`，适合用递归下降法来解析。我在[BlurryLight/TinyJsonParser](https://github.com/BlurryLight/TinyJsonParser)作为`json parser`实现过递归下降解析器，但是json解析器由于没有算术运算，所以不用考虑运算符优先级的问题。
+
+`LL(1)`的递归下降的一部分伪代码可以写作
+
+```cpp
+Node ParseExpression()
+{
+    while(GetToken(1))
+    {
+        switch (token):
+        case "\"":  parseString();break;
+        case "[":  parseArray();break;
+        ...
+    }
+}
+Node parseArray()
+{
+    while(GetToken(1) != "])
+    {
+        ParseExression();
+        ...
+    }
+}
+```
+
+其解析过程中，`ParseExpression`和`ParseArray`可能会交替着递归调用，直到解析结束或者碰见出错的值。
+
+比如对于`[[0],1,2]`代码片段中，
+1. 首先调用ParseExpression,发现其为一个数组，调用ParseArray
+2. 在ParseArray中调用ParseExpression解析第一个元素
+3. 在ParseExpression中继续调用ParseArray
+4. 在第2点执行的ParseArray中继续解析第二个元素，调用ParseNumber
+
+## 普拉特解析法
 普拉特解析法的完整实现可以参考[Pratt Parsers: Expression Parsing Made Easy ](https://journal.stuffwithstuff.com/2011/03/19/pratt-parsers-expression-parsing-made-easy/),其展示了 Prefix/Infix/Postfix，三目表达式以及括号情况下的解析方法。
 
 普拉特解析法的关键思想在于，对于任意一个`Token`，视乎其出现的位置，只需要将其关联到`prefix`和`infix`不同的两个解析函数就可完成解析(后缀表达式可以视作缺失了`right`部分的中缀表达式)。
