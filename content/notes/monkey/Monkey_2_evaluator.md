@@ -1,8 +1,8 @@
 
 ---
-title: "Monkey_2_evaluator"
+title: "Monkey语言 | 2.evaluator"
 date: 2022-09-26T00:09:52+08:00
-draft: true
+draft: false
 # tags: [ "" ]
 categories: [ "pl"]
 # keywords: [ ""]
@@ -99,8 +99,89 @@ var Eval(astNode)
 否则可能需要在Object里记录额外的数据以实现反射和GC，反射是因为当我们拿到一个`IMonkeyObject`时我们需要知道它的确切类型以转型到`MonkeyInteger`。
 
 
-TODO:
 ## 作用域，上值与闭包
-(词法定界)
-## 内建函数与数据结构
-(可变与不可变)
+
+在`Monkey`中也存在作用域的概念，比如如下的代码
+
+在函数内部定义的变量`shadow`了外部的变量，在函数内部进行的变量定义不会修改外部变量的值。
+
+```
+let a = 0;
+fn(){ let a  = 1; puts(a);}(); // a = 1
+puts(a); // 0
+```
+
+为了实现这样的机制，我们需要定义一个`Environment`，本质上是一个字典，记录了每个`<VarName,MonkeyObj>`的映射关系。
+比如`let a = 1`,就创建了一个`<"a",MonkeyInteger(1)>`的映射关系。
+
+
+另外一个值得注意的就是`Monkey`中的函数可以捕获外部的变量
+这是创造闭包的基础，被捕获的变量用`lua`的术语被称为上值。
+
+其代码类似于
+```
+let sum = fn(x,y)
+{
+    return fn(y){ x + y;};
+}
+
+let sum_five = sum(5); // 返回了一个新的函数,这个函数捕获了外层函数的参数x
+puts(sum_five(6)) // 实质上是 5 + 6
+```
+
+
+实现`Environment`可以大致类似于这样，当查找一个变量时首先从本层查找，无法从本层查找到变量时，再从外部查找。
+
+```cs
+public class Environment
+{
+    private Dictionary<string, IMonkeyObject> Bindings = null;
+    public Environment? Outer;
+
+    public IMonkeyObject? Get(string valName)
+    {
+        var value = Bindings.TryGetValue(valName, out var obj) ? obj : null;
+        if (value == null && Outer != null)
+        {
+            value = Outer.Get(valName);
+        }
+
+        return value;
+    }
+}
+```
+
+还有一部分原版书里面没有考虑的，是`Monkey`里变量和数据结构都是不可变的。
+也就是原版`Monkey`没有实现`AssignExpression`的求值。
+
+
+我扩展了这部分的语法，大概表现为
+```c
+    let p = 0;
+    let q = 1;
+    let tmp = 0;
+    while(i++ < n)
+    {
+        tmp = q;
+        q = p + q;
+        p = tmp;
+    }
+```
+
+在`while`循环里修改tmp的值，会修改外部的值。
+实现上类似于逐层向上递归寻找最近的Scope的值。
+
+```cs
+public IMonkeyObject TrySetBoundedVar(string valName, IMonkeyObject val)
+{
+    if (Bindings.ContainsKey(valName))
+    {
+        Bindings[valName] = val;
+        return val;
+    }
+
+    if (Outer == null) return new MonkeyError($"Try to assign an unbound value {valName}");
+    // 从本层往上逐层寻找最近的定义
+    return Outer.TrySetBoundedVar(valName, val);
+}
+```
