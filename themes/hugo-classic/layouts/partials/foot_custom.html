@@ -1,16 +1,8 @@
-<!-- Automagically centers images. Original Author Yihui Xie: https://yihui.name -->
 {{ if .Section }}
 <nav class="post-nav">
   <span class="nav-prev">{{ with .PrevInSection }}&larr; <a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ end }}</span>
   <span class="nav-next">{{ with .NextInSection }}<a href="{{ .RelPermalink }}">{{ .Title }}</a> &rarr;{{ end }}</span>
 </nav>
-<script type="text/javascript">
-const viewers = document.querySelectorAll("#image-compare");
-// console.log(viewers);
-viewers.forEach((element) => {
-  let view = new ImageCompare(element,image_compare_options).mount();
-});
-</script>
 <script type="text/javascript">
 document.addEventListener('keyup', function(e) {
   if (e.target.nodeName.toUpperCase() != 'BODY') return;
@@ -28,6 +20,74 @@ document.addEventListener('keyup', function(e) {
 });
 </script>
 {{ end }}
+
+{{if .IsPage }}
+<!-- // image compare related -->
+<!-- https://github.com/kylewetton/image-compare-viewer -->
+<script defer src="https://unpkg.com/image-compare-viewer/dist/image-compare-viewer.min.js"></script>
+<link type="text/css" rel="stylesheet" href="https://unpkg.com/image-compare-viewer/dist/image-compare-viewer.min.css">
+<script>
+  var image_compare_options = {
+    // UI Theme Defaults
+
+    controlColor: "#FFFFFF",
+    controlShadow: true,
+    addCircle: false,
+    addCircleBlur: true,
+
+    // Label Defaults
+
+    showLabels: true,
+    labelOptions: {
+      before: 'Before',
+      after: 'After',
+      onHover: false
+    },
+
+    // Smoothing
+
+    smoothing: false,
+    smoothingAmount: 100,
+
+    // Other options
+
+    hoverStart: false,
+    verticalMode: false,
+    startingPoint: 50,
+    fluidMode: false
+  };
+</script>
+<script type="text/javascript">
+  const viewers = document.querySelectorAll("#image-compare");
+  // console.log(viewers);
+  viewers.forEach((element) => {
+    let view = new ImageCompare(element, image_compare_options).mount();
+  });
+</script>
+{{end}}
+
+{{if (.IsPage) }}
+<!--
+  Syntax highlighting - defaults to atom light theme.
+  List here: https://github.com/isagalaev/highlight.js/tree/master/src/styles
+  -->
+<link rel="stylesheet" href="/css/atom-one-light.min.css">
+<script src="/js/highlight.min.js"></script>
+<script src="/js/highlight_hlsl.min.js"></script>
+<script>
+  hljs.configure({ ignoreUnescapedHTML: true })
+  hljs.initHighlightingOnLoad();
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', (event) => {
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+{{end}}
+
+<!-- Automagically centers images. Original Author Yihui Xie: https://yihui.name -->
 <script>
 (function() {
   function center_el(tagName) {

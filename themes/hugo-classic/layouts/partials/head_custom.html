@@ -1,87 +1,37 @@
 
 <!-- KaTeX -->
-    <link rel="stylesheet" href="/css/katex.min.css">
     {{ if (.Params.mermaid) }}
     <!-- MermaidJS support -->
     <script async src="/js/mermaid.min.js"></script>
     {{ end }}
 
-    <!-- The loading of KaTeX is deferred to speed up page rendering -->
-    <script defer src="/js/katex.min.js"></script>
-
+    {{ if (.Params.katex) }}
+      <script defer src="/js/katex.min.js"></script>
+      <link rel="stylesheet" href="/css/katex.min.css">
+      <link href="/css/copy-tex.min.css" rel="stylesheet" type="text/css">
+      <script defer src="/js/copy-tex.min.js"></script>
     <!-- To automatically render math in text elements, include the auto-render extension: -->
-    <script defer src="/js/auto-render.min.js"></script>
+      <script defer src="/js/auto-render.min.js"></script>
+      <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
 
-    <link href="/css/copy-tex.min.css" rel="stylesheet" type="text/css">
-    <script src="/js/copy-tex.min.js"></script>
+            trust: ["\\htmlId"],
+            macros: {
+              "\\figref": "\\href{##fig:#1}{ (\\text{#1})}",
+              "\\eqref": "\\href{##eqn:#1}{(\\text{#1})}",
+              "\\ref": "\\href{##eqn:#1}{\\text{#1}}",
+              "\\label": "\\htmlId{eqn:#1}{}",
+              "\\labeltag": "\\htmlId{eqn:#1}{}\\tag{#1}"
+            }
+        }
+        );
+      });
+      </script>
+    {{ end }}
 
-    <!-- https://github.com/kylewetton/image-compare-viewer -->
-    <script src="https://unpkg.com/image-compare-viewer/dist/image-compare-viewer.min.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://unpkg.com/image-compare-viewer/dist/image-compare-viewer.min.css">
-    <script>
-      var image_compare_options = {
-          // UI Theme Defaults
 
-          controlColor: "#FFFFFF",
-          controlShadow: true,
-          addCircle: false,
-          addCircleBlur: true,
-
-          // Label Defaults
-
-          showLabels: true,
-          labelOptions: {
-            before: 'Before',
-            after: 'After',
-            onHover: false
-          },
-
-          // Smoothing
-
-          smoothing: false,
-          smoothingAmount: 100,
-
-          // Other options
-
-          hoverStart: false,
-          verticalMode: false,
-          startingPoint: 50,
-          fluidMode: false
-          };
-    </script>
-    <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      renderMathInElement(document.body, {
-
-          trust: ["\\htmlId"],
-          macros: {
-            "\\figref": "\\href{##fig:#1}{ (\\text{#1})}",
-            "\\eqref": "\\href{##eqn:#1}{(\\text{#1})}",
-            "\\ref": "\\href{##eqn:#1}{\\text{#1}}",
-            "\\label": "\\htmlId{eqn:#1}{}",
-            "\\labeltag": "\\htmlId{eqn:#1}{}\\tag{#1}"
-          }
-      }
-      );
-    });
-    </script>
-
-  <!--
-  Syntax highlighting - defaults to atom light theme.
-  List here: https://github.com/isagalaev/highlight.js/tree/master/src/styles
-  -->
-<link rel="stylesheet"
-      href="/css/atom-one-light.min.css">
-<script  src="/js/highlight.min.js"></script>
-<script  src="/js/highlight_hlsl.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-  <script>
-    document.addEventListener('DOMContentLoaded', (event) => {
-  document.querySelectorAll('pre code').forEach((block) => {
-    hljs.highlightBlock(block);
-  });
-});
-  </script>
+   
   <nav>
     <ul>
       {{ $title := lower .Title }}

@@ -1,0 +1,7 @@
+<div id="image-compare" style="width:{{ if .Get "ImgWidth" }}{{ .Get "ImgWidth" }}{{ else }}50{{ end }}%;margin: 0px auto;">
+  <img src="{{ .Get "ImgSrc0" }}" alt="{{.Get "ImgAlt0" }}" />
+  <img src="{{ .Get "ImgSrc1" }}" alt="{{.Get "ImgAlt1" }}" />
+</div>
+{{ if .Get "ImgCaption"}}
+<center>{{.Get "ImgCaption"}}</center>
+{{ end }}
