@@ -1,0 +1,5 @@
+{{ $OriginalUrl := .Get "URL" | safeURL | replaceRE "\\?x-oss-process=style/compress" "" }}
+{{ $CompressedUrl := print $OriginalUrl "?x-oss-process=style/compress"}}
+<a data-fancybox="gallery" href="{{ $OriginalUrl }}" {{ if .Get "Caption" }} data-caption="{{ .Get "Caption" }}"{{ end }}>
+<img src="{{ $CompressedUrl }}" alt=""  />
+</a>
