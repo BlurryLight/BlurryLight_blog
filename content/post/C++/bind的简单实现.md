@@ -4,7 +4,7 @@ title: "Bind的简单实现剖析"
 date: 2022-08-22T00:20:21+08:00
 draft: false
 # tags: [ "" ]
-categories: [ "C++"]
+categories: [ "cpp"]
 # keywords: [ ""]
 # lastmod: 2022-08-22T00:20:21+08:00
 # CJKLanguage: Chinese, Japanese, Korean
