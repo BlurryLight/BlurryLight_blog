@@ -1,19 +1,12 @@
   /* font-family: -apple-system, BlinkMacSystemFont, 'Avenir Next', Avenir, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; */
 html { font-family:
+    "tahoma",
+    "Arial",
     "Noto Sans", "Noto Sans CJK SC",
-        'Apple Color Emoji',
-        'Segoe UI Emoji',
-        'Segoe UI Symbol',
-        sans-serif;
-      }
-@supports (font-variation-settings: normal) {
-  html { font-family:
-    "Noto Sans", "Noto Sans CJK SC",
-          'Apple Color Emoji',
-          'Segoe UI Emoji',
-          'Segoe UI Symbol'
-          sans-serif;
-        }
+    'Apple Color Emoji',
+    'Segoe UI Emoji',
+    'Segoe UI Symbol',
+    sans-serif;
 }
 code {
   font-family: "jetBrains mono","fira code","source code pro","Lucida Console", Monaco, monospace,sans-serif;
