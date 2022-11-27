@@ -16,7 +16,6 @@ paginate= 40
 
 [permalinks]
     post = "/:year/:month/:slug/" 
-    # post = "/post/:slug/"
 
 #  [[menu.main]]
 #     name = "Home"
@@ -73,3 +72,6 @@ theme = "github-light"
 # this is for "Updated: time" with an hyperlink to commit hash, see single.html
 enable = true
 Host = "https://github.com/BlurryLight/BlurryLight_blog/commit/"
+
+[params.Url]
+    domain = "https://www.blurredcode.com"

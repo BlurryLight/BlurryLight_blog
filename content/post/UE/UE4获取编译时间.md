@@ -15,12 +15,12 @@ fancybox: false
 # mmarktoc: false 
 ---
 
-{{< zhTranslation "UE4 获取编译时间戳" >}} 
+{{< zhTranslation "UE4获取二进制编译时间戳" >}} 
 
 Recently, we need a string representation of timestamps to tag the built UE4 game binary.
 To test random topics I package game about ~10 versions a day, and we need a string tag to distinguish different versions.
 
-The expected string is `v20220101T235959`, which in format is `v%Y%m%dT%H%M%S`.
+The expected string is `v20220101T235959`, which in UE format is `v%Y%m%dT%H%M%S`.
 
 # Get Compile Time Timestamp
 
