@@ -17,6 +17,11 @@ fancybox: false
 
 {{< zhTranslation "UE4获取二进制编译时间戳" >}} 
 
+
+{{% notice info %}}
+Engine Version: 4.26.2
+{{% /notice %}}
+
 Recently, we need a string representation of timestamps to tag the built UE4 game binary.
 To test random topics I package game about ~10 versions a day, and we need a string tag to distinguish different versions.
 

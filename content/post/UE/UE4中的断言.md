@@ -18,6 +18,10 @@ mermaid: false
 # mmarktoc: false 
 ---
 
+{{% notice info %}}
+Engine Version: 4.26.2
+{{% /notice %}}
+
 # 编译flags
 
 从`Engine\Source\Runtime\Core\Public\Misc\Build.h`中定义了一系列的编译宏(这些宏的内容应该可以在UBT里重新定义)。

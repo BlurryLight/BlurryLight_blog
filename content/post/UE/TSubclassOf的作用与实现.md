@@ -19,6 +19,10 @@ mermaid: true
 ---
 
 
+{{% notice info %}}
+Engine Version: 4.26.2
+{{% /notice %}}
+
 # TSubclassOf的作用
 
 [UE官方文档](https://docs.unrealengine.com/4.27/zh-CN/ProgrammingAndScripting/ProgrammingWithCPP/UnrealArchitecture/TSubclassOf/)里描述了一个通过TSubclassOf在蓝图里限制下拉框选取范围的例子，不过感觉也不是讲的很清楚。
