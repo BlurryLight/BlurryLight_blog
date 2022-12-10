@@ -6,7 +6,7 @@ draft: false
 categories: [ "UE4"]
 isCJKLanguage: true
 slug: "6ec75576"
-toc: false
+toc: true 
 mermaid: false
 fancybox: false
 # latex support
@@ -28,13 +28,13 @@ I believe there are ways to solve it, However I've yet found.
 
 Loading Screen is an common component of games, preventing users from getting bored by wait game loading.
 Unreal provides `MoviePlayer` module for the task. 
-It allows for playing an `mp4` movie and presenting an animated slate(UMG is actually supported, but needs to modifier engine to suppress an `ensure`).
+It allows for playing an `mp4` movie and presenting an animated slate(UMG is actually supported, but needs to modifier engine to suppress an `ensure` in 4.26, see [Appendix: Support UMG in LoadingScreen](#a-support-umg-in-loadingscreen)).
 
 There are several tutorials or libraries about this functionality, such as following:
-> [Loading Screen | Unreal Engine Community Wiki](https://unrealcommunity.wiki/loading-screen-243mzpq1)
-> [truong-bui/AsyncLoadingScreen](https://github.com/truong-bui/AsyncLoadingScreen)
+- [Loading Screen | Unreal Engine Community Wiki](https://unrealcommunity.wiki/loading-screen-243mzpq1)
+- [truong-bui/AsyncLoadingScreen](https://github.com/truong-bui/AsyncLoadingScreen)
 
-The underlying mplementation of those solutions is consistent, which is `MoviePlayer`.
+The underlying implementation of those solutions is consistent, which is `MoviePlayer`.
 Behavior may vary for different configurations, such as *Should the movie ends playing automaticlly when map loading ends?*
 However, the basic logic is same:
 
@@ -175,7 +175,42 @@ Therefore, the problem remains unresovled.
 
 # Appendix
 
-## OpenGL Asynchronous Buffer Uploading/Downloading With Pixel Buffer Object
+## a. Support UMG in LoadingScreen
+
+**This behavior/solution may only valid in UE 4.26**.
+
+In `Engine/Source/Runtime/UMG/Private/UserWidget.cpp`, there is
+
+```cpp
+void UUserWidget::NativeTick(const FGeometry& MyGeometry, float InDeltaTime)
+{ 
+    // ...
+        if (bTickAnimations)
+        {
+            // warning: it will cause an ensure error
+            if (!CVarUserWidgetUseParallelAnimation.GetValueOnGameThread())
+            {
+    //...
+```
+
+As we have just described, when loading screen is working, the slate is ticked on an transient thread named `SlateLoadingThread`.
+Therefore, if we use an `UMG` as LoadingScreen UI, it will throw an ensure error in this line:
+
+```cpp
+CVarUserWidgetUseParallelAnimation.GetValueOnGameThread()
+```
+
+Just modify it to
+
+```cpp
+CVarUserWidgetUseParallelAnimation.GetValueOnAnyThread()
+```
+
+When `SlateLoadingThread` is alive, `GameThread` is busying loading umaps and `RenderThread` is ticking movie if avilable, or waiting for tasks such as preparing shading resources.
+Therefore there's no other threads will try to the modify the UMG. 
+In this case, it's still thread-safe.
+
+## b. OpenGL Async Buffer Uploading/Downloading With Pixel Buffer Object
 
 There are two excellent materials about the topic:
 - [OpenGL Pixel Buffer Object (PBO)](http://www.songho.ca/opengl/gl_pbo.html)
