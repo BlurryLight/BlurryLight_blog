@@ -3,7 +3,7 @@
 title: "UE4 Hide Stats Rendering"
 date: 2022-11-28T23:09:05+08:00
 draft: false
-categories: [ "UE4"]
+categories: [ "UE"]
 isCJKLanguage: true
 slug: "3408630c"
 toc: false

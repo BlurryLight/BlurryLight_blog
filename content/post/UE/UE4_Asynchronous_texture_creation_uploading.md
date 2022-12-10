@@ -3,7 +3,7 @@
 title: "Talking about UE4 Asynchronous Texture Uploading"
 date: 2022-12-10T23:45:16+08:00
 draft: false
-categories: [ "UE4"]
+categories: [ "UE"]
 isCJKLanguage: true
 slug: "6ec75576"
 toc: true 
@@ -47,7 +47,7 @@ The `MoviePlayer` module is much more complicated than what is describled above,
 
 ## Problem 
 
-I've found when LoadingScreen is playing an mp4 movie, there would be noticable lags at some fixed timepoints. 
+I've found when LoadingScreen is playing an mp4 movie, there would be noticable lags/hitchs at some fixed timepoints. 
 After days of investigation with `Unreal Insights`, I found the suspects.
 
 As describled above, `GameThread` is loading map(including persistent level and streaming levels), which consists of many assets.
@@ -140,7 +140,7 @@ This happens on `RenderThread`.
 
 Remember, our movie is currently also playing on `RenderThread`.
 When there are thousands of textures uploading(easy to acheive when loading a medium size of `umap`), 
-the `Renderthread` gets stucking at uploding and therefore cannot spare time to tick the video, that's the lag.
+the `Renderthread` gets stucking at uploding and therefore cannot spare time to tick the video, that's the lag/hitch.
 
 ## Asychronous Texture Uploading
 
