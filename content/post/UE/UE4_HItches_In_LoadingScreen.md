@@ -15,7 +15,7 @@ fancybox: false
 # mmarktoc: false 
 ---
 
-{{< zhTranslation "UE4 异步纹理上传" >}} 
+{{< zhTranslation "谈谈UE4 LoadingScreen卡顿问题" >}} 
 
 {{% notice info %}}
 Engine Version: 4.26.2
@@ -122,7 +122,7 @@ void FTexture2DResource::CreateTexture()
     {
         const int32 ResourceMipIdx = RHIMipIdx + RequestedMipIdx;
         if (MipData[ResourceMipIdx])
-        {
+        {`
             uint32 DestPitch;
             void* TheMipData = RHILockTexture2D( Texture2DRHI, RHIMipIdx, RLM_WriteOnly, DestPitch, false );
             // Memcpy inside
@@ -177,7 +177,7 @@ Therefore, the problem remains unresovled.
 
 ## a. Support UMG in LoadingScreen
 
-**This behavior/solution may only valid in UE 4.26**.
+**This behavior/solution maybe only valid in UE 4.26**.
 
 In `Engine/Source/Runtime/UMG/Private/UserWidget.cpp`, there is
 
@@ -193,8 +193,8 @@ void UUserWidget::NativeTick(const FGeometry& MyGeometry, float InDeltaTime)
     //...
 ```
 
-As we have just described, when loading screen is working, the slate is ticked on an transient thread named `SlateLoadingThread`.
-Therefore, if we use an `UMG` as LoadingScreen UI, it will throw an ensure error in this line:
+As we have just described, when loading screen is working, the slate ticks on a transient thread named `SlateLoadingThread`.
+Therefore, if an `UMG` is employed as LoadingScreen UI, it will throw an `ensure` error in this line:
 
 ```cpp
 CVarUserWidgetUseParallelAnimation.GetValueOnGameThread()
@@ -207,7 +207,7 @@ CVarUserWidgetUseParallelAnimation.GetValueOnAnyThread()
 ```
 
 When `SlateLoadingThread` is alive, `GameThread` is busying loading umaps and `RenderThread` is ticking movie if avilable, or waiting for tasks such as preparing shading resources.
-Therefore there's no other threads will try to the modify the UMG. 
+Therefore there are no other threads who will try to the modify the UMG. 
 In this case, it's still thread-safe.
 
 ## b. OpenGL Async Buffer Uploading/Downloading With Pixel Buffer Object
