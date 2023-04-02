@@ -77,6 +77,7 @@ $$
 
 
 {{< figure src="https://img.blurredcode.com/img/edit-bb6690fb71fe44bfa6f1e10014e6b767-2022-05-07-23-52-01.png?x-oss-process=style/compress" width="70%" caption="后续剥离过程">}}
+
 ## Weighted Blended OIT
 
 `Weighted Blended OIT`是一种近似解法，其主要是寻找以上的公式的一个近似解。
@@ -133,8 +134,34 @@ https://github.com/BlurryLight/DiRenderLab/blob/712cc8f6f8ec78d61faa842bd13a37d1
 
 注意要利用`FBO`的`BlendFunc`以调整不同的值是累加还是累乘(很巧妙）。
 
+
+## Trick: Alpha To Coverage
+
+AlphaToCoverage也可以在一定程度上得到半透明的效果，但是他有几个问题:
+1. 只能正确的和不透明物体混合，多个半透明物体叠加起来会有问题。
+2. 需要MSAA。
+3. 会改变Shader的`FragColor`输出的alpha通道的含义。
+
+但是在开了MSAA的管线里,A2C就是白送的特性，如下图，注意紫色部分未能正确混合。
+
+![顺序无关半透明物体渲染OIT-2023-04-02-23-38-40](https://img.blurredcode.com/img/顺序无关半透明物体渲染OIT-2023-04-02-23-38-40.png?x-oss-process=style/compress)
+
+AlphaToCoverage是利用了MSAA的Coverage的概念，通过透明度`alpha`通道来控制`Coverage`。当打开A2C特性的时候，`gl_FragColor`输出的`alpha`值将会影响`MSAA`的Coverage，透明的物体会丢弃一些子sample。
+
+![顺序无关半透明物体渲染OIT-2023-04-02-23-50-17](https://img.blurredcode.com/img/顺序无关半透明物体渲染OIT-2023-04-02-23-50-17.png?x-oss-process=style/compress)
+
+其示例如图，`alpha`会影响MSAA(将alpha值如何映射到`coverage`是显卡驱动来实现，黑盒的)，其像素颜色只会被复制到部分子`Sample`上，而不是全部的子`Sample`。
+但是这就会导致两个现象:
+- 如果其他子`Sample`已经有颜色，那么`resolve`的时候能够正确的混合
+- 如果两个相同透明度的`alpha2coverge`渲染的半透明物体叠加在一起，那么由于其子`sample`的掩码一样，所以子`sample`像素上的值会被覆盖，无法正确混合。
+
+如下图，蓝色物体渲染的时候会覆盖掉红色物体的子Sample(图引用自[Stochastic Transparency]((https://research.nvidia.com/sites/default/files/pubs/2011-08_Stochastic-Transparency/StochTransp-slides.pdf)))。
+![顺序无关半透明物体渲染OIT-2023-04-02-23-49-50](https://img.blurredcode.com/img/顺序无关半透明物体渲染OIT-2023-04-02-23-49-50.png?x-oss-process=style/compress)
+
 # Reference
+
 
 - [LearnOpenGL Weighted-Blended OIT](https://learnopengl.com/Guest-Articles/2020/OIT/Weighted-Blended)
 - [Nvidia Weighted Blended OIT Sample](https://docs.nvidia.com/gameworks/content/gameworkslibrary/graphicssamples/opengl_samples/weightedblendedoitsample.htm)
 - [Weighted Blended Order-Independent Transparency](https://jcgt.org/published/0002/02/09/paper.pdf)
+- [Nvidia: Stochastic Transparency](https://research.nvidia.com/sites/default/files/pubs/2011-08_Stochastic-Transparency/StochTransp-slides.pdf)
