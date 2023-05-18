@@ -52,8 +52,7 @@ Unfortunately, OpenGL Spec doesn't allow us to do that: `glDepthRange` clamps it
 
 Taking Mesa3D code as example:
 
-```c
-static void
+<pre><code>static void
 set_depth_range_no_notify(struct gl_context *ctx, unsigned idx,
                           GLclampd nearval, GLclampd farval)
 {
@@ -66,10 +65,9 @@ set_depth_range_no_notify(struct gl_context *ctx, unsigned idx,
    ctx->NewDriverState |= ST_NEW_VIEWPORT;
 
     // clamp happens
-   ctx->ViewportArray[idx].Near = SATURATE(nearval);
-   ctx->ViewportArray[idx].Far = SATURATE(farval);
-}
-```
+   ctx->ViewportArray[idx].Near = <span class = "inlinehl">SATURATE(nearval)</span>;
+   ctx->ViewportArray[idx].Far = <span class = "inlinehl">SATURATE(farval)</span>;
+}</code></pre>
 
 There is an extension named [`NV_depth_buffer_float`](https://registry.khronos.org/OpenGL/extensions/NV/NV_depth_buffer_float.txt) who provides an extended function `glDepthRangedNV` which can accept unclamped depth range, so this trick is not allowed in unextended OpenGL.
 For more details, Secion **DirectX vs. OpenGL** in Blog [Outerra: Maximizing Depth Buffer Range and Precision](https://outerra.blogspot.com/2012/11/maximizing-depth-buffer-range-and.html) offers more insights.

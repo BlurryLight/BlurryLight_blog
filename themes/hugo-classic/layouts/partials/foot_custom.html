@@ -74,8 +74,10 @@ document.addEventListener('keyup', function(e) {
 <link rel="stylesheet" href="/css/atom-one-light.min.css">
 <script src="/js/highlight.min.js"></script>
 <script src="/js/highlight_hlsl.min.js"></script>
+<script src="/js/highlight_merge.js"></script>
 <script>
-  hljs.configure({ ignoreUnescapedHTML: true })
+  hljs.addPlugin(mergeHTMLPlugin);
+  hljs.configure({ ignoreUnescapedHTML: true });
   hljs.initHighlightingOnLoad();
 </script>
 <script>

@@ -36,8 +36,7 @@ Some minor modifications are needed on UBT and `BaseEngine.ini`.
 - The process affinity is hardcoded as `ProcessPriorityClass.BelowNormal` in UE 4.26. We need to expose it as an `XmlConfigFile` variable and modify it in `BuildConfiguration.xml`.
 - `BaseEngine.ini` has an entry about the priority of `ShaderCompileWorker` 
 
-```diff
---- a/Engine/Config/BaseEngine.ini
+<pre><code>--- a/Engine/Config/BaseEngine.ini
 +++ b/Engine/Config/BaseEngine.ini
 @@ -1299,7 +1299,7 @@ WorkerTimeToLive=20
  ; For build machines, wait this many seconds before exiting an unused worker (float value)
@@ -56,7 +55,7 @@ Some minor modifications are needed on UBT and `BaseEngine.ini`.
  		bool bStopCompilationAfterErrors = false;
  
 +		[XmlConfigFile]
-+		private static ProcessPriorityClass ProcessPriority = ProcessPriorityClass.BelowNormal;
++		private static ProcessPriorityClass <span class = "inlinehl">ProcessPriority</span> = ProcessPriorityClass.BelowNormal;
 +
  		/// <summary>
  		/// How many processes that will be executed in parallel
@@ -66,13 +65,12 @@ Some minor modifications are needed on UBT and `BaseEngine.ini`.
  			try
  			{
 -				using (ManagedProcess Process = new ManagedProcess(ProcessGroup, Action.Inner.CommandPath.FullName, Action.Inner.CommandArguments, Action.Inner.WorkingDirectory.FullName, null, null, ProcessPriorityClass.BelowNormal))
-+				using (ManagedProcess Process = new ManagedProcess(ProcessGroup, Action.Inner.CommandPath.FullName, Action.Inner.CommandArguments, Action.Inner.WorkingDirectory.FullName, null, null, ProcessPriority))
++				using (ManagedProcess Process = new ManagedProcess(ProcessGroup, Action.Inner.CommandPath.FullName, Action.Inner.CommandArguments, Action.Inner.WorkingDirectory.FullName, null, null, <span class="inlinehl">ProcessPriority</span>))
  				{
  					Action.LogLines.AddRange(Process.ReadAllLines());
  					Action.ExitCode = Process.ExitCode;
--- 
-
-```
+--
+</code></pre>
 
 Then go to `Engine\Saved\UnrealBuildTool\BuildConfiguration.xml` or `C:\Users\<username>\AppData\Roaming\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml`.
 Both files will work but the former is preferred. The latter one is global which means it will affect all installed versions of UE on the computer.
