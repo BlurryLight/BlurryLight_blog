@@ -3,7 +3,7 @@
 title: "Quick Reference About Asset Name/Path in UE"
 date: 2023-05-20T11:41:47+08:00
 draft: false
-categories: [ "UE4"]
+categories: [ "UE"]
 isCJKLanguage: true
 slug: "7a83b54b"
 toc: true
