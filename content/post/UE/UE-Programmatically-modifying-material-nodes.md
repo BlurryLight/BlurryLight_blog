@@ -2,7 +2,7 @@
 ---
 title: "UE Programmatically Modifying Material Nodes"
 date: 2023-06-11T12:56:00+08:00
-draft: false
+draft: false 
 categories: [ "UE"]
 isCJKLanguage: true
 slug: "64b1b73b"
@@ -17,10 +17,11 @@ fancybox: false
 
 {{% notice info %}}
 Engine Version: 4.26.2
-Note: I've tested the code on UE5 also. There are some minor API change, but the logic still applies.
+
+Note: I've tested the code on UE5 as well. There are some minor API changes, but the logic still applies.
 {{% /notice %}}
 
-## Introduction
+# Introduction
 
 Recently, I've a need to create a fairly complicated material in a **programmatically** way.
 Even if the desired material is created by Tech-Artists, I need to modify some nodes in it **automatically**.
@@ -32,11 +33,11 @@ After some searching, there is already a great article about **Adding** nodes to
 However, there is a lack for **Modifying** nodes in material. 
 
 
-## Adding Nodes
+# Adding Nodes
 
-Go for `https://isaratech.com/ue4-programmatically-create-a-new-material-and-inner-nodes/`.
+Go for [UE4 - Programmatically create a new material and inner nodes - Isara Tech.](https://isaratech.com/ue4-programmatically-create-a-new-material-and-inner-nodes/) firstly. It's a good starting-point.
 
-Also, there is some reference code in Engine plugins, some dataformat import plugins face same problem: they need to convert the material info parsed from dataformat to UE material node graph.
+Also, there is some reference code in Engine plugins, some dataformat import plugins face same problem: they need to convert material infos parsed from dataformat to UE material node graph.
 
 Source file `Engine/Plugins/Enterprise/DatasmithImporter/Source/DatasmithImporter/Private/DatasmithMaterialExpressions.cpp` has many examples, especially 
 `FDatasmithMaterialExpressions::AddCroppedUVMappingExpression` and many others.
@@ -48,16 +49,17 @@ Technically, the logic for adding nodes is quite simple:
 - Connect it with other input/output pins by`UMateiralExpression->ConnectExpression` 
 
 
-## Modifying Nodes
+# Modifying Nodes
 
 `Modifying Nodes` is a bit complicated.
-By `Modifying Nodes`, I'm not referring to changing the properties of the nodes(which is trivial), but changing the node itself. For example, replacing a `Multiply` node with a `Add` node, or replacing a `Texture2D` node with a `TextureCube` node.
+By `Modifying Nodes`, I'm not referring to changing the properties of the nodes(which is trivial), but changing the node itself. For example, replacing a `Multiply` node with a `Add` node, or more complicated, replacing a `Texture2D` node with a `TextureCube` node, which requires adding some auxiliary nodes to get it to work.
 
-The problem is that by replacing requires us to **delete** the old node and break its links, **create** a new node, and **reconnect** the pins.
+The problem is that by replacing requires us to **delete** the old node and break its links, **create** a new node, and **reconnect** the pins to the new node.
 
 
-### Graph & Expression
+## Graph & Expression
 
+To manipulate nodes and pins, firstly we need basic understanding about the underlying structures in Material Bluepring. 
 It seems there are two data structures for material node graph: `MaterialGraph` and `Expression`.
 The `Expression` may be more low-level.
 And the two of them can sync with each other.
@@ -108,7 +110,7 @@ Step 0: Scan all Texture2D nodes
 ```
 
 
-Step 1: creating Array node, and using `MaterialGraph` to break old pins and replace the new node
+Step 1: creating Array node, and using `MaterialGraph`-related functions to break old pins and replace the new node
 
 ```cpp
 UMaterialExpression* TexCoordExpression = TargetExpression->Coordinates.Expression;
@@ -175,3 +177,10 @@ Mat->RemoveExpressionParameter(GraphNode->MaterialExpression);
 
 Mat->MaterialGraph->RebuildGraph();
 ```
+
+
+# Reference:
+
+full code available:
+
+<script src="https://gist.github.com/BlurryLight/ec74297784e614e2cf005e86a9c64460.js"></script>
