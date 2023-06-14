@@ -17,7 +17,7 @@ mmarktoc: false
 ![glClipControl_In_ReverseZ-2023-03-22-20-56-48](https://img.blurredcode.com/img/glClipControl_In_ReverseZ-2023-03-22-20-56-48.png?x-oss-process=style/compress)
 
 Reverse-Z is a widely used technique for optimizing depth buffer precision in modern video games.
-If you are looking for a detailed tutorial on how to implement Reverse-Z in OpenGl,
+If you are looking for a detailed tutorial on how to implement Reverse-Z in OpenGL,
 Blog [reversed-z-in-opengl](https://nlguillemot.wordpress.com/2016/12/07/reversed-z-in-opengl/) is an excellent starting point.
 
 In short, the process involves several steps, including:

@@ -54,7 +54,11 @@ paginate= 40
       endLevel = 3
       startLevel = 1
   [markup.goldmark.renderer]
-      unsafe= true
+      unsafe = true
+  [markup.goldmark.extensions]
+      typographer = false
+
+
 [frontmatter]
 # lastmod = ["lastmod","updated",":git",":fileModTime",":default"]
 # lastmod = [":git",":fileModTime",":default"]
