@@ -26,6 +26,15 @@ fancybox: false
 
 take from [cmake - replacement of create_symlink in windows - Stack Overflow](https://stackoverflow.com/questions/61243174/replacement-of-create-symlink-in-windows)
 
+在Windows上有一个替代品 `Directory Junction`。
+对于单机用户基本上没区别。
+区别在于
+- 对于一个`Remote Directory`里的路径，symlink会解析到本地，junction会在server解析
+- symlink可以指向文件，junction只能指向目录
+
+see: https://superuser.com/a/343079
+
+
 ```cmake
 if(NOT EXISTS ${CMAKE_BINARY_DIR}/bin/media)
     if (UNIX)
