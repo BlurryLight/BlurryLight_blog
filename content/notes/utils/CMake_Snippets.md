@@ -47,3 +47,27 @@ if(NOT EXISTS ${CMAKE_BINARY_DIR}/bin/media)
     endif()
 endif()
 ```
+
+
+# 引入VCPKG ToolChain
+
+避免每次都要`cmake ../my/project -DCMAKE_TOOLCHAIN_FILE=<vcpkg-root>/scripts/buildsystems/vcpkg.cmake`
+
+新版本的CMake(>= 3.19)可以选择用`CMakePresets.json`或者`CMakeUserPresets.json`
+
+用法:
+
+- 直接写到`CMakeLists.txt`里。
+- 需要加到`Project(xxx)`的前面
+- 需要环境变量`$ENV{VCPKG_ROOT}`
+
+```cmake
+include(${CMAKE_SOURCE_DIR}/cmake/utils.cmake)
+set(vcpkg "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake")
+
+if(NOT CMAKE_TOOLCHAIN_FILE AND EXISTS "${vcpkg}")
+    set(CMAKE_TOOLCHAIN_FILE "${vcpkg}"
+        CACHE FILEPATH "CMake toolchain file")
+    message(STATUS "vcpkg toolchain found: ${CMAKE_TOOLCHAIN_FILE}")
+endif()
+```
