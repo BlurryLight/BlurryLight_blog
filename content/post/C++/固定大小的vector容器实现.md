@@ -157,6 +157,7 @@ vec.push_back(2); // throw std::length_error
 
 缺点:
 - 分配在堆上(想要在栈上可以靠自己实现Allocator，或者用pmr容器+`memory_resource`，但是有点麻烦)
+- 关于分配在栈上有很多开源代码可以选择，有一个比较新的提案[inplace_vector](https://open-std.org/JTC1/SC22/WG21/docs/papers/2023/p0843r8.html#inplace_vector)有希望进入标准库。该提案里有一份[参考实现](https://godbolt.org/z/Pv8894xx6)，可以参考。
 
 
 # Reference
