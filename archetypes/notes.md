@@ -9,6 +9,7 @@ slug: "{{ substr (md5 (printf "%s%s" .Date (replace .TranslationBaseName "-" " "
 toc: false
 mermaid: false
 fancybox: false
+blueprint: false
 # latex support
 # katex: true
 # markup: mmark
