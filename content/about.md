@@ -2,6 +2,11 @@
 title: About Me
 date: 2020-11-17
 ---
+
+<p align="center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/WDu7o_Sok0s?si=Og5GTDYUui6pjmRb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</p align="center">
+
 In code we trust.
 😀
 <!-- Include the library. -->
