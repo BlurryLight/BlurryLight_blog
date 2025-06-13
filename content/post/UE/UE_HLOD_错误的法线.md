@@ -168,3 +168,31 @@ HLOD等case的时候，材质会用下面的分支，当正常游戏时，材质
 于是我直接把未经过RVT的Normal接到`MaterialProxy`输出上，重新Build HLOD，结果一切就好了。
 
 ![UE_HLOD_错误的法线-2025-06-07-22-38-32](https://img.blurredcode.com/img/UE_HLOD_错误的法线-2025-06-07-22-38-32.png?x-oss-process=style/compress)
+
+
+
+# 错误的BaseColor
+
+注意到场景里有一些Mesh的BaseColor也有问题，经过调查以后发现这些材质是`Unlit`材质，TA在`Unlit`引脚直接进行了一些简易的光照计算来做一些效果。
+快速对节点进行二分查找以后，发现问题来自`CameraVector`这个节点。
+
+
+这里为了查找问题直接把`CameraVector`的输出直接接到`BaseColor`上，Build HLOD来看。
+
+
+![UE_HLOD_错误的法线-2025-06-13-21-23-36](https://img.blurredcode.com/img/UE_HLOD_错误的法线-2025-06-13-21-23-36.png?x-oss-process=style/compress)
+
+- Simplify的结果似乎是每个面正对着拍的结果
+- Approximate的结果似乎是斜着一点拍的
+
+![UE_HLOD_错误的法线-2025-06-13-21-23-08](https://img.blurredcode.com/img/UE_HLOD_错误的法线-2025-06-13-21-23-08.png?x-oss-process=style/compress)
+
+
+材质里这种和场景有关的节点应该都不太能获得正确的结果，想了下可能有问题的节点还挺多的:
+
+- 从外部MPC获取数据的话需要考虑MPC的值
+- 和Camera / WorldPosition有关的节点
+- 和Time有关的节点
+
+碰到以上这些效果只有想办法用`MaterialProxyReplace`来处理了...
+
