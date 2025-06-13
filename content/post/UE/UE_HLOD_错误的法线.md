@@ -1,6 +1,6 @@
 
 ---
-title: "UE | HLOD优化 1-纠正错误的法线"
+title: "UE | HLOD优化 1-纠正错误的效果"
 date: 2025-06-07T22:05:28+08:00
 draft: false
 categories: [ "UE"]
@@ -196,3 +196,26 @@ HLOD等case的时候，材质会用下面的分支，当正常游戏时，材质
 
 碰到以上这些效果只有想办法用`MaterialProxyReplace`来处理了...
 
+
+
+# Simplify Builder产生的纹理有紫色的像素
+
+
+[Incorrect Diffuse Textures After Baking HLOD | Epic Developer Community](https://dev.epicgames.com/community/learning/knowledge-base/BL7Z/unreal-engine-incorrect-diffuse-textures-after-baking-hlod)
+
+Epic社区已经有人发现了这个问题，只需要去掉勾选`bReuseMeshLightMapUVs`这个选项即可。
+以前UE4时期一般把LightMapUV放到第二个UV上，现在UE5材质越做越复杂，一个Mehs有好多套UV都很正常.. 这个LightMapUV放在这肯定没啥用了，除非项目还在用LightMap。
+
+
+# Approximate Builder产生的纹理有黑斑
+
+这个可能和Approximate Builder展纹理和Simplify Builder不同有关。
+Simplify的原理大概是是编译多个变体来获取原始材质的每个引脚的输出然后渲染到RT上。
+而Approximate似乎是直接起了一个场景把Mesh放在场景里渲染出来的结果输出出来的。
+
+没仔细看源码(也看不懂，太多了)。
+总而言之研究一轮以后发现，在转角或者容易被遮蔽的地方，使用Approximate Builder容易产生黑斑的纹理。
+
+另外一个问题是Approximate Builder BuildHLOD的时候，文档虽然没写，但是实际测试下来似乎要求Mesh是水密的(watertight)，如果Mesh不是水密的，容易产生大面积的黑斑纹理。
+
+比如拿一些旗帜等比较扁平的片去用Approximate Builder，容易Build不出来或者Build出来纹理是黑的。
