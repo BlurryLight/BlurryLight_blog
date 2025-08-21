@@ -1,13 +1,13 @@
 
 ---
-title: "SingleLayerWater和Translucent截断的问题"
+title: "UE | SingleLayerWater和Translucent截断的问题"
 date: 2025-08-18T23:44:30+08:00
-draft: true
+draft: false
 categories: [ "UE"]
 isCJKLanguage: true
 slug: "d4c72dd2"
 toc: true
-mermaid: false
+mermaid: true
 fancybox: false
 blueprint: false
 # latex support
@@ -51,4 +51,40 @@ UEVersion: 5.5.4
 [UE渲染学习（1）- SingleLayerWater遮挡半透明 - 知乎](https://zhuanlan.zhihu.com/p/25757519407)
 
 
+## 关于Before DOF / After DOF阶段的半透问题
+
+这两个阶段的半透会开启深度测试，如下图所示，只有After Motion Blur阶段的半透虚幻会关闭深度测试。
+
 ![SingleLayerWater和Translucent截断的问题-2025-08-18-23-56-43](https://img.blurredcode.com/img/SingleLayerWater和Translucent截断的问题-2025-08-18-23-56-43.png?x-oss-process=style/compress)
+
+
+由于SLW在PC端会写入深度，这样深度测试的时候就会被水面阶段。
+
+上面知乎的那个朋友的思路是在SLW渲染结束后，将深度图替换为不带SLW的，然后过了半透以后，再替换回来。
+
+
+{{<mermaid>}}
+
+graph TD
+A[RenderSLW]-->B[Replace SceneDepthZ]
+B-->C[Render Translucency]
+C-->D[Reapply SceneDepthZ]
+
+{{</mermaid>}}
+
+
+尝试了一下是可行的，唯一要注意的几个点:
+
+- 替换SceneDepthZ需要在HeightFog之后，否则可能会计算到错误的HeightFog，最好的阶段是在RenderTranslucency函数里面，里面还有一些对降分辨率的SceneDepthZ的处理
+- 有的半透依赖深度测试(比如半透的云，你也不想透过水看到了云吧)，这种需要在Shader了里手动通过`SceneTextures::SceneDepth`或者`DepthFade`来进行深度测试
+
+
+
+## After Motion Blur阶段的半透问题
+
+由于虚幻在这个阶段默认禁用深度测试，所以一般在这个阶段的半透都要在材质里手动处理深度测试，通过DepthFade等方式。
+
+这里的改造可以有两个思路。
+
+1. 如果做了上一步替换SceneDepthZ的改造，那么DepthFade就没有什么需要改造的。
+2. 如果没有做上一步的改造，那么这里可以考虑做一个DepthFadeWithoutWater的节点，同时在TranslucentBasePass结构体里新增加一个SceneDepthWithoutWater的纹理。可以参考材质里的`SceneDepthWithoutWater`这个节点的实现，虽然这个节点只允许在SLW材质里用，但是稍微改造下源码就可以迁移给半透材质使用。
