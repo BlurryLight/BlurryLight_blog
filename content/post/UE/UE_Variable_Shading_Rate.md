@@ -109,11 +109,19 @@ Mobile没人权也不是一天两天了。
 # VRS的特殊情景下的处理
 
 ## PixelShader Modify Depth:
+
+### Nvidia: 可以用
 NV的文档里提了这种情况, 注意最后一行
 
 [Advanced API Performance: Variable Rate Shading | NVIDIA Technical Blog](https://developer.nvidia.com/blog/advanced-api-performance-variable-rate-shading/)
 
 Do not modify the output depth value from the pixel shader. If the pixel shader modifies depth, VRS is automatically disabled.
+
+### AMD: VRS Tier2 不能用
+
+在AMD显卡上测试得时候发现了问题，材质连了`PixelDepthOffSet`后，开着VRS Tier2的话会出现奇怪的像素pattern，用renderdoc抓帧发现会出现有部分像素ZDepth Test不过。用VRS Tier1没有问题，恐怕还是个驱动问题..
+
+最后只有在启用了PixelDepthOffset的材质上禁用VRS Tier2来解决兼容性问题(通过设置VRS Combinar可以只选择来自管线的Shading Rate，忽略来自Image的Shading Rate，需要改点引擎代码)。
 
 ## Pixel Shader With Clip
 这个虚幻的注释里留了一点线索。
