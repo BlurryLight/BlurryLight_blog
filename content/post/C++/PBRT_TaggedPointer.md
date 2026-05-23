@@ -1,6 +1,6 @@
 
 ---
-title: "PBRT: Tagged Pointer模拟多态"
+title: "PBRT | Tagged Pointer模拟多态"
 date: 2026-04-26T15:06:04+08:00
 draft: false
 categories: [ "cpp"]
