@@ -1,0 +1,80 @@
+{{- /*
+  Custom RSS template (overrides Hugo's built-in _default/rss.xml).
+
+  The default feed put `.Summary | html` into <description>. For notes posts
+  the `notice` shortcode injects a big inline `<style>.notice{...}</style>` and
+  an SVG `<symbol>` sprite near the top of the page, so the auto-generated
+  summary started with a wall of CSS, polluting every notes entry.
+
+  This template keeps the upstream feed structure identical (same channel
+  header, same item fields, same item count and order) and only changes how
+  each item's <description> is produced:
+
+    1. A hand-written `description` in front matter wins if present.
+    2. Otherwise the rendered HTML (.Content) is cleaned:
+       - drop `<style>...</style>` and `<svg>...</svg>` blocks entirely
+       - plainify to strip all remaining HTML tags
+       - collapse runs of whitespace into single spaces
+       - truncate to 500 runes (len/substr count runes, so CJK is safe)
+         with a trailing "..." when truncated
+
+  Notes on Hugo 0.68.3 quirks discovered while writing this:
+    - `strings.TrimSpace` is not available; use `replaceRE \s+ " "` instead.
+    - `trim " "` returns "" for inputs containing multibyte chars; avoid it.
+    - `plainify` on a `template.HTML` value returns "" silently; wrap with
+      `printf "%s" (...)` to coerce to a plain string first.
+    - `.Plain` itself keeps the text content of `<style>` (it only strips
+      tags, not their text), so the explicit `<style>`/`<svg>` removal above
+      is what actually clears the notice CSS.
+*/ -}}
+{{- $pctx := . -}}
+{{- if .IsHome -}}{{ $pctx = .Site }}{{- end -}}
+{{- $pages := slice -}}
+{{- if or $.IsHome $.IsSection -}}
+{{- $pages = $pctx.RegularPages -}}
+{{- else -}}
+{{- $pages = $pctx.Pages -}}
+{{- end -}}
+{{- $limit := .Site.Config.Services.RSS.Limit -}}
+{{- if ge $limit 1 -}}
+{{- $pages = $pages | first $limit -}}
+{{- end -}}
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ if eq  .Title  .Site.Title }}{{ .Site.Title }}{{ else }}{{ with .Title }}{{.}} on {{ end }}{{ end }}{{ .Site.Title }}</title>
+    <link>{{ .Permalink }}</link>
+    <description>Recent content {{ if ne  .Title  .Site.Title }}{{ with .Title }}in {{.}} {{ end }}{{ end }}on {{ .Site.Title }}</description>
+    <generator>Hugo -- gohugo.io</generator>{{ with .Site.LanguageCode }}
+    <language>{{.}}</language>{{end}}{{ with .Site.Author.email }}
+    <managingEditor>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}</managingEditor>{{end}}{{ with .Site.Author.email }}
+    <webMaster>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}</webMaster>{{end}}{{ with .Site.Copyright }}
+    <copyright>{{.}}</copyright>{{end}}{{ if not .Date.IsZero }}
+    <lastBuildDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</lastBuildDate>{{ end }}
+    {{- with .OutputFormats.Get "RSS" }}
+    <atom:link href="{{ .Permalink }}" rel="self" type="application/rss+xml" />
+    {{- end }}
+    {{- range $pages }}
+    <item>
+      <title>{{ .Title }}</title>
+      <link>{{ .Permalink }}</link>
+      <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
+      {{- with .Site.Author.email }}<author>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}</author>{{end}}
+      <guid>{{ .Permalink }}</guid>
+      {{- $desc := .Description -}}
+      {{- with $desc -}}{{- else -}}
+        {{- $c := printf "%s" .Content -}}
+        {{- $c = $c | replaceRE `(?s)<style[^>]*>.*?</style>` "" -}}
+        {{- $c = $c | replaceRE `(?s)<svg[^>]*>.*?</svg>` "" -}}
+        {{- $p := printf "%s" ($c | plainify) | replaceRE `\s+` " " -}}
+        {{- if gt (len $p) 500 -}}
+          {{- $desc = printf "%s..." (substr $p 0 500) -}}
+        {{- else -}}
+          {{- $desc = $p -}}
+        {{- end -}}
+      {{- end -}}
+      <description>{{ $desc | html }}</description>
+    </item>
+    {{- end }}
+  </channel>
+</rss>
