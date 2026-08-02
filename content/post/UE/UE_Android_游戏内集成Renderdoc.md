@@ -14,7 +14,7 @@ blueprint: false
 # katex: true
 # markup: mmark
 # mmarktoc: false 
-UEVersion: 5.3.2 
+UEVersion: 5.5.4 
 ---
 
 # 动机
@@ -31,9 +31,9 @@ UEVersion: 5.3.2
 
 [高版本安卓注入 RenderDoc | Loading & Learning](https://web.archive.org/web/20260301020712/https://qiankanglai.me/2023/02/12/renderdoc-android-inject/index.html)
 
-我对 `GLES` 不感兴趣，所以反而要好做得多——毕竟 `GLES` 抓取需要 Hook 所有 `GL` API，而 `Vulkan` 有清晰的 `Loader` 和 `Layer` 概念。只需要做到两个操作：
+我对 `GLES` 不感兴趣，所以反而要好做得多——毕竟 `GLES` 抓取需要 Hook 所有 `GL` API，而 `Vulkan` 有清晰的 `Loader` 和 `Layer` 概念。只需要做到操作：
 
-1. 在游戏内启动的时候把 `libVkLayer_GLES_RenderDoc.so` 加载进来。它没有使用 Android 的任何私有库，可以直接 `dlopen`，不需要像搞开源驱动 `libVulkan_freedreno` 那样搞一堆 hack hook。
+1. 把 `libVkLayer_GLES_RenderDoc.so`打到包里去 
 2. 在 `Vulkan` 的 `vkCreateInstance` 处把 `Layer` 加进去。
 
 ## libVkLayer_GLES_RenderDoc.so 在哪里
@@ -48,7 +48,9 @@ RenderDoc 的 APK 里就带有预编译好的库。
 
 参考 `Engine\Source\Runtime\VulkanRHI\Private\VulkanLayers.cpp`，在 `-vulkandebug` 命令行参数下是如何加载 `VK_LAYER_KHRONOS_validation` 的，仿照该代码模式把 RenderDoc 的 Layer 加进去即可。RenderDoc 的 Layer 名为 `VK_LAYER_RENDERDOC_Capture`。
 
-理论上如果在 `VulkanRHI` 运行前就已经执行好了 `dlopen`，这里的 loader 可以遍历到 RenderDoc 的 Layer。
+~~理论上如果在 `VulkanRHI` 运行前就已经执行好了 `dlopen`，这里的 loader 可以遍历到 RenderDoc 的 Layer。~~
+
+更正一下，`Android`的 vulkan loader 具有自动发现功能，[7.1.4.2 Vulkan](https://source.android.com/docs/compatibility/8.0/android-8.0-cdd?hl=zh-cn#7_1_4_2_vulkan)。 任何进入被打到 APK 包里的`libVkLayer*.so`都能被 Android Vulkan Loader 自动发现，所以这里不用`dlopen`手动打开，从 Layer 机制加载就可以了。
 
 ## 如何执行游戏内抓取
 
