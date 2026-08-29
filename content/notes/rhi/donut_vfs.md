@@ -38,7 +38,8 @@ donut有一个vfs的设计，思想可能来自于linux，继承自VFS的只需�
 
 https://github.com/MeouSker77/Cpp17/blob/master/markdown/src/ch20.md
 
-![677fdcc8a4e49487c9111010ae1df80e.png](:/ea7e1289b7f440798c7c8d4c8a19e4ce)
+
+![donut_vfs-2026-08-29-22-57-09](https://img.blurredcode.com/img/donut_vfs-2026-08-29-22-57-09.png?x-oss-process=style/compress)
 
 
 一个有点意思的测试程序
