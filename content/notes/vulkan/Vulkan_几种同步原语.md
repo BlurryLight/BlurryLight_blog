@@ -1,12 +1,11 @@
 
-
 ---
-title: "Vulkan | TimeStampQuery计时和一个竞态条件的bug"
+title: "Vulkan的几种同步原语"
 date: 2026-08-29T22:25:45+08:00
 draft: false
 categories: [ "Mesa"]
 isCJKLanguage: true
-# slug: "8bb7b105"
+slug: "8ba7b114"
 toc: true
 mermaid: false
 fancybox: false
